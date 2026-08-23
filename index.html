@@ -84,10 +84,13 @@
       max-width: 900px;
     }
 
+    /* لوگوی مرکز */
     .logo {
       width: 230px;
       max-width: 75%;
-      margin-bottom: 20px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
     }
 
     .hero h1 {
@@ -109,79 +112,28 @@
       margin: 20px 0;
     }
 
-    .hero p {
-      font-size: 18px;
-      max-width: 760px;
-      margin: auto;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 25px;
-      background: #0879c9;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-    }
-
-    .btn:hover {
-      background: #0756a3;
-    }
-
     section {
       padding: 70px 20px;
     }
 
     .container {
-      max-width: 1150px;
+      max-width: 1100px;
       margin: auto;
     }
 
-    .section-title {
+    h2.section-title {
       text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-title h2 {
       color: #0756a3;
-      font-size: 31px;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #667;
-    }
-
-    .about {
-      background: white;
-    }
-
-    .about-box {
-      background: #f1f9ff;
-      padding: 30px;
-      border-radius: 18px;
-      border-right: 6px solid #0879c9;
-      font-size: 17px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      font-size: 30px;
+      margin-bottom: 35px;
     }
 
     .card {
       background: white;
       padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-      transition: .3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.08);
     }
 
     .card h3 {
@@ -189,13 +141,27 @@
       margin-bottom: 10px;
     }
 
-    .icon {
-      font-size: 40px;
-      margin-bottom: 10px;
+    .about-text {
+      font-size: 18px;
+      text-align: justify;
     }
 
-    .disabilities {
-      background: #f1f8fc;
+    .programs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .program {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    }
+
+    .program h3 {
+      color: #18a999;
+      margin-bottom: 10px;
     }
 
     .table-wrapper {
@@ -208,7 +174,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 850px;
+      min-width: 800px;
     }
 
     th {
@@ -220,53 +186,27 @@
     td {
       padding: 14px;
       border-bottom: 1px solid #ddd;
-      vertical-align: top;
+      text-align: right;
     }
 
     tr:nth-child(even) {
-      background: #f8fcff;
+      background: #f3faff;
     }
 
     .mission {
-      background: linear-gradient(135deg, #0756a3, #18a999);
-      color: white;
-      text-align: center;
-    }
-
-    .mission h2 {
-      font-size: 34px;
-      margin-bottom: 20px;
-    }
-
-    .mission p {
-      max-width: 850px;
-      margin: auto;
-      font-size: 19px;
-    }
-
-    .contact {
-      background: white;
+      background: linear-gradient(135deg, #eafaff, #effff7);
     }
 
     .contact-box {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-
-    .contact-item {
-      background: #f3faff;
-      padding: 25px;
+      text-align: center;
+      background: white;
+      padding: 30px;
       border-radius: 15px;
-    }
-
-    .contact-item h3 {
-      color: #0879c9;
-      margin-bottom: 8px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.08);
     }
 
     footer {
-      background: #12304a;
+      background: #0756a3;
       color: white;
       text-align: center;
       padding: 30px 20px;
@@ -276,25 +216,14 @@
       margin: 5px 0;
     }
 
-    .back-top {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: #0879c9;
-      color: white;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-    }
-
-    @media (max-width: 850px) {
+    @media (max-width: 700px) {
       .nav-container {
         flex-direction: column;
+      }
+
+      .brand {
+        white-space: normal;
+        text-align: center;
       }
 
       nav {
@@ -302,47 +231,21 @@
       }
 
       .hero h1 {
-        font-size: 31px;
+        font-size: 30px;
       }
 
       .hero h2 {
-        font-size: 21px;
+        font-size: 20px;
       }
 
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .contact-box {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 550px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: 570px;
-      }
-
-      .logo {
-        width: 190px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      section {
-        padding: 50px 15px;
+      .slogan {
+        font-size: 19px;
       }
     }
   </style>
 </head>
 
-<body id="home">
+<body>
 
 <header>
   <div class="nav-container">
@@ -355,213 +258,103 @@
       <a href="#home">خانه</a>
       <a href="#about">درباره ما</a>
       <a href="#programs">برنامه‌ها</a>
-      <a href="#rehabilitation">توانبخشی</a>
       <a href="#disabilities">انواع معلولیت</a>
-      <a href="#mission">مأموریت ما</a>
+      <a href="#mission">ماموریت ما</a>
       <a href="#contact">تماس</a>
     </nav>
 
   </div>
 </header>
 
-
-<!-- صفحه اصلی -->
-<section class="hero">
-
+<section class="hero" id="home">
   <div class="hero-content">
 
-    <!-- بعداً لوگو را در پوشه images قرار می‌دهیم -->
-    <img src="logo.png"
-         alt="لوگوی مرکز آموزشی و توانبخشی نگین"
-         class="logo">
+    <!-- لوگوی مرکز -->
+    <img
+      src="1000016661.png"
+      alt="لوگوی مرکز آموزشی و توانبخشی نگین"
+      class="logo"
+    >
 
     <h1>مرکز آموزشی و توانبخشی نگین</h1>
 
-    <h2>Educational & Rehabilitation Center</h2>
+    <h2>
+      آموزش، توانبخشی و امید برای کودکان
+    </h2>
 
-    <div class="slogan">
-      دوستان انسانیت و بشریت
-    </div>
-
-    <p>
-      مرکزی برای آموزش، توانبخشی، رشد و حمایت از کودکان دارای معلولیت
-      و خانواده‌های آنان؛ با باور به اینکه هر کودک شایسته فرصت،
-      آموزش، احترام و آینده‌ای روشن است.
+    <p class="slogan">
+      دوستان، انسانیت و بس
     </p>
 
-    <a class="btn" href="#about">
-      بیشتر درباره ما
-    </a>
+    <p>
+      ما باور داریم هر کودک شایسته فرصت، آموزش، احترام و آینده‌ای روشن است.
+    </p>
 
   </div>
-
 </section>
 
-
-<!-- درباره ما -->
-<section id="about" class="about">
-
+<section id="about">
   <div class="container">
 
-    <div class="section-title">
-      <h2>درباره مرکز آموزشی و توانبخشی نگین</h2>
-      <p>آموزش، توانبخشی و حمایت برای آینده‌ای بهتر</p>
-    </div>
+    <h2 class="section-title">درباره مرکز</h2>
 
-    <div class="about-box">
-
-      <p>
-        مرکز آموزشی و توانبخشی نگین با هدف فراهم‌سازی فرصت‌های آموزشی،
-        توانبخشی و رشد همه‌جانبه برای کودکان دارای معلولیت فعالیت می‌کند.
+    <div class="card">
+      <p class="about-text">
+        مرکز آموزشی و توانبخشی نگین با هدف حمایت از کودکان دارای معلولیت،
+        فراهم‌سازی فرصت‌های آموزشی و توانبخشی و ایجاد محیطی امن، محترمانه
+        و فراگیر فعالیت می‌کند.
       </p>
-
-      <br>
-
-      <p>
-        ما تلاش می‌کنیم محیطی امن، محترمانه، فراگیر و امیدبخش برای کودکان
-        و خانواده‌های آنان ایجاد کنیم؛ محیطی که در آن تفاوت‌ها پذیرفته
-        شوند و توانایی‌های هر کودک مورد توجه قرار گیرد.
-      </p>
-
     </div>
 
   </div>
-
 </section>
 
-
-<!-- برنامه‌ها -->
 <section id="programs">
-
   <div class="container">
 
-    <div class="section-title">
-      <h2>برنامه‌های آموزشی</h2>
-      <p>فرصت یادگیری متناسب با نیازهای هر کودک</p>
-    </div>
+    <h2 class="section-title">برنامه‌ها و خدمات</h2>
 
-    <div class="cards">
+    <div class="programs">
 
-      <div class="card">
-        <div class="icon">📚</div>
-        <h3>آموزش پایه</h3>
+      <div class="program">
+        <h3>آموزش ویژه</h3>
         <p>
-          آموزش مهارت‌های پایه خواندن، نوشتن، ریاضی و یادگیری متناسب
-          با توانایی‌های کودک.
+          فراهم‌کردن فرصت‌های آموزشی متناسب با نیازها و توانایی‌های هر کودک.
         </p>
       </div>
 
-      <div class="card">
-        <div class="icon">🧩</div>
+      <div class="program">
+        <h3>توانبخشی</h3>
+        <p>
+          حمایت از رشد مهارت‌های جسمی، ارتباطی، اجتماعی و استقلال کودکان.
+        </p>
+      </div>
+
+      <div class="program">
         <h3>مهارت‌های زندگی</h3>
         <p>
-          تقویت مهارت‌های فردی، اجتماعی و استقلال در زندگی روزمره.
+          آموزش مهارت‌های روزمره و افزایش اعتمادبه‌نفس و مشارکت اجتماعی.
         </p>
       </div>
 
-      <div class="card">
-        <div class="icon">🎨</div>
-        <h3>فعالیت‌های خلاقانه</h3>
-        <p>
-          هنر، بازی، فعالیت‌های گروهی و برنامه‌های خلاقانه برای رشد
-          استعدادهای کودکان.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">💻</div>
-        <h3>آموزش دیجیتال</h3>
-        <p>
-          استفاده از فناوری و منابع دیجیتال برای افزایش فرصت‌های یادگیری.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">👨‍👩‍👧</div>
+      <div class="program">
         <h3>حمایت از خانواده</h3>
         <p>
-          ارائه اطلاعات و راهنمایی‌های آموزشی برای والدین و خانواده‌ها.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🌱</div>
-        <h3>رشد همه‌جانبه</h3>
-        <p>
-          توجه همزمان به آموزش، ارتباط اجتماعی، استقلال و توانایی‌های فردی.
+          آگاهی‌رسانی و همکاری با خانواده‌ها برای حمایت بهتر از کودکان.
         </p>
       </div>
 
     </div>
 
   </div>
-
 </section>
 
-
-<!-- توانبخشی -->
-<section id="rehabilitation" class="about">
-
+<section id="disabilities">
   <div class="container">
 
-    <div class="section-title">
-      <h2>خدمات توانبخشی</h2>
-      <p>حمایت از رشد و مشارکت کودکان</p>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="icon">♿</div>
-        <h3>توانبخشی جسمی و حرکتی</h3>
-        <p>
-          حمایت از حرکت، تعادل و مشارکت کودک در فعالیت‌های روزمره.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">👁️</div>
-        <h3>حمایت بینایی</h3>
-        <p>
-          فراهم‌سازی محیط و روش‌های آموزشی مناسب برای کودکان کم‌بینا
-          و نابینا.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">👂</div>
-        <h3>حمایت شنوایی و ارتباطی</h3>
-        <p>
-          کمک به دسترسی کودک به روش‌های مناسب ارتباط و یادگیری.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🗣️</div>
-        <h3>گفتار و زبان</h3>
-        <p>
-          توجه به مهارت‌های ارتباطی، گفتار و زبان متناسب با نیاز کودک.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- انواع معلولیت -->
-<section id="disabilities" class="disabilities">
-
-  <div class="container">
-
-    <div class="section-title">
-      <h2>انواع معلولیت اطفال</h2>
-      <p>
-        آشنایی با برخی از انواع معلولیت و نیازهای آموزشی و حمایتی کودکان
-      </p>
-    </div>
+    <h2 class="section-title">
+      انواع معلولیت اطفال
+    </h2>
 
     <div class="table-wrapper">
 
@@ -601,51 +394,51 @@
 
           <tr>
             <td>۴</td>
-            <td><strong>ذهنی / کم‌توانی ذهنی</strong></td>
-            <td>سندروم داون و سایر موارد کم‌توانی ذهنی</td>
-            <td>چالش در استدلال، یادگیری و رفتار سازگارانه</td>
+            <td><strong>ذهنی / شناختی</strong></td>
+            <td>سندروم داون و ناتوانی شناختی</td>
+            <td>چالش در یادگیری، استدلال و مهارت‌های سازشی</td>
           </tr>
 
           <tr>
             <td>۵</td>
             <td><strong>رشدی / تحولی</strong></td>
-            <td>اوتیسم، تأخیر تحولی</td>
-            <td>چالش در ارتباط اجتماعی و رفتارهای تکراری</td>
+            <td>اوتیزم، تأخیر تحولی</td>
+            <td>چالش در ارتباط اجتماعی و برخی رفتارهای تکراری</td>
           </tr>
 
           <tr>
             <td>۶</td>
             <td><strong>ناتوانی یادگیری خاص</strong></td>
             <td>دیسلکسیا، دیسکلکولیا</td>
-            <td>هوش معمولاً عادی، همراه با مشکل در خواندن یا ریاضی</td>
+            <td>مشکل در خواندن، نوشتن یا ریاضی</td>
           </tr>
 
           <tr>
             <td>۷</td>
             <td><strong>گفتار و زبان</strong></td>
             <td>لکنت، تأخیر تکلم</td>
-            <td>نامفهوم بودن یا دشواری در گفتار</td>
+            <td>مشکل در بیان یا قابل‌فهم بودن گفتار</td>
           </tr>
 
           <tr>
             <td>۸</td>
             <td><strong>رفتاری و هیجانی</strong></td>
-            <td>ADHD و اختلالات هیجانی</td>
-            <td>بی‌تمرکزی، تحرک زیاد یا مشکلات رفتاری</td>
+            <td>ADHD و برخی اختلالات هیجانی</td>
+            <td>بی‌توجهی، بیش‌فعالی یا مشکلات تنظیم هیجان</td>
           </tr>
 
           <tr>
             <td>۹</td>
-            <td><strong>احشایی / بیماری مزمن</strong></td>
-            <td>امراض قلبی، تنفسی، کلیوی، صرع</td>
-            <td>خستگی زودرس یا محدودیت فعالیت</td>
+            <td><strong>احشایی / بیماری‌های مزمن</strong></td>
+            <td>برخی بیماری‌های قلبی، تنفسی، کلیوی و صرع</td>
+            <td>خستگی زودرس یا محدودیت در فعالیت</td>
           </tr>
 
           <tr>
             <td>۱۰</td>
             <td><strong>چندمعلولیتی</strong></td>
-            <td>ناشنوا-نابینا، فلج مغزی همراه با کم‌توانی ذهنی</td>
-            <td>همراهی دو یا چند معلولیت</td>
+            <td>همراهی دو یا چند نوع ناتوانی</td>
+            <td>نیاز به حمایت همزمان در چند زمینه</td>
           </tr>
 
         </tbody>
@@ -654,106 +447,68 @@
 
     </div>
 
-    <p style="margin-top:20px;font-size:14px;color:#667;">
-      منابع پیشنهادی: IDEA، WHO ICF و منابع آموزشی مرتبط با آموزش و توانبخشی کودکان.
-    </p>
-
   </div>
-
 </section>
 
-
-<!-- مأموریت -->
 <section id="mission" class="mission">
-
   <div class="container">
 
-    <h2>مأموریت ما</h2>
+    <h2 class="section-title">
+      ماموریت ما
+    </h2>
 
-    <p>
-      باور داریم هر کودک دارای توانایی‌ها، استعدادها و حق برخورداری از
-      آموزش و فرصت برابر است. مأموریت ما ایجاد فرصت برای یادگیری،
-      توانمندسازی، مشارکت اجتماعی و حمایت از خانواده‌هاست.
-    </p>
+    <div class="card">
+      <p class="about-text">
+        ماموریت مرکز آموزشی و توانبخشی نگین، فراهم‌کردن فرصت‌های برابر
+        برای کودکان دارای معلولیت و کمک به رشد استعدادها، استقلال،
+        مشارکت اجتماعی و کیفیت زندگی آنان است.
+      </p>
 
-    <div class="slogan">
-      «دوستان انسانیت و بشریت»
+      <p class="slogan">
+        دوستان، انسانیت و بس
+      </p>
     </div>
 
   </div>
-
 </section>
 
-
-<!-- تماس -->
-<section id="contact" class="contact">
-
+<section id="contact">
   <div class="container">
 
-    <div class="section-title">
-      <h2>تماس با ما</h2>
-      <p>برای همکاری، حمایت و دریافت اطلاعات بیشتر با ما در ارتباط باشید.</p>
-    </div>
+    <h2 class="section-title">
+      تماس با ما
+    </h2>
 
     <div class="contact-box">
 
-      <div class="contact-item">
-        <h3>📧 ایمیل</h3>
-        <p>
-          negin.education@outlook.com
-        </p>
-      </div>
+      <h3>مرکز آموزشی و توانبخشی نگین</h3>
 
-      <div class="contact-item">
-        <h3>🌍 محل فعالیت</h3>
-        <p>
-          افغانستان
-        </p>
-      </div>
+      <p>
+        برای همکاری، حمایت و ارتباط با مرکز با ما در تماس باشید.
+      </p>
 
-      <div class="contact-item">
-        <h3>🤝 همکاری</h3>
-        <p>
-          از همکاری افراد، نهادها، آموزگاران، متخصصان و حامیان آموزش
-          کودکان استقبال می‌کنیم.
-        </p>
-      </div>
+      <br>
 
-      <div class="contact-item">
-        <h3>❤️ حمایت</h3>
-        <p>
-          حمایت شما می‌تواند فرصت‌های آموزشی و توانبخشی بیشتری برای کودکان
-          فراهم کند.
-        </p>
-      </div>
+      <p>
+        افغانستان
+      </p>
 
     </div>
 
   </div>
-
 </section>
-
 
 <footer>
 
   <p>
-    © 2026 مرکز آموزشی و توانبخشی نگین
+    © مرکز آموزشی و توانبخشی نگین
   </p>
 
   <p>
-    Educational & Rehabilitation Center
-  </p>
-
-  <p>
-    دوستان انسانیت و بشریت
+    دوستان، انسانیت و بس
   </p>
 
 </footer>
-
-
-<a href="#home" class="back-top" aria-label="بازگشت به بالا">
-  ↑
-</a>
 
 </body>
 </html>
