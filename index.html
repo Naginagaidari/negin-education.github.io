@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>مرکز آموزشی و توانبخشی نگین</title>
+  <title>مرکز آموزشی و توانبخشی نگین | هر کودک، یک نگین</title>
 
   <meta name="description"
-        content="مرکز آموزشی و توانبخشی نگین؛ آموزش، توانبخشی و حمایت از کودکان دارای معلولیت.">
+    content="مرکز آموزشی و توانبخشی نگین در افغانستان؛ آموزش، توانبخشی، حمایت و ایجاد فرصت‌های برابر برای کودکان دارای معلولیت.">
+
+  <meta name="keywords"
+    content="مرکز آموزشی نگین, توانبخشی کودکان, معلولیت کودکان, افغانستان, آموزش ویژه">
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -30,11 +35,11 @@
     header {
       background: linear-gradient(135deg, #0879c9, #18a999);
       color: white;
-      padding: 20px;
+      padding: 15px 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+      box-shadow: 0 3px 15px rgba(0,0,0,.15);
     }
 
     .nav-container {
@@ -47,7 +52,7 @@
     }
 
     .brand {
-      font-size: 22px;
+      font-size: 21px;
       font-weight: bold;
       white-space: nowrap;
     }
@@ -55,7 +60,7 @@
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 5px;
     }
 
     nav a {
@@ -76,21 +81,24 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(180deg, #eefaff, #ffffff);
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle at top left, #dff8ff, transparent 35%),
+        radial-gradient(circle at bottom right, #e7fff5, transparent 35%),
+        #ffffff;
     }
 
     .hero-content {
       max-width: 900px;
     }
 
-    /* لوگوی مرکز */
     .logo {
       width: 230px;
       max-width: 75%;
       height: auto;
       display: block;
-      margin: 0 auto 20px;
+      margin: 0 auto 25px;
+      border-radius: 20px;
     }
 
     .hero h1 {
@@ -106,10 +114,39 @@
     }
 
     .slogan {
-      font-size: 22px;
+      font-size: 25px;
       font-weight: bold;
       color: #159447;
       margin: 20px 0;
+    }
+
+    .hero-text {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 5px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: #0879c9;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #18a999;
+      color: white;
     }
 
     section {
@@ -121,7 +158,7 @@
       margin: auto;
     }
 
-    h2.section-title {
+    .section-title {
       text-align: center;
       color: #0756a3;
       font-size: 30px;
@@ -130,15 +167,10 @@
 
     .card {
       background: white;
-      padding: 25px;
-      border-radius: 15px;
+      padding: 30px;
+      border-radius: 18px;
       margin-bottom: 20px;
-      box-shadow: 0 4px 18px rgba(0,0,0,.08);
-    }
-
-    .card h3 {
-      color: #0879c9;
-      margin-bottom: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.07);
     }
 
     .about-text {
@@ -148,75 +180,71 @@
 
     .programs {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 20px;
     }
 
     .program {
       background: white;
       padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.07);
+      border-top: 5px solid #18a999;
     }
 
     .program h3 {
-      color: #18a999;
+      color: #0879c9;
       margin-bottom: 10px;
     }
 
-    .table-wrapper {
-      overflow-x: auto;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 18px rgba(0,0,0,.08);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 800px;
-    }
-
-    th {
-      background: #0879c9;
-      color: white;
-      padding: 14px;
-    }
-
-    td {
-      padding: 14px;
-      border-bottom: 1px solid #ddd;
-      text-align: right;
-    }
-
-    tr:nth-child(even) {
-      background: #f3faff;
-    }
-
-    .mission {
+    .values {
       background: linear-gradient(135deg, #eafaff, #effff7);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .value {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,.06);
+    }
+
+    .value-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
     }
 
     .contact-box {
       text-align: center;
       background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.07);
     }
 
     footer {
       background: #0756a3;
       color: white;
       text-align: center;
-      padding: 30px 20px;
+      padding: 35px 20px;
     }
 
     footer p {
-      margin: 5px 0;
+      margin: 6px 0;
+    }
+
+    .accessibility {
+      background: #fff8e8;
     }
 
     @media (max-width: 700px) {
+
       .nav-container {
         flex-direction: column;
       }
@@ -230,6 +258,10 @@
         justify-content: center;
       }
 
+      .hero {
+        min-height: 600px;
+      }
+
       .hero h1 {
         font-size: 30px;
       }
@@ -239,34 +271,40 @@
       }
 
       .slogan {
-        font-size: 19px;
+        font-size: 21px;
       }
+
     }
+
   </style>
 </head>
 
 <body>
 
 <header>
+
   <div class="nav-container">
 
     <div class="brand">
-      مرکز آموزشی و توانبخشی نگین
+      💎 مرکز آموزشی و توانبخشی نگین
     </div>
 
     <nav>
       <a href="#home">خانه</a>
       <a href="#about">درباره ما</a>
-      <a href="#programs">برنامه‌ها</a>
-      <a href="#disabilities">انواع معلولیت</a>
-      <a href="#mission">ماموریت ما</a>
+      <a href="#programs">خدمات</a>
+      <a href="#values">ارزش‌ها</a>
+      <a href="#accessibility">دسترس‌پذیری</a>
       <a href="#contact">تماس</a>
     </nav>
 
   </div>
+
 </header>
 
+
 <section class="hero" id="home">
+
   <div class="hero-content">
 
     <!-- لوگوی مرکز -->
@@ -276,238 +314,266 @@
       class="logo"
     >
 
-    <h1>مرکز آموزشی و توانبخشی نگین</h1>
+    <h1>
+      مرکز آموزشی و توانبخشی نگین
+    </h1>
 
     <h2>
       آموزش، توانبخشی و امید برای کودکان
     </h2>
 
     <p class="slogan">
-      دوستان، انسانیت و بس
+      هر کودک، یک نگین 💎
     </p>
 
-    <p>
-      ما باور داریم هر کودک شایسته فرصت، آموزش، احترام و آینده‌ای روشن است.
+    <p class="hero-text">
+      ما باور داریم هر کودک، با هر توانایی، شایسته
+      آموزش، احترام، فرصت برابر و آینده‌ای روشن است.
     </p>
 
-  </div>
-</section>
+    <div class="buttons">
 
-<section id="about">
-  <div class="container">
+      <a class="btn btn-primary" href="#about">
+        درباره مرکز
+      </a>
 
-    <h2 class="section-title">درباره مرکز</h2>
+      <a class="btn btn-secondary" href="#contact">
+        ارتباط با ما
+      </a>
 
-    <div class="card">
-      <p class="about-text">
-        مرکز آموزشی و توانبخشی نگین با هدف حمایت از کودکان دارای معلولیت،
-        فراهم‌سازی فرصت‌های آموزشی و توانبخشی و ایجاد محیطی امن، محترمانه
-        و فراگیر فعالیت می‌کند.
-      </p>
     </div>
 
   </div>
+
 </section>
 
-<section id="programs">
+
+<section id="about">
+
   <div class="container">
 
-    <h2 class="section-title">برنامه‌ها و خدمات</h2>
+    <h2 class="section-title">
+      درباره مرکز آموزشی و توانبخشی نگین
+    </h2>
+
+    <div class="card">
+
+      <p class="about-text">
+        مرکز آموزشی و توانبخشی نگین با هدف حمایت از کودکان دارای
+        معلولیت و فراهم‌سازی فرصت‌های آموزشی، توانبخشی و اجتماعی
+        فعالیت می‌کند.
+      </p>
+
+      <br>
+
+      <p class="about-text">
+        هدف ما ایجاد محیطی امن، فراگیر و محترمانه است که در آن
+        استعدادها و توانایی‌های هر کودک دیده شود و خانواده‌ها
+        نیز در مسیر رشد و توانمندسازی فرزندان خود حمایت شوند.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="programs">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      برنامه‌ها و خدمات
+    </h2>
 
     <div class="programs">
 
       <div class="program">
-        <h3>آموزش ویژه</h3>
+        <h3>🎓 آموزش ویژه</h3>
         <p>
-          فراهم‌کردن فرصت‌های آموزشی متناسب با نیازها و توانایی‌های هر کودک.
+          آموزش متناسب با نیازها، توانایی‌ها و سرعت یادگیری هر کودک.
         </p>
       </div>
 
       <div class="program">
-        <h3>توانبخشی</h3>
+        <h3>♿ توانبخشی</h3>
         <p>
-          حمایت از رشد مهارت‌های جسمی، ارتباطی، اجتماعی و استقلال کودکان.
+          حمایت از رشد مهارت‌های جسمی، ارتباطی، اجتماعی و استقلال.
         </p>
       </div>
 
       <div class="program">
-        <h3>مهارت‌های زندگی</h3>
+        <h3>🧩 مهارت‌های زندگی</h3>
         <p>
-          آموزش مهارت‌های روزمره و افزایش اعتمادبه‌نفس و مشارکت اجتماعی.
+          آموزش مهارت‌های روزمره، خودمراقبتی و افزایش اعتمادبه‌نفس.
         </p>
       </div>
 
       <div class="program">
-        <h3>حمایت از خانواده</h3>
+        <h3>👨‍👩‍👧 حمایت از خانواده</h3>
         <p>
-          آگاهی‌رسانی و همکاری با خانواده‌ها برای حمایت بهتر از کودکان.
+          همکاری و آگاهی‌رسانی به خانواده‌ها برای حمایت بهتر از کودکان.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>🎨 خلاقیت و استعداد</h3>
+        <p>
+          ایجاد فرصت برای هنر، بازی، خلاقیت و کشف استعدادهای کودکان.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>🤖 فناوری و هوش مصنوعی</h3>
+        <p>
+          معرفی فناوری‌های نوین و ابزارهای دیجیتال برای افزایش
+          دسترسی و فرصت‌های یادگیری.
         </p>
       </div>
 
     </div>
 
   </div>
+
 </section>
 
-<section id="disabilities">
+
+<section class="values" id="values">
+
   <div class="container">
 
     <h2 class="section-title">
-      انواع معلولیت اطفال
+      ارزش‌های ما
     </h2>
 
-    <div class="table-wrapper">
+    <div class="value-grid">
 
-      <table>
+      <div class="value">
+        <div class="value-icon">❤️</div>
+        <h3>محبت</h3>
+        <p>هر کودک شایسته محبت و احترام است.</p>
+      </div>
 
-        <thead>
-          <tr>
-            <th>شماره</th>
-            <th>نوع معلولیت</th>
-            <th>نمونه‌ها</th>
-            <th>نشانه‌های عمده</th>
-          </tr>
-        </thead>
+      <div class="value">
+        <div class="value-icon">🤝</div>
+        <h3>همدلی</h3>
+        <p>در کنار کودک و خانواده حرکت می‌کنیم.</p>
+      </div>
 
-        <tbody>
+      <div class="value">
+        <div class="value-icon">🌱</div>
+        <h3>رشد</h3>
+        <p>توانایی‌ها و استعدادهای هر کودک ارزشمند است.</p>
+      </div>
 
-          <tr>
-            <td>۱</td>
-            <td><strong>جسمی و حرکتی</strong></td>
-            <td>فلج مغزی، ضایعه نخاعی، قطع عضو</td>
-            <td>مشکل در راه‌رفتن، تعادل و گرفتن اشیا</td>
-          </tr>
-
-          <tr>
-            <td>۲</td>
-            <td><strong>حسی – بینایی</strong></td>
-            <td>نابینایی، کم‌بینایی</td>
-            <td>ندیدن یا دید بسیار محدود</td>
-          </tr>
-
-          <tr>
-            <td>۳</td>
-            <td><strong>حسی – شنوایی</strong></td>
-            <td>ناشنوایی، کم‌شنوایی</td>
-            <td>نشنیدن، تأخیر در تکلم</td>
-          </tr>
-
-          <tr>
-            <td>۴</td>
-            <td><strong>ذهنی / شناختی</strong></td>
-            <td>سندروم داون و ناتوانی شناختی</td>
-            <td>چالش در یادگیری، استدلال و مهارت‌های سازشی</td>
-          </tr>
-
-          <tr>
-            <td>۵</td>
-            <td><strong>رشدی / تحولی</strong></td>
-            <td>اوتیزم، تأخیر تحولی</td>
-            <td>چالش در ارتباط اجتماعی و برخی رفتارهای تکراری</td>
-          </tr>
-
-          <tr>
-            <td>۶</td>
-            <td><strong>ناتوانی یادگیری خاص</strong></td>
-            <td>دیسلکسیا، دیسکلکولیا</td>
-            <td>مشکل در خواندن، نوشتن یا ریاضی</td>
-          </tr>
-
-          <tr>
-            <td>۷</td>
-            <td><strong>گفتار و زبان</strong></td>
-            <td>لکنت، تأخیر تکلم</td>
-            <td>مشکل در بیان یا قابل‌فهم بودن گفتار</td>
-          </tr>
-
-          <tr>
-            <td>۸</td>
-            <td><strong>رفتاری و هیجانی</strong></td>
-            <td>ADHD و برخی اختلالات هیجانی</td>
-            <td>بی‌توجهی، بیش‌فعالی یا مشکلات تنظیم هیجان</td>
-          </tr>
-
-          <tr>
-            <td>۹</td>
-            <td><strong>احشایی / بیماری‌های مزمن</strong></td>
-            <td>برخی بیماری‌های قلبی، تنفسی، کلیوی و صرع</td>
-            <td>خستگی زودرس یا محدودیت در فعالیت</td>
-          </tr>
-
-          <tr>
-            <td>۱۰</td>
-            <td><strong>چندمعلولیتی</strong></td>
-            <td>همراهی دو یا چند نوع ناتوانی</td>
-            <td>نیاز به حمایت همزمان در چند زمینه</td>
-          </tr>
-
-        </tbody>
-
-      </table>
+      <div class="value">
+        <div class="value-icon">🌍</div>
+        <h3>برابری</h3>
+        <p>فرصت آموزشی باید برای همه کودکان فراهم باشد.</p>
+      </div>
 
     </div>
 
+    <p class="slogan" style="text-align:center;">
+      دوستان، انسانیت و بس
+    </p>
+
   </div>
+
 </section>
 
-<section id="mission" class="mission">
+
+<section class="accessibility" id="accessibility">
+
   <div class="container">
 
     <h2 class="section-title">
-      ماموریت ما
+      دسترس‌پذیری برای همه
     </h2>
 
     <div class="card">
 
       <p class="about-text">
-        ماموریت مرکز آموزشی و توانبخشی نگین، فراهم‌کردن فرصت‌های برابر
-        برای کودکان دارای معلولیت و کمک به رشد استعدادها، استقلال،
-        مشارکت اجتماعی و کیفیت زندگی آنان است.
-      </p>
-
-      <p class="slogan">
-        دوستان، انسانیت و بس
-      </p>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-
-    <h2 class="section-title">
-      تماس با ما
-    </h2>
-
-    <div class="contact-box">
-
-      <h3>مرکز آموزشی و توانبخشی نگین</h3>
-
-      <p>
-        برای همکاری، حمایت و ارتباط با مرکز با ما در تماس باشید.
+        مرکز آموزشی و توانبخشی نگین تلاش می‌کند محیط دیجیتال
+        قابل‌دسترسی و قابل‌استفاده‌ای برای کودکان، والدین و
+        کاربران دارای معلولیت فراهم کند.
       </p>
 
       <br>
 
       <p>
-        افغانستان
+        ♿ طراحی مناسب برای صفحه‌خوان‌ها
+      </p>
+
+      <p>
+        ⌨️ امکان استفاده با صفحه‌کلید
+      </p>
+
+      <p>
+        📱 سازگار با تلفن همراه و تبلت
+      </p>
+
+      <p>
+        👁️ توجه به خوانایی و کنتراست
       </p>
 
     </div>
 
   </div>
+
 </section>
+
+
+<section id="contact">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      تماس با مرکز
+    </h2>
+
+    <div class="contact-box">
+
+      <h3>
+        مرکز آموزشی و توانبخشی نگین
+      </h3>
+
+      <br>
+
+      <p>
+        🇦🇫 افغانستان
+      </p>
+
+      <p>
+        📧 negineducationcenter@gmail.com
+      </p>
+
+      <br>
+
+      <p>
+        برای همکاری، حمایت و ارتباط با مرکز با ما در تماس باشید.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
 
 <footer>
 
   <p>
-    © مرکز آموزشی و توانبخشی نگین
+    © ۲۰۲۶ مرکز آموزشی و توانبخشی نگین
   </p>
 
   <p>
-    دوستان، انسانیت و بس
+    هر کودک، یک نگین 💎
+  </p>
+
+  <p>
+    طراحی و توسعه: QH VisionX
   </p>
 
 </footer>
