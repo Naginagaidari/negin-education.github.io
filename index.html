@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>مرکز آموزشی نگین | Negin Educational Center</title>
+  <title>مرکز آموزشی و توانبخشی نگین</title>
 
-  <meta name="description" content="مرکز آموزشی نگین برای آموزش و حمایت از کودکان دارای معلولیت در افغانستان.">
+  <meta name="description"
+        content="مرکز آموزشی و توانبخشی نگین؛ آموزش، توانبخشی و حمایت از کودکان دارای معلولیت.">
 
   <style>
     * {
@@ -22,159 +22,226 @@
 
     body {
       font-family: Tahoma, Arial, sans-serif;
-      line-height: 1.8;
-      background: #f7faf9;
-      color: #263238;
+      line-height: 1.9;
+      background: #f7fbff;
+      color: #243447;
     }
 
     header {
-      background: #ffffff;
-      padding: 18px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
+      background: linear-gradient(135deg, #0879c9, #18a999);
+      color: white;
+      padding: 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
     }
 
-    .logo {
-      font-size: 24px;
+    .nav-container {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 22px;
       font-weight: bold;
-      color: #176b5c;
       white-space: nowrap;
     }
 
     nav {
       display: flex;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 8px;
     }
 
     nav a {
+      color: white;
       text-decoration: none;
-      color: #263238;
-      font-weight: bold;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 14px;
     }
 
     nav a:hover {
-      color: #176b5c;
+      background: rgba(255,255,255,.2);
     }
 
     .hero {
-      min-height: 75vh;
+      min-height: 650px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 70px 20px;
-      background: linear-gradient(135deg, #e4f4ef, #f7faf9);
+      padding: 50px 20px;
+      background: linear-gradient(180deg, #eefaff, #ffffff);
     }
 
     .hero-content {
-      max-width: 850px;
+      max-width: 900px;
+    }
+
+    .logo {
+      width: 230px;
+      max-width: 75%;
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: 44px;
-      color: #145c50;
-      margin-bottom: 20px;
+      font-size: 42px;
+      color: #0756a3;
+      margin-bottom: 10px;
     }
 
     .hero h2 {
       font-size: 25px;
+      color: #e83e8c;
       margin-bottom: 20px;
-      color: #37474f;
+    }
+
+    .slogan {
+      font-size: 22px;
+      font-weight: bold;
+      color: #159447;
+      margin: 20px 0;
     }
 
     .hero p {
-      font-size: 19px;
-      margin-bottom: 30px;
-      color: #455a64;
+      font-size: 18px;
+      max-width: 760px;
+      margin: auto;
     }
 
-    .button {
+    .btn {
       display: inline-block;
-      padding: 13px 28px;
-      background: #176b5c;
+      margin-top: 25px;
+      padding: 12px 25px;
+      background: #0879c9;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 30px;
       font-weight: bold;
-      margin: 5px;
     }
 
-    .button:hover {
-      background: #0e5145;
+    .btn:hover {
+      background: #0756a3;
     }
 
     section {
-      padding: 70px 7%;
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 40px;
     }
 
     .section-title h2 {
-      color: #145c50;
-      font-size: 32px;
+      color: #0756a3;
+      font-size: 31px;
       margin-bottom: 10px;
     }
 
     .section-title p {
-      color: #607d8b;
+      color: #667;
     }
 
     .about {
       background: white;
     }
 
-    .about-content {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-      font-size: 18px;
+    .about-box {
+      background: #f1f9ff;
+      padding: 30px;
+      border-radius: 18px;
+      border-right: 6px solid #0879c9;
+      font-size: 17px;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      max-width: 1100px;
-      margin: auto;
+      gap: 22px;
     }
 
     .card {
       background: white;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-      text-align: center;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      transition: .3s;
     }
 
-    .card .icon {
-      font-size: 42px;
-      margin-bottom: 15px;
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .card h3 {
-      color: #176b5c;
+      color: #0879c9;
       margin-bottom: 10px;
     }
 
+    .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .disabilities {
+      background: #f1f8fc;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 850px;
+    }
+
+    th {
+      background: #0879c9;
+      color: white;
+      padding: 14px;
+    }
+
+    td {
+      padding: 14px;
+      border-bottom: 1px solid #ddd;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) {
+      background: #f8fcff;
+    }
+
     .mission {
-      background: #eaf5f1;
+      background: linear-gradient(135deg, #0756a3, #18a999);
+      color: white;
       text-align: center;
+    }
+
+    .mission h2 {
+      font-size: 34px;
+      margin-bottom: 20px;
     }
 
     .mission p {
       max-width: 850px;
       margin: auto;
-      font-size: 20px;
+      font-size: 19px;
     }
 
     .contact {
@@ -182,18 +249,24 @@
     }
 
     .contact-box {
-      max-width: 700px;
-      margin: auto;
-      text-align: center;
-      font-size: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
     }
 
-    .contact-box p {
-      margin: 12px 0;
+    .contact-item {
+      background: #f3faff;
+      padding: 25px;
+      border-radius: 15px;
+    }
+
+    .contact-item h3 {
+      color: #0879c9;
+      margin-bottom: 8px;
     }
 
     footer {
-      background: #123d36;
+      background: #12304a;
       color: white;
       text-align: center;
       padding: 30px 20px;
@@ -203,58 +276,484 @@
       margin: 5px 0;
     }
 
-    @media (max-width: 800px) {
-      header {
+    .back-top {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: #0879c9;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    @media (max-width: 850px) {
+      .nav-container {
         flex-direction: column;
       }
 
       nav {
         justify-content: center;
-        gap: 12px;
       }
 
       .hero h1 {
-        font-size: 32px;
+        font-size: 31px;
       }
 
       .hero h2 {
         font-size: 21px;
       }
 
-      .hero p {
-        font-size: 17px;
+      .cards {
+        grid-template-columns: 1fr 1fr;
       }
 
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
       .cards {
         grid-template-columns: 1fr;
       }
 
+      .hero {
+        min-height: 570px;
+      }
+
+      .logo {
+        width: 190px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
       section {
-        padding: 50px 6%;
+        padding: 50px 15px;
       }
     }
   </style>
 </head>
 
-<body>
+<body id="home">
 
 <header>
-  <div class="logo">مرکز آموزشی نگین</div>
+  <div class="nav-container">
 
-  <nav>
-    <a href="#home">خانه</a>
-    <a href="#about">درباره ما</a>
-    <a href="#programs">برنامه‌ها</a>
-    <a href="#mission">ماموریت ما</a>
-    <a href="#contact">تماس</a>
-  </nav>
+    <div class="brand">
+      مرکز آموزشی و توانبخشی نگین
+    </div>
+
+    <nav>
+      <a href="#home">خانه</a>
+      <a href="#about">درباره ما</a>
+      <a href="#programs">برنامه‌ها</a>
+      <a href="#rehabilitation">توانبخشی</a>
+      <a href="#disabilities">انواع معلولیت</a>
+      <a href="#mission">مأموریت ما</a>
+      <a href="#contact">تماس</a>
+    </nav>
+
+  </div>
 </header>
 
-<main>
 
-  <section class="hero" id="home">
-    <div class="hero-content">
+<!-- صفحه اصلی -->
+<section class="hero">
 
-      <h1>مرکز آموزشی نگین</h1>
+  <div class="hero-content">
 
-      <h
+    <!-- بعداً لوگو را در پوشه images قرار می‌دهیم -->
+    <img src="logo.png"
+         alt="لوگوی مرکز آموزشی و توانبخشی نگین"
+         class="logo">
+
+    <h1>مرکز آموزشی و توانبخشی نگین</h1>
+
+    <h2>Educational & Rehabilitation Center</h2>
+
+    <div class="slogan">
+      دوستان انسانیت و بشریت
+    </div>
+
+    <p>
+      مرکزی برای آموزش، توانبخشی، رشد و حمایت از کودکان دارای معلولیت
+      و خانواده‌های آنان؛ با باور به اینکه هر کودک شایسته فرصت،
+      آموزش، احترام و آینده‌ای روشن است.
+    </p>
+
+    <a class="btn" href="#about">
+      بیشتر درباره ما
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- درباره ما -->
+<section id="about" class="about">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>درباره مرکز آموزشی و توانبخشی نگین</h2>
+      <p>آموزش، توانبخشی و حمایت برای آینده‌ای بهتر</p>
+    </div>
+
+    <div class="about-box">
+
+      <p>
+        مرکز آموزشی و توانبخشی نگین با هدف فراهم‌سازی فرصت‌های آموزشی،
+        توانبخشی و رشد همه‌جانبه برای کودکان دارای معلولیت فعالیت می‌کند.
+      </p>
+
+      <br>
+
+      <p>
+        ما تلاش می‌کنیم محیطی امن، محترمانه، فراگیر و امیدبخش برای کودکان
+        و خانواده‌های آنان ایجاد کنیم؛ محیطی که در آن تفاوت‌ها پذیرفته
+        شوند و توانایی‌های هر کودک مورد توجه قرار گیرد.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- برنامه‌ها -->
+<section id="programs">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>برنامه‌های آموزشی</h2>
+      <p>فرصت یادگیری متناسب با نیازهای هر کودک</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">📚</div>
+        <h3>آموزش پایه</h3>
+        <p>
+          آموزش مهارت‌های پایه خواندن، نوشتن، ریاضی و یادگیری متناسب
+          با توانایی‌های کودک.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🧩</div>
+        <h3>مهارت‌های زندگی</h3>
+        <p>
+          تقویت مهارت‌های فردی، اجتماعی و استقلال در زندگی روزمره.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>فعالیت‌های خلاقانه</h3>
+        <p>
+          هنر، بازی، فعالیت‌های گروهی و برنامه‌های خلاقانه برای رشد
+          استعدادهای کودکان.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>آموزش دیجیتال</h3>
+        <p>
+          استفاده از فناوری و منابع دیجیتال برای افزایش فرصت‌های یادگیری.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">👨‍👩‍👧</div>
+        <h3>حمایت از خانواده</h3>
+        <p>
+          ارائه اطلاعات و راهنمایی‌های آموزشی برای والدین و خانواده‌ها.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌱</div>
+        <h3>رشد همه‌جانبه</h3>
+        <p>
+          توجه همزمان به آموزش، ارتباط اجتماعی، استقلال و توانایی‌های فردی.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- توانبخشی -->
+<section id="rehabilitation" class="about">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>خدمات توانبخشی</h2>
+      <p>حمایت از رشد و مشارکت کودکان</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">♿</div>
+        <h3>توانبخشی جسمی و حرکتی</h3>
+        <p>
+          حمایت از حرکت، تعادل و مشارکت کودک در فعالیت‌های روزمره.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">👁️</div>
+        <h3>حمایت بینایی</h3>
+        <p>
+          فراهم‌سازی محیط و روش‌های آموزشی مناسب برای کودکان کم‌بینا
+          و نابینا.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">👂</div>
+        <h3>حمایت شنوایی و ارتباطی</h3>
+        <p>
+          کمک به دسترسی کودک به روش‌های مناسب ارتباط و یادگیری.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🗣️</div>
+        <h3>گفتار و زبان</h3>
+        <p>
+          توجه به مهارت‌های ارتباطی، گفتار و زبان متناسب با نیاز کودک.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- انواع معلولیت -->
+<section id="disabilities" class="disabilities">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>انواع معلولیت اطفال</h2>
+      <p>
+        آشنایی با برخی از انواع معلولیت و نیازهای آموزشی و حمایتی کودکان
+      </p>
+    </div>
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>شماره</th>
+            <th>نوع معلولیت</th>
+            <th>نمونه‌ها</th>
+            <th>نشانه‌های عمده</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>۱</td>
+            <td><strong>جسمی و حرکتی</strong></td>
+            <td>فلج مغزی، ضایعه نخاعی، قطع عضو</td>
+            <td>مشکل در راه‌رفتن، تعادل و گرفتن اشیا</td>
+          </tr>
+
+          <tr>
+            <td>۲</td>
+            <td><strong>حسی – بینایی</strong></td>
+            <td>نابینایی، کم‌بینایی</td>
+            <td>ندیدن یا دید بسیار محدود</td>
+          </tr>
+
+          <tr>
+            <td>۳</td>
+            <td><strong>حسی – شنوایی</strong></td>
+            <td>ناشنوایی، کم‌شنوایی</td>
+            <td>نشنیدن، تأخیر در تکلم</td>
+          </tr>
+
+          <tr>
+            <td>۴</td>
+            <td><strong>ذهنی / کم‌توانی ذهنی</strong></td>
+            <td>سندروم داون و سایر موارد کم‌توانی ذهنی</td>
+            <td>چالش در استدلال، یادگیری و رفتار سازگارانه</td>
+          </tr>
+
+          <tr>
+            <td>۵</td>
+            <td><strong>رشدی / تحولی</strong></td>
+            <td>اوتیسم، تأخیر تحولی</td>
+            <td>چالش در ارتباط اجتماعی و رفتارهای تکراری</td>
+          </tr>
+
+          <tr>
+            <td>۶</td>
+            <td><strong>ناتوانی یادگیری خاص</strong></td>
+            <td>دیسلکسیا، دیسکلکولیا</td>
+            <td>هوش معمولاً عادی، همراه با مشکل در خواندن یا ریاضی</td>
+          </tr>
+
+          <tr>
+            <td>۷</td>
+            <td><strong>گفتار و زبان</strong></td>
+            <td>لکنت، تأخیر تکلم</td>
+            <td>نامفهوم بودن یا دشواری در گفتار</td>
+          </tr>
+
+          <tr>
+            <td>۸</td>
+            <td><strong>رفتاری و هیجانی</strong></td>
+            <td>ADHD و اختلالات هیجانی</td>
+            <td>بی‌تمرکزی، تحرک زیاد یا مشکلات رفتاری</td>
+          </tr>
+
+          <tr>
+            <td>۹</td>
+            <td><strong>احشایی / بیماری مزمن</strong></td>
+            <td>امراض قلبی، تنفسی، کلیوی، صرع</td>
+            <td>خستگی زودرس یا محدودیت فعالیت</td>
+          </tr>
+
+          <tr>
+            <td>۱۰</td>
+            <td><strong>چندمعلولیتی</strong></td>
+            <td>ناشنوا-نابینا، فلج مغزی همراه با کم‌توانی ذهنی</td>
+            <td>همراهی دو یا چند معلولیت</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <p style="margin-top:20px;font-size:14px;color:#667;">
+      منابع پیشنهادی: IDEA، WHO ICF و منابع آموزشی مرتبط با آموزش و توانبخشی کودکان.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- مأموریت -->
+<section id="mission" class="mission">
+
+  <div class="container">
+
+    <h2>مأموریت ما</h2>
+
+    <p>
+      باور داریم هر کودک دارای توانایی‌ها، استعدادها و حق برخورداری از
+      آموزش و فرصت برابر است. مأموریت ما ایجاد فرصت برای یادگیری،
+      توانمندسازی، مشارکت اجتماعی و حمایت از خانواده‌هاست.
+    </p>
+
+    <div class="slogan">
+      «دوستان انسانیت و بشریت»
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- تماس -->
+<section id="contact" class="contact">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>تماس با ما</h2>
+      <p>برای همکاری، حمایت و دریافت اطلاعات بیشتر با ما در ارتباط باشید.</p>
+    </div>
+
+    <div class="contact-box">
+
+      <div class="contact-item">
+        <h3>📧 ایمیل</h3>
+        <p>
+          negin.education@outlook.com
+        </p>
+      </div>
+
+      <div class="contact-item">
+        <h3>🌍 محل فعالیت</h3>
+        <p>
+          افغانستان
+        </p>
+      </div>
+
+      <div class="contact-item">
+        <h3>🤝 همکاری</h3>
+        <p>
+          از همکاری افراد، نهادها، آموزگاران، متخصصان و حامیان آموزش
+          کودکان استقبال می‌کنیم.
+        </p>
+      </div>
+
+      <div class="contact-item">
+        <h3>❤️ حمایت</h3>
+        <p>
+          حمایت شما می‌تواند فرصت‌های آموزشی و توانبخشی بیشتری برای کودکان
+          فراهم کند.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <p>
+    © 2026 مرکز آموزشی و توانبخشی نگین
+  </p>
+
+  <p>
+    Educational & Rehabilitation Center
+  </p>
+
+  <p>
+    دوستان انسانیت و بشریت
+  </p>
+
+</footer>
+
+
+<a href="#home" class="back-top" aria-label="بازگشت به بالا">
+  ↑
+</a>
+
+</body>
+</html>
