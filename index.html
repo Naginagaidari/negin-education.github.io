@@ -1,6 +1,2635 @@
-);
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>مرکز آموزشی و توانبخشی نگین | هر کودک، یک نگین</title>
+
+<meta name="description"
+content="مرکز آموزشی و توانبخشی نگین در افغانستان؛ آموزش، توانبخشی، حمایت از کودکان دارای معلولیت و آگاهی‌رسانی به خانواده‌ها.">
+
+<meta name="keywords"
+content="مرکز آموزشی نگین, توانبخشی کودکان, معلولیت اطفال, اوتیزم, ADHD, آموزش ویژه, افغانستان">
+
+<meta name="author" content="QH VisionX">
+
+<style>
+
+/* =========================================================
+   تنظیمات پایه
+========================================================= */
+
+:root{
+  --blue:#0879c9;
+  --blue-dark:#0756a3;
+  --green:#18a999;
+  --green-dark:#12806f;
+  --pink:#e83e8c;
+  --yellow:#f5b942;
+  --purple:#7657d8;
+
+  --bg:#f5fbff;
+  --surface:#ffffff;
+  --surface-soft:#eef9ff;
+  --text:#243447;
+  --muted:#5b6b7a;
+  --border:#d7e5ee;
+
+  --focus:#ff9f1c;
+
+  --font-size:18px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+  font-size:var(--font-size);
+}
+
+body{
+  font-family:
+    Tahoma,
+    "Vazirmatn",
+    "Noto Sans Arabic",
+    Arial,
+    sans-serif;
+
+  line-height:1.9;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* جلوگیری از انیمیشن برای کسانی که کاهش حرکت را انتخاب کرده‌اند */
+@media(prefers-reduced-motion: reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* =========================================================
+   دسترسی سریع
+========================================================= */
+
+.skip-link{
+  position:fixed;
+  top:-100px;
+  right:20px;
+  z-index:99999;
+  background:#000;
+  color:#fff;
+  padding:12px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.skip-link:focus{
+  top:15px;
+}
+
+/* =========================================================
+   کنترل‌های دسترسی
+========================================================= */
+
+.accessibility-bar{
+  background:#ffffff;
+  border-bottom:1px solid var(--border);
+  padding:8px 15px;
+}
+
+.accessibility-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.accessibility-bar button{
+  border:2px solid var(--blue);
+  background:#fff;
+  color:var(--blue-dark);
+  padding:7px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.accessibility-bar button:hover{
+  background:var(--blue);
+  color:white;
+}
+
+.accessibility-bar button:focus,
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus{
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+}
+
+/* =========================================================
+   حالت کنتراست بالا
+========================================================= */
+
+body.high-contrast{
+  --bg:#ffffff;
+  --surface:#ffffff;
+  --surface-soft:#ffffff;
+  --text:#000000;
+  --muted:#000000;
+  --border:#000000;
+}
+
+body.high-contrast *{
+  box-shadow:none !important;
+}
+
+body.high-contrast a,
+body.high-contrast button{
+  border:2px solid #000 !important;
+}
+
+/* =========================================================
+   حالت تاریک
+========================================================= */
+
+body.dark-mode{
+  --bg:#101820;
+  --surface:#18232d;
+  --surface-soft:#1e303c;
+  --text:#f4f7f9;
+  --muted:#d7e1e8;
+  --border:#49616f;
+}
+
+body.dark-mode .accessibility-bar{
+  background:#111b23;
+}
+
+body.dark-mode .accessibility-bar button{
+  background:#18232d;
+  color:#fff;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select{
+  background:#101820;
+  color:#fff;
+}
+
+/* =========================================================
+   هدر
+========================================================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:5000;
+
+  background:linear-gradient(
+    135deg,
+    var(--blue),
+    var(--green)
+  );
+
+  color:white;
+
+  padding:14px 20px;
+
+  box-shadow:
+    0 3px 15px rgba(0,0,0,.18);
+}
+
+.nav-container{
+  max-width:1200px;
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:20px;
+}
+
+.brand{
+  font-size:21px;
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+.brand span{
+  display:block;
+  font-size:13px;
+  font-weight:normal;
+  opacity:.95;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:5px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  padding:8px 11px;
+  border-radius:8px;
+  font-size:15px;
+  font-weight:bold;
+}
+
+nav a:hover{
+  background:rgba(255,255,255,.20);
+}
+
+/* =========================================================
+   Hero
+========================================================= */
+
+.hero{
+  min-height:680px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:70px 20px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(24,169,153,.15),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(8,121,201,.15),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      #eefaff,
+      #ffffff
+    );
+
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  opacity:.35;
+  pointer-events:none;
+}
+
+.hero::before{
+  width:180px;
+  height:180px;
+  background:#bcecff;
+  top:60px;
+  right:5%;
+}
+
+.hero::after{
+  width:130px;
+  height:130px;
+  background:#c9f6e8;
+  bottom:50px;
+  left:8%;
+}
+
+.hero-content{
+  max-width:950px;
+  position:relative;
+  z-index:2;
+}
+
+.logo{
+  width:230px;
+  max-width:75%;
+  height:auto;
+  display:block;
+  margin:0 auto 25px;
+
+  border-radius:20px;
+
+  filter:
+    drop-shadow(0 8px 16px rgba(0,0,0,.12));
+
+  animation:
+    gentleFloat 5s ease-in-out infinite;
+}
+
+@keyframes gentleFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-7px);
+  }
+}
+
+.hero h1{
+  font-size:44px;
+  color:var(--blue-dark);
+  margin-bottom:12px;
+  line-height:1.4;
+}
+
+.hero h2{
+  font-size:26px;
+  color:var(--pink);
+  margin-bottom:18px;
+}
+
+.slogan{
+  display:inline-block;
+
+  font-size:23px;
+  font-weight:bold;
+
+  color:var(--green-dark);
+
+  background:#e6fff8;
+
+  padding:8px 20px;
+
+  border-radius:50px;
+
+  margin:18px 0;
+}
+
+.hero-description{
+  max-width:750px;
+  margin:auto;
+  font-size:19px;
+  color:var(--muted);
+}
+
+/* =========================================================
+   دکمه‌ها
+========================================================= */
+
+.btn{
+  display:inline-block;
+
+  padding:13px 22px;
+
+  margin:8px;
+
+  border-radius:10px;
+
+  text-decoration:none;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  border:2px solid transparent;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 5px 14px rgba(0,0,0,.15);
+}
+
+.btn-primary{
+  background:var(--blue);
+  color:#fff;
+}
+
+.btn-green{
+  background:var(--green);
+  color:#fff;
+}
+
+.btn-light{
+  background:#fff;
+  color:var(--blue-dark);
+  border-color:var(--blue);
+}
+
+.btn-pink{
+  background:var(--pink);
+  color:#fff;
+}
+
+/* =========================================================
+   بخش‌ها
+========================================================= */
+
+section{
+  padding:75px 20px;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+}
+
+.section-title{
+  text-align:center;
+  color:var(--blue-dark);
+  font-size:32px;
+  margin-bottom:40px;
+}
+
+.section-title::after{
+  content:"";
+  display:block;
+  width:70px;
+  height:5px;
+  background:linear-gradient(
+    90deg,
+    var(--blue),
+    var(--green)
+  );
+  border-radius:10px;
+  margin:10px auto 0;
+}
+
+.card{
+  background:var(--surface);
+  padding:30px;
+  border-radius:18px;
+  margin-bottom:20px;
+
+  border:1px solid var(--border);
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.06);
+}
+
+.about-text{
+  font-size:18px;
+  text-align:justify;
+}
+
+/* =========================================================
+   ویژگی‌ها
+========================================================= */
+
+.features{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.feature{
+  background:var(--surface);
+  padding:25px;
+
+  border-radius:18px;
+
+  border:1px solid var(--border);
+
+  text-align:center;
+
+  box-shadow:
+    0 5px 18px rgba(0,0,0,.06);
+}
+
+.feature-icon{
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.feature h3{
+  color:var(--blue);
+  margin-bottom:8px;
+}
+
+/* =========================================================
+   برنامه‌ها
+========================================================= */
+
+.programs{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.program{
+  background:var(--surface);
+
+  padding:28px;
+
+  border-radius:18px;
+
+  border-top:5px solid var(--green);
+
+  border-left:1px solid var(--border);
+  border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+
+  box-shadow:
+    0 5px 18px rgba(0,0,0,.06);
+}
+
+.program h3{
+  color:var(--green-dark);
+  margin-bottom:10px;
+}
+
+/* =========================================================
+   معلولیت‌ها
+========================================================= */
+
+.disability-section{
+  background:
+    linear-gradient(
+      180deg,
+      #f1fbff,
+      #ffffff
+    );
+}
+
+.table-wrapper{
+  overflow-x:auto;
+
+  background:var(--surface);
+
+  border-radius:18px;
+
+  border:1px solid var(--border);
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.06);
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:850px;
+}
+
+th{
+  background:var(--blue);
+  color:white;
+  padding:15px;
+  text-align:right;
+}
+
+td{
+  padding:15px;
+  border-bottom:1px solid var(--border);
+  text-align:right;
+}
+
+tr:nth-child(even){
+  background:var(--surface-soft);
+}
+
+/* =========================================================
+   دسترسی‌پذیری
+========================================================= */
+
+.accessibility-section{
+  background:
+    linear-gradient(
+      135deg,
+      #eefaff,
+      #effff7
+    );
+}
+
+.access-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.access-item{
+  background:var(--surface);
+  padding:22px;
+  border-radius:16px;
+  border:1px solid var(--border);
+}
+
+.access-item h3{
+  color:var(--blue);
+  margin-bottom:8px;
+}
+
+/* =========================================================
+   نگین هوشمند
+========================================================= */
+
+.ai-section{
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(118,87,216,.14),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #f7f5ff,
+      #effcff
+    );
+}
+
+.ai-box{
+  background:var(--surface);
+
+  border:2px solid #d8d0ff;
+
+  border-radius:22px;
+
+  padding:30px;
+
+  box-shadow:
+    0 8px 30px rgba(118,87,216,.12);
+
+  text-align:center;
+}
+
+.ai-box h3{
+  color:var(--purple);
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+/* =========================================================
+   فرم‌ها
+========================================================= */
+
+.form-section{
+  background:#f5fbff;
+}
+
+.form-card{
+  max-width:850px;
+  margin:auto;
+
+  background:var(--surface);
+
+  padding:30px;
+
+  border-radius:20px;
+
+  border:1px solid var(--border);
+
+  box-shadow:
+    0 5px 25px rgba(0,0,0,.07);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.form-group{
+  margin-bottom:16px;
+}
+
+.form-group.full{
+  grid-column:1/-1;
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+
+  padding:13px 14px;
+
+  border:2px solid var(--border);
+
+  border-radius:10px;
+
+  background:var(--surface);
+
+  color:var(--text);
+
+  font-family:inherit;
+
+  font-size:16px;
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:var(--blue);
+}
+
+/* =========================================================
+   ماموریت
+========================================================= */
+
+.mission{
+  background:
+    linear-gradient(
+      135deg,
+      #eafaff,
+      #effff7
+    );
+}
+
+/* =========================================================
+   تماس
+========================================================= */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.contact-card{
+  background:var(--surface);
+  padding:25px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  text-align:center;
+}
+
+.contact-card h3{
+  color:var(--blue);
+  margin-bottom:10px;
+}
+
+.contact-card a{
+  color:var(--blue-dark);
+  font-weight:bold;
+  word-break:break-word;
+}
+
+/* =========================================================
+   اطلاعات وب‌سایت
+========================================================= */
+
+.info-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.info-table td{
+  padding:12px;
+  border-bottom:1px solid var(--border);
+}
+
+.info-table td:first-child{
+  font-weight:bold;
+  width:35%;
+  color:var(--blue-dark);
+}
+
+/* =========================================================
+   فوتر
+========================================================= */
+
+footer{
+  background:#0756a3;
+  color:#fff;
+  text-align:center;
+  padding:40px 20px;
+}
+
+footer p{
+  margin:7px 0;
+}
+
+.footer-links{
+  margin:15px 0;
+}
+
+.footer-links a{
+  color:#fff;
+  margin:0 8px;
+  text-decoration:none;
+}
+
+.footer-links a:hover{
+  text-decoration:underline;
+}
+
+/* =========================================================
+   نگین هوشمند - دکمه شناور
+========================================================= */
+
+.ai-float{
+  position:fixed;
+
+  bottom:20px;
+  right:20px;
+
+  z-index:9000;
+
+  width:65px;
+  height:65px;
+
+  border-radius:50%;
+
+  border:3px solid white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--purple),
+      var(--blue)
+    );
+
+  color:white;
+
+  font-size:27px;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.25);
+}
+
+.ai-float span{
+  position:absolute;
+
+  bottom:-30px;
+  right:-15px;
+
+  background:#222;
+
+  color:white;
+
+  font-size:12px;
+
+  padding:3px 8px;
+
+  border-radius:8px;
+
+  white-space:nowrap;
+}
+
+/* =========================================================
+   پنجره نگین هوشمند
+========================================================= */
+
+.ai-chat{
+  display:none;
+
+  position:fixed;
+
+  bottom:95px;
+  right:20px;
+
+  width:min(370px,calc(100vw - 30px));
+
+  height:500px;
+
+  z-index:8999;
+
+  background:var(--surface);
+
+  border-radius:20px;
+
+  border:2px solid var(--purple);
+
+  box-shadow:
+    0 12px 40px rgba(0,0,0,.25);
+
+  overflow:hidden;
+
+  flex-direction:column;
+}
+
+.ai-chat.open{
+  display:flex;
+}
+
+.ai-header{
+  background:
+    linear-gradient(
+      135deg,
+      var(--purple),
+      var(--blue)
+    );
+
+  color:white;
+
+  padding:15px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+}
+
+.ai-header button{
+  background:transparent;
+  border:0;
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.ai-messages{
+  flex:1;
+  overflow-y:auto;
+  padding:15px;
+}
+
+.ai-message{
+  padding:10px 12px;
+  margin-bottom:10px;
+  border-radius:12px;
+  font-size:15px;
+}
+
+.ai-bot{
+  background:var(--surface-soft);
+  border-right:4px solid var(--purple);
+}
+
+.ai-user{
+  background:#e6fff8;
+  border-right:4px solid var(--green);
+}
+
+.ai-input{
+  display:flex;
+  gap:7px;
+  padding:10px;
+  border-top:1px solid var(--border);
+}
+
+.ai-input input{
+  min-width:0;
+}
+
+.ai-input button{
+  background:var(--purple);
+  color:#fff;
+  border:0;
+  border-radius:9px;
+  padding:0 15px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* =========================================================
+   Responsive
+========================================================= */
+
+@media(max-width:800px){
+
+  .nav-container{
+    flex-direction:column;
+  }
+
+  .brand{
+    white-space:normal;
+    text-align:center;
+  }
+
+  nav{
+    width:100%;
+  }
+
+  nav a{
+    font-size:14px;
+  }
+
+  .hero{
+    min-height:600px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .hero h2{
+    font-size:21px;
+  }
+
+  .slogan{
+    font-size:19px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full{
+    grid-column:auto;
+  }
+}
+
+@media(max-width:500px){
+
+  section{
+    padding:55px 15px;
+  }
+
+  .section-title{
+    font-size:27px;
+  }
+
+  .hero{
+    padding:50px 15px;
+  }
+
+  .hero h1{
+    font-size:27px;
+  }
+
+  .hero h2{
+    font-size:19px;
+  }
+
+  .logo{
+    width:190px;
+  }
+
+  .ai-chat{
+    right:10px;
+    bottom:90px;
+    width:calc(100vw - 20px);
+    height:480px;
+  }
+
+  .ai-float{
+    right:15px;
+    bottom:15px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">
+رفتن مستقیم به محتوای اصلی
+</a>
+
+<!-- =======================================================
+     نوار دسترسی
+======================================================= -->
+
+<div class="accessibility-bar">
+
+  <div class="accessibility-inner">
+
+    <strong>دسترسی‌پذیری:</strong>
+
+    <button type="button" onclick="increaseText()"
+            aria-label="افزایش اندازه متن">
+      A+
+    </button>
+
+    <button type="button" onclick="decreaseText()"
+            aria-label="کاهش اندازه متن">
+      A-
+    </button>
+
+    <button type="button" onclick="resetText()"
+            aria-label="بازگرداندن اندازه متن">
+      A
+    </button>
+
+    <button type="button" onclick="toggleDarkMode()">
+      🌙 حالت تاریک
+    </button>
+
+    <button type="button" onclick="toggleContrast()">
+      ◐ کنتراست بالا
+    </button>
+
+  </div>
+
+</div>
+
+<!-- =======================================================
+     Header
+======================================================= -->
+
+<header>
+
+  <div class="nav-container">
+
+    <div class="brand">
+
+      مرکز آموزشی و توانبخشی نگین
+
+      <span>
+        هر کودک، یک نگین
+      </span>
+
+    </div>
+
+    <nav aria-label="منوی اصلی">
+
+      <a href="#home">خانه</a>
+
+      <a href="#about">درباره ما</a>
+
+      <a href="#programs">برنامه‌ها</a>
+
+      <a href="#disabilities">معلولیت‌ها</a>
+
+      <a href="#accessibility">دسترس‌پذیری</a>
+
+      <a href="#ai">نگین هوشمند</a>
+
+      <a href="#register">ثبت‌نام</a>
+
+      <a href="#contact">تماس</a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+<main id="main">
+
+<!-- =======================================================
+     Hero
+======================================================= -->
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <!--
+      لوگو:
+      فایل لوگو باید در همان Repository و در کنار index.html
+      با نام 1000016661.png قرار داشته باشد.
+    -->
+
+    <img
+      src="1000016661.png"
+      alt="لوگوی مرکز آموزشی و توانبخشی نگین"
+      class="logo"
+      onerror="this.style.display='none';"
+    >
+
+    <h1>
+      مرکز آموزشی و توانبخشی نگین
+    </h1>
+
+    <h2>
+      آموزش، توانبخشی و امید برای کودکان
+    </h2>
+
+    <div class="slogan">
+      هر کودک، یک نگین
+    </div>
+
+    <p class="hero-description">
+
+      ما باور داریم هر کودک، با هر نوع توانایی،
+      شایسته آموزش، احترام، فرصت، مشارکت و آینده‌ای روشن است.
+
+    </p>
+
+    <div>
+
+      <a href="#register" class="btn btn-primary">
+        📝 ثبت‌نام آنلاین
+      </a>
+
+      <a href="#contact" class="btn btn-green">
+        📞 تماس با مرکز
+      </a>
+
+      <a href="#ai" class="btn btn-light">
+        🤖 نگین هوشمند
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     درباره مرکز
+======================================================= -->
+
+<section id="about">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      درباره مرکز آموزشی و توانبخشی نگین
+    </h2>
+
+    <div class="card">
+
+      <p class="about-text">
+
+        مرکز آموزشی و توانبخشی نگین با هدف حمایت از کودکان دارای
+        معلولیت و کودکان با نیازهای آموزشی و توانبخشی ویژه ایجاد شده است.
+
+        هدف ما ایجاد محیطی امن، محترمانه، فراگیر و کودک‌محور است؛
+        محیطی که در آن تفاوت‌ها پذیرفته شوند و استعدادهای هر کودک
+        مورد توجه قرار گیرد.
+
+      </p>
+
+      <br>
+
+      <p class="about-text">
+
+        ما بر آموزش، توانبخشی، مهارت‌های زندگی، مشارکت اجتماعی،
+        همکاری با خانواده‌ها و افزایش فرصت‌های برابر تمرکز داریم.
+
+      </p>
+
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">🧒</div>
+        <h3>کودک‌محور</h3>
+        <p>
+          توجه به نیازها، استعدادها و توانایی‌های هر کودک.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">♿</div>
+        <h3>فراگیر</h3>
+        <p>
+          طراحی برای کودکان با توانایی‌ها و نیازهای گوناگون.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">❤️</div>
+        <h3>انسان‌محور</h3>
+        <p>
+          احترام، کرامت و پذیرش تفاوت‌های انسانی.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🌱</div>
+        <h3>توانمندسازی</h3>
+        <p>
+          کمک به رشد استقلال، مهارت و مشارکت اجتماعی.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     برنامه‌ها
+======================================================= -->
+
+<section id="programs">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      برنامه‌ها و خدمات
+    </h2>
+
+    <div class="programs">
+
+      <div class="program">
+        <h3>📚 آموزش ویژه</h3>
+        <p>
+          آموزش متناسب با سطح، نیاز و توانایی‌های هر کودک.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>♿ توانبخشی</h3>
+        <p>
+          حمایت از رشد مهارت‌های حرکتی، ارتباطی، شناختی و اجتماعی.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>🗣️ گفتار و ارتباط</h3>
+        <p>
+          توجه به مهارت‌های ارتباطی، گفتار و روش‌های ارتباط جایگزین.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>🧠 حمایت از رشد</h3>
+        <p>
+          فعالیت‌های آموزشی و حمایتی برای رشد مهارت‌های شناختی و اجتماعی.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>🎨 هنر و خلاقیت</h3>
+        <p>
+          استفاده از هنر، بازی و فعالیت‌های خلاقانه برای بیان استعدادها.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>🏠 حمایت از خانواده</h3>
+        <p>
+          آگاهی‌رسانی و همکاری با والدین برای حمایت بهتر از کودکان.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     انواع معلولیت
+======================================================= -->
+
+<section id="disabilities" class="disability-section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      انواع معلولیت اطفال
+    </h2>
+
+    <div class="card">
+
+      <p>
+        این بخش برای آگاهی‌رسانی عمومی است.
+        تشخیص یا ارزیابی پزشکی باید توسط متخصص مربوط انجام شود.
+      </p>
+
+    </div>
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>شماره</th>
+            <th>نوع معلولیت</th>
+            <th>نمونه‌ها</th>
+            <th>نشانه‌ها / چالش‌های احتمالی</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>۱</td>
+            <td><strong>جسمی و حرکتی</strong></td>
+            <td>فلج مغزی، ضایعه نخاعی، قطع عضو</td>
+            <td>چالش در راه‌رفتن، تعادل یا گرفتن اشیا</td>
+          </tr>
+
+          <tr>
+            <td>۲</td>
+            <td><strong>حسی – بینایی</strong></td>
+            <td>نابینایی، کم‌بینایی</td>
+            <td>کاهش شدید یا محدودیت در بینایی</td>
+          </tr>
+
+          <tr>
+            <td>۳</td>
+            <td><strong>حسی – شنوایی</strong></td>
+            <td>ناشنوایی، کم‌شنوایی</td>
+            <td>کاهش شنوایی و گاهی تأخیر در رشد گفتار</td>
+          </tr>
+
+          <tr>
+            <td>۴</td>
+            <td><strong>ذهنی / شناختی</strong></td>
+            <td>سندروم داون و ناتوانی شناختی</td>
+            <td>چالش در یادگیری، استدلال یا مهارت‌های سازشی</td>
+          </tr>
+
+          <tr>
+            <td>۵</td>
+            <td><strong>رشدی / تحولی</strong></td>
+            <td>اوتیزم، تأخیر تحولی</td>
+            <td>تفاوت در ارتباط اجتماعی، رفتار یا پردازش حسی</td>
+          </tr>
+
+          <tr>
+            <td>۶</td>
+            <td><strong>ناتوانی یادگیری خاص</strong></td>
+            <td>دیسلکسیا، دیسکلکولیا</td>
+            <td>چالش در خواندن، نوشتن یا ریاضی</td>
+          </tr>
+
+          <tr>
+            <td>۷</td>
+            <td><strong>گفتار و زبان</strong></td>
+            <td>لکنت، تأخیر تکلم</td>
+            <td>چالش در بیان یا قابل‌فهم بودن گفتار</td>
+          </tr>
+
+          <tr>
+            <td>۸</td>
+            <td><strong>رفتاری و هیجانی</strong></td>
+            <td>ADHD و برخی اختلالات هیجانی</td>
+            <td>چالش در توجه، فعالیت یا تنظیم هیجان</td>
+          </tr>
+
+          <tr>
+            <td>۹</td>
+            <td><strong>احشایی / بیماری‌های مزمن</strong></td>
+            <td>برخی بیماری‌های قلبی، تنفسی، کلیوی و صرع</td>
+            <td>خستگی یا محدودیت در برخی فعالیت‌ها</td>
+          </tr>
+
+          <tr>
+            <td>۱۰</td>
+            <td><strong>چندمعلولیتی</strong></td>
+            <td>همراهی دو یا چند نوع ناتوانی</td>
+            <td>نیاز به حمایت همزمان در چند زمینه</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     طراحی فراگیر
+======================================================= -->
+
+<section id="accessibility" class="accessibility-section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      طراحی فراگیر و دسترس‌پذیر
+    </h2>
+
+    <div class="access-grid">
+
+      <div class="access-item">
+        <h3>♿ دسترسی حرکتی</h3>
+        <p>
+          دکمه‌ها و عناصر تعاملی بزرگ و قابل استفاده برای کاربران دارای
+          محدودیت حرکتی طراحی شده‌اند.
+        </p>
+      </div>
+
+      <div class="access-item">
+        <h3>👁️ دسترسی بینایی</h3>
+        <p>
+          امکان افزایش اندازه متن، کنتراست بالا و استفاده مناسب از
+          ساختارهای معنایی فراهم شده است.
+        </p>
+      </div>
+
+      <div class="access-item">
+        <h3>🔊 دسترسی شنیداری</h3>
+        <p>
+          اطلاعات مهم سایت تنها به صدا وابسته نیست و به شکل متنی نیز ارائه می‌شود.
+        </p>
+      </div>
+
+      <div class="access-item">
+        <h3>🧠 تنوع عصبی</h3>
+        <p>
+          از انیمیشن‌های سریع، چشمک‌زن و عناصر آزاردهنده تا حد امکان اجتناب شده است.
+        </p>
+      </div>
+
+      <div class="access-item">
+        <h3>⌨️ صفحه‌کلید</h3>
+        <p>
+          عناصر اصلی سایت با صفحه‌کلید قابل دسترسی هستند.
+        </p>
+      </div>
+
+      <div class="access-item">
+        <h3>🌙 حالت تاریک</h3>
+        <p>
+          کاربران می‌توانند حالت تاریک را برای کاهش روشنایی صفحه فعال کنند.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     نگین هوشمند
+======================================================= -->
+
+<section id="ai" class="ai-section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      🤖 نگین هوشمند
+    </h2>
+
+    <div class="ai-box">
+
+      <h3>
+        دستیار هوشمند مرکز آموزشی و توانبخشی نگین
+      </h3>
+
+      <p>
+
+        «نگین هوشمند» برای راهنمایی درباره محتوای وب‌سایت،
+        خدمات مرکز، ثبت‌نام، بخش‌های مختلف سایت و اطلاعات عمومی
+        درباره معلولیت‌ها طراحی شده است.
+
+      </p>
+
+      <br>
+
+      <p>
+
+        ⚠️ این دستیار تشخیص پزشکی یا درمان پزشکی ارائه نمی‌کند.
+        برای تشخیص و درمان باید با متخصصان مربوط مشورت شود.
+
+      </p>
+
+      <button
+        class="btn btn-pink"
+        type="button"
+        onclick="openAI()">
+
+        💬 گفتگو با نگین هوشمند
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     سیستم‌های پیشرفته و نوظهور
+======================================================= -->
+
+<section>
+
+  <div class="container">
+
+    <h2 class="section-title">
+      سیستم‌های پیشرفته و نوظهور
+    </h2>
+
+    <div class="card">
+
+      <p>
+        این بخش صرفاً برای معرفی فناوری‌ها و ایده‌های نوین است.
+        استفاده از هر فناوری پزشکی یا توانبخشی باید بر اساس شواهد علمی،
+        مقررات مربوط و نظر متخصصان انجام شود.
+      </p>
+
+    </div>
+
+    <div class="programs">
+
+      <div class="program">
+        <h3>🤖 هوش مصنوعی و آموزش</h3>
+        <p>
+          فناوری‌های هوش مصنوعی می‌توانند برای شخصی‌سازی مسیر یادگیری
+          و ایجاد ابزارهای کمکی مورد بررسی قرار گیرند.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>🗣️ AAC</h3>
+        <p>
+          ابزارهای ارتباط جایگزین و افزوده می‌توانند به برخی کودکان
+          کم‌کلام یا غیرکلامی در برقراری ارتباط کمک کنند.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>🥽 AR / VR</h3>
+        <p>
+          واقعیت افزوده و مجازی می‌تواند برای تمرین برخی سناریوهای
+          آموزشی و مهارت‌های زندگی مورد استفاده قرار گیرد.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>🦾 ربات‌های اجتماعی</h3>
+        <p>
+          ربات‌های اجتماعی می‌توانند در برخی فعالیت‌های آموزشی و
+          تمرین مهارت‌های اجتماعی مورد بررسی قرار گیرند.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>📱 فناوری‌های آفلاین</h3>
+        <p>
+          ابزارهای کم‌مصرف و آفلاین برای محیط‌هایی با اینترنت محدود
+          اهمیت ویژه‌ای دارند.
+        </p>
+      </div>
+
+      <div class="program">
+        <h3>🧠 فناوری‌های کمکی</h3>
+        <p>
+          فناوری‌های کمکی می‌توانند استقلال و مشارکت کودکان دارای
+          معلولیت را افزایش دهند.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     ماموریت
+======================================================= -->
+
+<section id="mission" class="mission">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      ماموریت ما
+    </h2>
+
+    <div class="card">
+
+      <p class="about-text">
+
+        ماموریت مرکز آموزشی و توانبخشی نگین فراهم‌کردن فرصت‌های برابر
+        برای کودکان، حمایت از خانواده‌ها، توسعه آموزش فراگیر،
+        تقویت استقلال و کمک به مشارکت اجتماعی کودکان دارای معلولیت است.
+
+      </p>
+
+      <br>
+
+      <p class="slogan">
+        هر کودک، یک نگین
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     فرم ثبت نام آنلاین
+======================================================= -->
+
+<section id="register" class="form-section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      📝 ثبت‌نام آنلاین
+    </h2>
+
+    <div class="form-card">
+
+      <p style="margin-bottom:25px;text-align:center;">
+
+        برای درخواست ثبت‌نام، لطفاً اطلاعات زیر را تکمیل کنید.
+        اطلاعات فرم از طریق Formspree ارسال می‌شود.
+
+      </p>
+
+      <form
+        action="https://formspree.io/f/mrpzdnny"
+        method="POST">
+
+        <input
+          type="hidden"
+          name="_subject"
+          value="درخواست ثبت‌نام جدید - مرکز آموزشی و توانبخشی نگین">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+
+            <label for="child-name">
+              نام کودک *
+            </label>
+
+            <input
+              id="child-name"
+              type="text"
+              name="نام کودک"
+              required>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="parent-name">
+              نام والد / سرپرست *
+            </label>
+
+            <input
+              id="parent-name"
+              type="text"
+              name="نام والد یا سرپرست"
+              required>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="email">
+              ایمیل
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              name="email">
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="phone">
+              شماره تماس *
+            </label>
+
+            <input
+              id="phone"
+              type="tel"
+              name="شماره تماس"
+              required>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="age">
+              سن کودک
+            </label>
+
+            <input
+              id="age"
+              type="number"
+              name="سن کودک"
+              min="1"
+              max="30">
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="service">
+              زمینه مورد نیاز
+            </label>
+
+            <select
+              id="service"
+              name="زمینه مورد نیاز">
+
+              <option value="">
+                انتخاب کنید
+              </option>
+
+              <option>
+                آموزش ویژه
+              </option>
+
+              <option>
+                توانبخشی
+              </option>
+
+              <option>
+                گفتار و زبان
+              </option>
+
+              <option>
+                مهارت‌های زندگی
+              </option>
+
+              <option>
+                حمایت آموزشی
+              </option>
+
+              <option>
+                سایر
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="form-group full">
+
+            <label for="message">
+              توضیحات
+            </label>
+
+            <textarea
+              id="message"
+              name="پیام"
+              placeholder="لطفاً درخواست یا توضیحات خود را بنویسید..."></textarea>
+
+          </div>
+
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary">
+
+          ارسال درخواست ثبت‌نام
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     فرم تماس
+======================================================= -->
+
+<section id="contact">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      📞 تماس با ما
+    </h2>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+
+        <h3>📧 ایمیل مرکز</h3>
+
+        <a href="mailto:negineducationcenter@gmail.com">
+          negineducationcenter@gmail.com
+        </a>
+
+      </div>
+
+      <div class="contact-card">
+
+        <h3>📧 ایمیل مدیریت و فنی</h3>
+
+        <a href="mailto:qaishaidari.smart@gmail.com">
+          qaishaidari.smart@gmail.com
+        </a>
+
+      </div>
+
+      <div class="contact-card">
+
+        <h3>📱 شماره تماس</h3>
+
+        <a href="tel:+93799687687">
+          +93 799 687 687
+        </a>
+
+      </div>
+
+      <div class="contact-card">
+
+        <h3>🌍 کشور</h3>
+
+        <p>
+          افغانستان
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     فرم پیام
+======================================================= -->
+
+<section class="form-section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      ✉️ ارسال پیام
+    </h2>
+
+    <div class="form-card">
+
+      <form
+        action="https://formspree.io/f/mrpzdnny"
+        method="POST">
+
+        <input
+          type="hidden"
+          name="_subject"
+          value="پیام جدید - مرکز آموزشی و توانبخشی نگین">
+
+        <div class="form-group">
+
+          <label for="contact-name">
+            نام شما *
+          </label>
+
+          <input
+            id="contact-name"
+            type="text"
+            name="نام"
+            required>
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="contact-email">
+            ایمیل *
+          </label>
+
+          <input
+            id="contact-email"
+            type="email"
+            name="email"
+            required>
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="contact-message">
+            پیام *
+          </label>
+
+          <textarea
+            id="contact-message"
+            name="پیام"
+            required></textarea>
+
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-green">
+
+          ارسال پیام
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     مشخصات وب‌سایت
+======================================================= -->
+
+<section>
+
+  <div class="container">
+
+    <h2 class="section-title">
+      مشخصات وب‌سایت
+    </h2>
+
+    <div class="card">
+
+      <table class="info-table">
+
+        <tr>
+          <td>نام</td>
+          <td>مرکز آموزشی و توانبخشی نگین</td>
+        </tr>
+
+        <tr>
+          <td>شعار</td>
+          <td>هر کودک، یک نگین</td>
+        </tr>
+
+        <tr>
+          <td>کشور</td>
+          <td>افغانستان</td>
+        </tr>
+
+        <tr>
+          <td>زبان اصلی</td>
+          <td>دری (فارسی افغانستان)</td>
+        </tr>
+
+        <tr>
+          <td>زبان دوم</td>
+          <td>پشتو</td>
+        </tr>
+
+        <tr>
+          <td>زبان آینده</td>
+          <td>انگلیسی</td>
+        </tr>
+
+        <tr>
+          <td>نوع وب‌سایت</td>
+          <td>آموزشی، حمایتی، اطلاع‌رسانی و خدماتی</td>
+        </tr>
+
+        <tr>
+          <td>سیستم مدیریتی</td>
+          <td>QHSMART</td>
+        </tr>
+
+        <tr>
+          <td>نسخه</td>
+          <td>1.0</td>
+        </tr>
+
+        <tr>
+          <td>سال انتشار</td>
+          <td>۲۰۲۶</td>
+        </tr>
+
+        <tr>
+          <td>طراحان و توسعه‌دهندگان</td>
+          <td>قیس حیدری و ساحل حیدری</td>
+        </tr>
+
+        <tr>
+          <td>مؤسسه طراح</td>
+          <td>QH VisionX</td>
+        </tr>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =======================================================
+     مالکیت و حقوق
+======================================================= -->
+
+<section>
+
+  <div class="container">
+
+    <h2 class="section-title">
+      مالکیت و حقوق
+    </h2>
+
+    <div class="card">
+
+      <p>
+        مکان این مرکز توسط قیس حیدری با هزینه شخصی خریداری و
+        برای تأسیس مرکز آموزشی و توانبخشی نگین اختصاص یافته است.
+      </p>
+
+      <br>
+
+      <p>
+        مالکیت معنوی و طراحی این پروژه متعلق به QH VisionX
+        و طراحان آن، مطابق توافقات و قوانین مربوط، می‌باشد.
+      </p>
+
+      <br>
+
+      <p>
+        هرگونه استفاده، بازنشر یا کپی‌برداری از محتوای اختصاصی
+        بدون اجازه کتبی مالک حقوق ممنوع است.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- =======================================================
+     Footer
+======================================================= -->
+
+<footer>
+
+  <p>
+    © ۲۰۲۶ مرکز آموزشی و توانبخشی نگین
+  </p>
+
+  <p>
+    تمامی حقوق مادی و معنوی محفوظ است.
+  </p>
+
+  <div class="footer-links">
+
+    <a href="#home">خانه</a>
+
+    <a href="#about">درباره ما</a>
+
+    <a href="#register">ثبت‌نام</a>
+
+    <a href="#contact">تماس</a>
+
+  </div>
+
+  <p>
+    طراحی و توسعه توسط قیس حیدری و ساحل حیدری | QH VisionX
+  </p>
+
+  <p>
+    «هر کودک، یک نگین»
+  </p>
+
+</footer>
+
+<!-- =======================================================
+     نگین هوشمند - پنجره
+======================================================= -->
+
+<div
+  id="aiChat"
+  class="ai-chat"
+  role="dialog"
+  aria-label="نگین هوشمند"
+  aria-modal="false">
+
+  <div class="ai-header">
+
+    <strong>
+      🤖 نگین هوشمند
+    </strong>
+
+    <button
+      type="button"
+      onclick="closeAI()"
+      aria-label="بستن نگین هوشمند">
+
+      ×
+
+    </button>
+
+  </div>
+
+  <div
+    id="aiMessages"
+    class="ai-messages"
+    aria-live="polite">
+
+    <div class="ai-message ai-bot">
+
+      سلام 🌱  
+      من «نگین هوشمند» هستم.
+
+      <br><br>
+
+      می‌توانم درباره بخش‌های وب‌سایت نگین،
+      ثبت‌نام، خدمات مرکز و اطلاعات عمومی
+      درباره معلولیت‌ها راهنمایی کنم.
+
+      <br><br>
+
+      من تشخیص پزشکی یا نسخه درمانی ارائه نمی‌کنم.
+
+    </div>
+
+  </div>
+
+  <div class="ai-input">
+
+    <input
+      id="aiInput"
+      type="text"
+      placeholder="سؤال خود را بنویسید..."
+      aria-label="سؤال برای نگین هوشمند"
+      onkeydown="if(event.key==='Enter') sendAI()">
+
+    <button
+      type="button"
+      onclick="sendAI()">
+
+      ارسال
+
+    </button>
+
+  </div>
+
+</div>
+
+<!-- =======================================================
+     دکمه شناور نگین هوشمند
+======================================================= -->
+
+<button
+  class="ai-float"
+  type="button"
+  onclick="openAI()"
+  aria-label="باز کردن نگین هوشمند">
+
+  🤖
+
+  <span>
+    نگین هوشمند
+  </span>
+
+</button>
+
+<!-- =======================================================
+     JavaScript
+======================================================= -->
+
+<script>
+
+/* =========================================================
+   تغییر اندازه متن
+========================================================= */
+
+let currentFontSize = 18;
+
+function increaseText(){
+
+  if(currentFontSize < 24){
+
+    currentFontSize += 1;
+
+    document.documentElement.style
+      .setProperty('--font-size', currentFontSize + 'px');
+
+  }
+
+}
+
+function decreaseText(){
+
+  if(currentFontSize > 14){
+
+    currentFontSize -= 1;
+
+    document.documentElement.style
+      .setProperty('--font-size', currentFontSize + 'px');
+
+  }
+
+}
+
+function resetText(){
+
+  currentFontSize = 18;
+
+  document.documentElement.style
+    .setProperty('--font-size','18px');
+
+}
+
+/* =========================================================
+   حالت تاریک
+========================================================= */
+
+function toggleDarkMode(){
+
+  document.body.classList.toggle('dark-mode');
+
+  const enabled =
+    document.body.classList.contains('dark-mode');
+
+  localStorage.setItem(
+    'neginDarkMode',
+    enabled ? '1' : '0'
+  );
+
+}
+
+/* =========================================================
+   کنتراست بالا
+========================================================= */
+
+function toggleContrast(){
+
+  document.body.classList.toggle('high-contrast');
+
+  const enabled =
+    document.body.classList.contains('high-contrast');
+
+  localStorage.setItem(
+    'neginHighContrast',
+    enabled ? '1' : '0'
+  );
+
+}
+
+/* =========================================================
+   بازیابی تنظیمات
+========================================================= */
+
+if(
+  localStorage.getItem('neginDarkMode') === '1'
+){
+
+  document.body.classList.add('dark-mode');
+
+}
+
+if(
+  localStorage.getItem('neginHighContrast') === '1'
+){
+
+  document.body.classList.add('high-contrast');
+
+}
+
+/* =========================================================
+   نگین هوشمند
+========================================================= */
+
+function openAI(){
+
+  document
+    .getElementById('aiChat')
+    .classList.add('open');
+
+  setTimeout(function(){
+
+    document
+      .getElementById('aiInput')
+      .focus();
+
+  },100);
+
+}
+
+function closeAI(){
+
+  document
+    .getElementById('aiChat')
+    .classList.remove('open');
+
+}
+
+/* =========================================================
+   پاسخ‌های پایه نگین هوشمند
+========================================================= */
+
+function getAIResponse(question){
+
+  const q =
+    question
+      .toLowerCase()
+      .replace(/ي/g,'ی')
+      .replace(/ك/g,'ک');
+
+  if(
+    q.includes('ثبت نام') ||
+    q.includes('ثبت‌نام')
+  ){
+
+    return `
+      برای ثبت‌نام آنلاین، از بخش
+      «ثبت‌نام آنلاین» فرم را تکمیل کنید.
+      اطلاعات فرم از طریق سیستم Formspree
+      برای مرکز ارسال می‌شود.
+    `;
+
+  }
+
+  if(
+    q.includes('تماس') ||
+    q.includes('ایمیل') ||
+    q.includes('شماره')
+  ){
+
+    return `
+      ایمیل مرکز:
+      negineducationcenter@gmail.com
+
+      <br><br>
+
+      شماره تماس:
+      +93 799 687 687
+    `;
+
+  }
+
+  if(
+    q.includes('اوتیزم') ||
+    q.includes('اوتیسم')
+  ){
+
+    return `
+      اوتیزم یک وضعیت رشدی و عصبی است که
+      می‌تواند بر ارتباط، تعامل اجتماعی،
+      پردازش حسی و الگوهای رفتاری تأثیر بگذارد.
+
+      <br><br>
+
+      اطلاعات این سایت عمومی است و تشخیص پزشکی
+      باید توسط متخصص انجام شود.
+    `;
+
+  }
+
+  if(
+    q.includes('adhd') ||
+    q.includes('بیش فعالی') ||
+    q.includes('بیش‌فعالی')
+  ){
+
+    return `
+      ADHD می‌تواند با تفاوت‌هایی در توجه،
+      فعالیت و کنترل تکانه همراه باشد.
+
+      <br><br>
+
+      تشخیص و درمان باید توسط متخصص واجد شرایط
+      انجام شود.
+    `;
+
+  }
+
+  if(
+    q.includes('معلولیت') ||
+    q.includes('ناتوان')
+  ){
+
+    return `
+      در بخش «انواع معلولیت اطفال» سایت،
+      اطلاعات عمومی درباره انواع معلولیت‌های
+      جسمی، حسی، شناختی، رشدی، یادگیری،
+      گفتار و زبان و چندمعلولیتی قرار دارد.
+    `;
+
+  }
+
+  if(
+    q.includes('خدمات') ||
+    q.includes('برنامه')
+  ){
+
+    return `
+      خدمات معرفی‌شده در سایت شامل آموزش ویژه،
+      توانبخشی، گفتار و ارتباط، مهارت‌های زندگی،
+      هنر و خلاقیت و حمایت از خانواده است.
+    `;
+
+  }
+
+  if(
+    q.includes('مرکز') ||
+    q.includes('نگین')
+  ){
+
+    return `
+      مرکز آموزشی و توانبخشی نگین در افغانستان
+      با شعار «هر کودک، یک نگین» برای آموزش،
+      توانبخشی، حمایت و ایجاد فرصت‌های برابر
+      برای کودکان فعالیت می‌کند.
+    `;
+
+  }
+
+  return `
+    من فقط درباره وب‌سایت مرکز آموزشی و توانبخشی
+    نگین، خدمات مرکز، ثبت‌نام و اطلاعات عمومی
+    مرتبط با معلولیت‌ها راهنمایی می‌کنم.
+
+    <br><br>
+
+    لطفاً سؤال خود را مشخص‌تر بنویسید؛
+    مثلاً: «چگونه ثبت‌نام کنم؟»
+    یا «خدمات مرکز چیست؟»
+
+    <br><br>
+
+    ⚠️ برای تشخیص یا درمان پزشکی حتماً
+    با متخصص مربوط مشورت کنید.
+  `;
+
+}
+
+/* =========================================================
+   ارسال سؤال
+========================================================= */
+
+function sendAI(){
+
+  const input =
+    document.getElementById('aiInput');
+
+  const messages =
+    document.getElementById('aiMessages');
+
+  const question =
+    input.value.trim();
+
+  if(!question){
+    return;
+  }
+
+  const userMessage =
+    document.createElement('div');
+
+  userMessage.className =
+    'ai-message ai-user';
+
+  userMessage.textContent =
+    question;
+
+  messages.appendChild(userMessage);
+
+  input.value='';
+
+  setTimeout(function(){
+
+    const botMessage =
+      document.createElement('div');
+
+    botMessage.className =
+      'ai-message ai-bot';
+
+    botMessage.innerHTML =
+      getAIResponse(question);
 
     messages.appendChild(botMessage);
 
     messages.scrollTop =
-      messages.
+      messages.scrollHeight;
+
+  },300);
+
+  messages.scrollTop =
+    messages.scrollHeight;
+
+}
+
+</script>
+
+</body>
+</html>
