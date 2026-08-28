@@ -1,361 +1,3805 @@
-from pathlib import Path
-import zipfile
-
-root = Path("/mnt/data/negin-education.github.io")
-about = root / "about.html"
-
-html = r'''<!doctype html>
-<html lang="fa-AF" dir="rtl">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>درباره ما | مرکز آموزشی و توانبخشی نگین</title>
-<meta name="description" content="معرفی، داستان، بنیان‌گذاران، نقش اجمیر خان میرزاد، چشم‌انداز، مأموریت، ارزش‌ها، تیم و اهداف مرکز آموزشی و توانبخشی نگین.">
-<meta name="theme-color" content="#075e73">
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-<a class="skip" href="#main">پرش به محتوای اصلی</a>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="topbar">
-  <div class="container">
-    <span>مرکز آموزشی و توانبخشی نگین</span>
-    <span>هر کودک، یک نگین</span>
-  </div>
+<title>مرکز آموزشی و توانبخشی نگین | هر کودک، یک نگین</title>
+
+<meta name="description"
+content="مرکز آموزشی و توانبخشی نگین در کابل؛ آموزش تخصصی، توانبخشی حرفه‌ای و حمایت از کودکان دارای معلولیت و خانواده‌های آنان.">
+
+<meta name="keywords"
+content="مرکز آموزشی نگین, توانبخشی کودکان, کودکان دارای معلولیت, آموزش ویژه, کابل, افغانستان">
+
+<meta name="theme-color" content="#0879c9">
+
+<style>
+
+/* =========================================================
+   Negin Educational & Rehabilitation Center
+   Single-file GitHub Pages Website
+========================================================= */
+
+:root{
+    --primary:#0879c9;
+    --primary-dark:#07569c;
+    --primary-light:#36a9e1;
+
+    --green:#18a999;
+    --green-dark:#087f70;
+
+    --gold:#d4a017;
+    --gold-light:#ffd166;
+
+    --pink:#e83e8c;
+    --purple:#7657d9;
+    --orange:#f28c28;
+
+    --bg:#f5fbff;
+    --bg-soft:#eef8fc;
+    --card:#ffffff;
+
+    --text:#203040;
+    --muted:#607080;
+
+    --border:#d8e7f0;
+
+    --shadow:0 12px 35px rgba(0,0,0,.08);
+    --shadow-lg:0 20px 55px rgba(0,0,0,.14);
+
+    --radius:20px;
+    --radius-sm:12px;
+
+    --max:1180px;
+
+    --font-size:16px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        Tahoma,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:var(--font-size);
+
+    line-height:2;
+
+    color:var(--text);
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(8,121,201,.05),
+            transparent 35%
+        ),
+        var(--bg);
+
+    transition:
+        background .3s ease,
+        color .3s ease;
+}
+
+body.dark{
+    --bg:#0d1820;
+    --bg-soft:#12232d;
+    --card:#182b36;
+
+    --text:#f3f7fa;
+    --muted:#bdcbd4;
+
+    --border:#314854;
+
+    --shadow:0 12px 35px rgba(0,0,0,.35);
+    --shadow-lg:0 20px 55px rgba(0,0,0,.5);
+}
+
+body.high-contrast{
+    --primary:#005fcc;
+    --green:#007a55;
+    --text:#000;
+    --bg:#fff;
+    --card:#fff;
+}
+
+body.dark.high-contrast{
+    --text:#fff;
+    --bg:#000;
+    --card:#101010;
+}
+
+a{
+    color:var(--primary);
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+img{
+    max-width:100%;
+}
+
+.container{
+    width:min(var(--max), calc(100% - 32px));
+    margin:auto;
+}
+
+.skip-link{
+    position:fixed;
+    top:-100px;
+    right:20px;
+    z-index:99999;
+
+    background:#000;
+    color:#fff;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+}
+
+.skip-link:focus{
+    top:15px;
+}
+
+:focus-visible{
+    outline:4px solid var(--gold-light);
+    outline-offset:3px;
+}
+
+/* =========================================================
+   TOP ACCESSIBILITY BAR
+========================================================= */
+
+.accessibility{
+    background:#063b4f;
+    color:white;
+
+    padding:7px 15px;
+}
+
+.accessibility-inner{
+    max-width:var(--max);
+    margin:auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.accessibility button{
+    background:rgba(255,255,255,.12);
+    color:white;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    padding:6px 11px;
+
+    border-radius:8px;
+
+    font-size:13px;
+    font-weight:bold;
+}
+
+.accessibility button:hover{
+    background:var(--gold-light);
+    color:#111;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:5000;
+
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:0 5px 25px rgba(0,0,0,.06);
+}
+
+.dark .header{
+    background:rgba(15,30,38,.9);
+}
+
+.nav-wrap{
+    min-height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-weight:900;
+
+    color:var(--primary);
+
+    white-space:nowrap;
+}
+
+.brand-icon{
+    width:48px;
+    height:48px;
+
+    display:grid;
+    place-items:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--green)
+        );
+
+    color:white;
+
+    border-radius:15px;
+
+    font-size:25px;
+
+    box-shadow:0 8px 20px rgba(8,121,201,.25);
+}
+
+.brand-text{
+    line-height:1.25;
+}
+
+.brand-title{
+    font-size:17px;
+}
+
+.brand-sub{
+    display:block;
+
+    color:var(--muted);
+
+    font-size:10px;
+    font-weight:500;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+
+    gap:3px;
+}
+
+.nav a{
+    color:var(--text);
+
+    font-size:13px;
+    font-weight:800;
+
+    padding:8px 10px;
+
+    border-radius:9px;
+}
+
+.nav a:hover,
+.nav a.active{
+    color:var(--primary);
+    background:rgba(8,121,201,.09);
+    text-decoration:none;
+}
+
+.menu-toggle{
+    display:none;
+
+    border:0;
+
+    background:var(--primary);
+
+    color:white;
+
+    width:46px;
+    height:46px;
+
+    border-radius:12px;
+
+    font-size:23px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    padding:105px 20px 90px;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(24,169,153,.18),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(232,62,140,.12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #effaff,
+            #ffffff
+        );
+}
+
+.dark .hero{
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(24,169,153,.14),
+            transparent 28%
+        ),
+        linear-gradient(
+            145deg,
+            #102630,
+            #0d1820
+        );
+}
+
+.hero-content{
+    max-width:930px;
+    margin:auto;
+
+    text-align:center;
+}
+
+.hero-logo{
+    width:115px;
+    height:115px;
+
+    margin:0 auto 22px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:35px;
+
+    font-size:65px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--green)
+        );
+
+    color:white;
+
+    box-shadow:
+        0 20px 45px rgba(8,121,201,.25);
+
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-9px);
+    }
+}
+
+.eyebrow{
+    color:var(--green);
+
+    font-weight:900;
+
+    font-size:18px;
+
+    margin-bottom:8px;
+}
+
+.hero h1{
+    font-size:clamp(35px,6vw,64px);
+
+    color:var(--primary-dark);
+
+    line-height:1.3;
+
+    margin-bottom:15px;
+
+    font-weight:900;
+}
+
+.dark .hero h1{
+    color:var(--primary-light);
+}
+
+.hero-description{
+    max-width:780px;
+
+    margin:0 auto;
+
+    font-size:19px;
+
+    color:var(--muted);
+}
+
+.hero-slogan{
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:10px 30px;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            #ffe99a
+        );
+
+    color:#3c3100;
+
+    font-weight:900;
+
+    box-shadow:0 10px 30px rgba(212,160,23,.2);
+}
+
+.hero-actions{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:32px;
+}
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:7px;
+
+    border:0;
+
+    border-radius:14px;
+
+    padding:13px 23px;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    transition:.25s;
+
+    box-shadow:0 7px 20px rgba(0,0,0,.1);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    text-decoration:none;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-green{
+    background:var(--green);
+    color:white;
+}
+
+.btn-gold{
+    background:var(--gold-light);
+    color:#222;
+}
+
+.btn-outline{
+    background:transparent;
+
+    border:2px solid var(--primary);
+
+    color:var(--primary);
+
+    box-shadow:none;
+}
+
+.btn-outline:hover{
+    background:var(--primary);
+    color:white;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+}
+
+.stat{
+    background:rgba(255,255,255,.75);
+
+    border:1px solid rgba(255,255,255,.5);
+
+    backdrop-filter:blur(10px);
+
+    padding:20px;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+}
+
+.dark .stat{
+    background:rgba(24,43,54,.8);
+}
+
+.stat-number{
+    display:block;
+
+    color:var(--primary);
+
+    font-size:29px;
+
+    font-weight:900;
+}
+
+.stat-label{
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section{
+    padding:85px 0;
+}
+
+.section-soft{
+    background:var(--bg-soft);
+}
+
+.section-title{
+    text-align:center;
+
+    color:var(--primary-dark);
+
+    font-size:clamp(27px,4vw,38px);
+
+    font-weight:900;
+
+    margin-bottom:15px;
+}
+
+.dark .section-title{
+    color:var(--primary-light);
+}
+
+.section-title::after{
+    content:"";
+
+    display:block;
+
+    width:75px;
+    height:5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--green)
+        );
+
+    border-radius:20px;
+
+    margin:13px auto 0;
+}
+
+.section-intro{
+    max-width:820px;
+
+    margin:0 auto 38px;
+
+    text-align:center;
+
+    color:var(--muted);
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.grid{
+    display:grid;
+    gap:22px;
+}
+
+.grid-2{
+    grid-template-columns:
+        repeat(2,1fr);
+}
+
+.grid-3{
+    grid-template-columns:
+        repeat(3,1fr);
+}
+
+.grid-4{
+    grid-template-columns:
+        repeat(4,1fr);
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card{
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow-lg);
+}
+
+.card h3{
+    color:var(--primary);
+
+    font-size:21px;
+
+    margin-bottom:10px;
+}
+
+.card p{
+    color:var(--muted);
+}
+
+.icon{
+    width:65px;
+    height:65px;
+
+    display:grid;
+    place-items:center;
+
+    background:rgba(8,121,201,.09);
+
+    border-radius:18px;
+
+    font-size:34px;
+
+    margin-bottom:17px;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-highlight{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8,121,201,.07),
+            rgba(24,169,153,.08)
+        );
+
+    border-right:6px solid var(--green);
+}
+
+.story-card{
+    margin-top:22px;
+}
+
+.quote{
+    padding:22px;
+
+    background:rgba(212,160,23,.1);
+
+    border-right:5px solid var(--gold);
+
+    border-radius:14px;
+
+    margin-top:22px;
+
+    font-weight:800;
+}
+
+/* =========================================================
+   FOUNDER MESSAGE
+========================================================= */
+
+.founder-message{
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--green-dark)
+        );
+
+    color:white;
+
+    border-radius:30px;
+
+    padding:50px;
+
+    box-shadow:var(--shadow-lg);
+}
+
+.founder-message h2{
+    color:white;
+    margin-bottom:20px;
+}
+
+.founder-message p{
+    opacity:.94;
+}
+
+.founder-names{
+    margin-top:25px;
+
+    font-weight:900;
+
+    color:var(--gold-light);
+}
+
+/* =========================================================
+   AJMIR KHAN
+========================================================= */
+
+.ajmir{
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(232,62,140,.13),
+            transparent 30%
+        ),
+        var(--card);
+}
+
+.person-header{
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:20px;
+}
+
+.person-avatar{
+    width:85px;
+    height:85px;
+
+    flex:none;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:25px;
+
+    color:white;
+
+    font-size:38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--purple)
+        );
+}
+
+.person-header h3{
+    margin:0;
+}
+
+.person-role{
+    color:var(--green);
+
+    font-size:14px;
+
+    font-weight:900;
+}
+
+/* =========================================================
+   VISION MISSION
+========================================================= */
+
+.vision{
+    background:
+        linear-gradient(
+            135deg,
+            #eafaff,
+            #effff7
+        );
+}
+
+.dark .vision{
+    background:#102932;
+}
+
+.vm-card{
+    text-align:center;
+
+    padding:40px 30px;
+}
+
+.vm-icon{
+    font-size:45px;
+
+    margin-bottom:10px;
+}
+
+.vm-card h3{
+    color:var(--green-dark);
+}
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.value-card{
+    position:relative;
+
+    overflow:hidden;
+}
+
+.value-number{
+    position:absolute;
+
+    left:20px;
+    top:10px;
+
+    font-size:50px;
+
+    font-weight:900;
+
+    color:rgba(8,121,201,.07);
+}
+
+.value-card h3{
+    position:relative;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.service-card{
+    text-align:center;
+}
+
+.service-card .icon{
+    margin:0 auto 17px;
+}
+
+.service-card:nth-child(2) .icon{
+    background:rgba(24,169,153,.1);
+}
+
+.service-card:nth-child(3) .icon{
+    background:rgba(232,62,140,.1);
+}
+
+/* =========================================================
+   TEAM
+========================================================= */
+
+.team-card{
+    text-align:center;
+}
+
+.team-avatar{
+    width:95px;
+    height:95px;
+
+    margin:0 auto 18px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--green)
+        );
+
+    color:white;
+
+    font-size:42px;
+}
+
+.team-role{
+    display:block;
+
+    color:var(--green);
+
+    font-weight:900;
+
+    font-size:13px;
+
+    margin-bottom:8px;
+}
+
+/* =========================================================
+   WHY NEGIN
+========================================================= */
+
+.need-box{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8,121,201,.08),
+            rgba(232,62,140,.05)
+        );
+
+    border-radius:28px;
+
+    padding:40px;
+
+    border:1px solid var(--border);
+}
+
+.need-list{
+    display:grid;
+
+    gap:15px;
+
+    margin-top:25px;
+}
+
+.need-item{
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+}
+
+.need-item span{
+    width:32px;
+    height:32px;
+
+    flex:none;
+
+    display:grid;
+    place-items:center;
+
+    background:var(--primary);
+
+    color:white;
+
+    border-radius:50%;
+
+    font-size:14px;
+}
+
+/* =========================================================
+   SUPPORT
+========================================================= */
+
+.support-card{
+    text-align:center;
+}
+
+.support-card .support-icon{
+    font-size:45px;
+
+    margin-bottom:10px;
+}
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonial{
+    position:relative;
+
+    padding-top:45px;
+}
+
+.testimonial::before{
+    content:"“";
+
+    position:absolute;
+
+    top:5px;
+    right:25px;
+
+    font-size:70px;
+
+    color:var(--primary);
+
+    opacity:.2;
+}
+
+.testimonial-author{
+    display:block;
+
+    margin-top:15px;
+
+    color:var(--green);
+
+    font-weight:900;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+.contact-card{
+    text-align:center;
+}
+
+.contact-icon{
+    font-size:35px;
+
+    margin-bottom:10px;
+}
+
+.contact-card h3{
+    font-size:17px;
+}
+
+.contact-card p{
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-wrapper{
+    max-width:850px;
+
+    margin:35px auto 0;
+}
+
+.form-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:18px;
+}
+
+.form-group{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+label{
+    font-weight:900;
+
+    font-size:14px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+
+    padding:13px 15px;
+
+    border:2px solid var(--border);
+
+    border-radius:12px;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    font-size:15px;
+
+    outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:var(--primary);
+}
+
+textarea{
+    min-height:140px;
+
+    resize:vertical;
+}
+
+.form-message{
+    display:none;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    background:rgba(24,169,153,.12);
+
+    color:var(--green-dark);
+
+    font-weight:800;
+}
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.map-box{
+    margin-top:30px;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+}
+
+.map-box iframe{
+    width:100%;
+
+    height:380px;
+
+    border:0;
+}
+
+/* =========================================================
+   SMART ASSISTANT
+========================================================= */
+
+.smart-button{
+    position:fixed;
+
+    left:22px;
+    bottom:22px;
+
+    z-index:9000;
+
+    width:65px;
+    height:65px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--green)
+        );
+
+    color:white;
+
+    font-size:25px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.25);
+}
+
+.smart-window{
+    display:none;
+
+    position:fixed;
+
+    left:22px;
+    bottom:100px;
+
+    z-index:8999;
+
+    width:min(390px, calc(100vw - 30px));
+
+    height:520px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow-lg);
+
+    overflow:hidden;
+}
+
+.smart-window.open{
+    display:flex;
+
+    flex-direction:column;
+}
+
+.smart-header{
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--green)
+        );
+
+    color:white;
+
+    padding:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+.smart-header button{
+    background:none;
+
+    color:white;
+
+    border:0;
+
+    font-size:23px;
+}
+
+.smart-body{
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:15px;
+}
+
+.smart-message{
+    padding:11px;
+
+    border-radius:13px;
+
+    margin-bottom:10px;
+
+    background:rgba(8,121,201,.08);
+
+    color:var(--text);
+
+    font-size:14px;
+}
+
+.smart-user{
+    background:rgba(24,169,153,.12);
+}
+
+.smart-footer{
+    display:flex;
+
+    gap:7px;
+
+    padding:10px;
+
+    border-top:1px solid var(--border);
+}
+
+.smart-footer input{
+    flex:1;
+}
+
+.smart-footer button{
+    border:0;
+
+    background:var(--primary);
+
+    color:white;
+
+    border-radius:10px;
+
+    padding:8px 13px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:
+        linear-gradient(
+            135deg,
+            #063b4f,
+            #07569c
+        );
+
+    color:white;
+
+    padding:55px 0 25px;
+
+    margin-top:20px;
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr;
+
+    gap:35px;
+}
+
+footer h3{
+    margin-bottom:13px;
+
+    color:var(--gold-light);
+}
+
+footer p{
+    opacity:.9;
+}
+
+.footer-links{
+    list-style:none;
+}
+
+.footer-links li{
+    margin:7px 0;
+}
+
+.footer-links a{
+    color:white;
+    opacity:.9;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.2);
+
+    margin-top:35px;
+
+    padding-top:20px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    opacity:.8;
+}
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.top-button{
+    position:fixed;
+
+    right:20px;
+    bottom:22px;
+
+    width:48px;
+    height:48px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:white;
+
+    z-index:8000;
+
+    display:none;
+
+    box-shadow:var(--shadow);
+}
+
+.top-button.show{
+    display:block;
+}
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .nav a{
+        font-size:12px;
+        padding:7px;
+    }
+
+    .grid-4,
+    .contact-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+@media(max-width:850px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav{
+        position:absolute;
+
+        top:78px;
+        right:16px;
+        left:16px;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        background:var(--card);
+
+        border:1px solid var(--border);
+
+        border-radius:16px;
+
+        padding:10px;
+
+        box-shadow:var(--shadow-lg);
+    }
+
+    .nav.open{
+        display:flex;
+    }
+
+    .nav a{
+        color:var(--text);
+
+        padding:11px;
+
+        font-size:14px;
+    }
+
+    .grid-3,
+    .grid-2{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:60px 0;
+    }
+
+    .hero{
+        padding:75px 15px 65px;
+    }
+
+    .hero-logo{
+        width:90px;
+        height:90px;
+        font-size:50px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .hero-slogan{
+        font-size:15px;
+        padding:8px 18px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stat{
+        padding:15px 8px;
+    }
+
+    .stat-number{
+        font-size:23px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .grid-4,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .founder-message{
+        padding:28px 22px;
+    }
+
+    .need-box{
+        padding:25px 20px;
+    }
+
+    .smart-window{
+        left:15px;
+        bottom:90px;
+    }
+
+    .smart-button{
+        left:15px;
+        bottom:15px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        transition:none!important;
+        scroll-behavior:auto!important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">
+    رفتن به محتوای اصلی
+</a>
+
+<!-- =====================================================
+     ACCESSIBILITY
+===================================================== -->
+
+<div class="accessibility">
+    <div class="accessibility-inner">
+
+        <span>ابزارهای دسترسی:</span>
+
+        <button onclick="changeFont(1)">
+            A+
+        </button>
+
+        <button onclick="changeFont(-1)">
+            A−
+        </button>
+
+        <button onclick="toggleContrast()">
+            کنتراست
+        </button>
+
+        <button onclick="toggleDarkMode()">
+            حالت شب
+        </button>
+
+        <button onclick="speakPage()">
+            🔊 خواندن صفحه
+        </button>
+
+        <button onclick="stopSpeaking()">
+            ⏹ توقف
+        </button>
+
+    </div>
 </div>
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header class="header">
-  <div class="container nav-wrap">
-    <a class="brand" href="index.html" aria-label="صفحه اصلی نگین">
-      <span class="brand-mark">✦</span>
-      <span>نگین<small>مرکز آموزشی و توانبخشی</small></span>
-    </a>
-    <button class="menu" aria-label="باز کردن منو" aria-expanded="false">☰</button>
-    <nav class="nav" aria-label="ناوبری اصلی">
-      <a href="index.html">خانه</a>
-      <a class="active" aria-current="page" href="about.html">درباره ما</a>
-      <a href="services.html">خدمات</a>
-      <a href="team.html">تیم ما</a>
-      <a href="support.html">همکاری و حمایت</a>
-      <a href="contact.html">تماس با ما</a>
-    </nav>
-    <div class="access" aria-label="ابزارهای دسترسی">
-      <button id="largeText" title="اندازه متن">A+</button>
-      <button id="contrast" title="کنتراست">◐</button>
-      <button id="readPage" title="خواندن صفحه">🔊</button>
-      <button id="stopRead" title="توقف خواندن">■</button>
-      <button id="resetAccess" title="بازنشانی">↺</button>
-    </div>
-  </div>
+
+<div class="container nav-wrap">
+
+<a href="#home" class="brand">
+
+<span class="brand-icon">
+    💎
+</span>
+
+<span class="brand-text">
+
+<span class="brand-title">
+    مرکز آموزشی و توانبخشی نگین
+</span>
+
+<span class="brand-sub">
+    هر کودک، یک نگین
+</span>
+
+</span>
+
+</a>
+
+<button
+class="menu-toggle"
+onclick="toggleMenu()"
+aria-label="باز کردن منو">
+☰
+</button>
+
+<nav class="nav" id="nav">
+
+<a href="#home" class="active">
+خانه
+</a>
+
+<a href="#about">
+درباره ما
+</a>
+
+<a href="#story">
+داستان نگین
+</a>
+
+<a href="#ajmir">
+اجمیر خان میرزاد
+</a>
+
+<a href="#services">
+خدمات
+</a>
+
+<a href="#team">
+تیم ما
+</a>
+
+<a href="#support">
+همکاری و حمایت
+</a>
+
+<a href="#contact">
+تماس با ما
+</a>
+
+</nav>
+
+</div>
+
 </header>
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <main id="main">
 
-<section class="page-hero">
-  <div class="container">
-    <h1>درباره ما</h1>
-    <p class="breadcrumb"><a href="index.html">خانه</a> ← درباره ما</p>
-  </div>
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="container hero-content">
+
+<div class="hero-logo">
+    💎
+</div>
+
+<p class="eyebrow">
+مرکز آموزشی و توانبخشی نگین
+</p>
+
+<h1>
+هر کودک، یک نگین
+</h1>
+
+<p class="hero-description">
+
+آموزش، توانبخشی و حمایت از کودکان دارای معلولیت؛
+با عشق، کرامت، تخصص و باور به توانمندی‌های هر کودک.
+
+</p>
+
+<div class="hero-slogan">
+«با اراده می‌توان، با همت می‌سازیم»
+</div>
+
+<div class="hero-actions">
+
+<a href="#about" class="btn btn-primary">
+💎 آشنایی با نگین
+</a>
+
+<a href="#services" class="btn btn-green">
+🧩 خدمات ما
+</a>
+
+<a href="#contact" class="btn btn-outline">
+📞 تماس با مرکز
+</a>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<span class="stat-number">۱</span>
+<span class="stat-label">
+هر کودک، یک نگین
+</span>
+</div>
+
+<div class="stat">
+<span class="stat-number">۳</span>
+<span class="stat-label">
+محور اصلی فعالیت
+</span>
+</div>
+
+<div class="stat">
+<span class="stat-number">∞</span>
+<span class="stat-label">
+امید و توانمندی
+</span>
+</div>
+
+<div class="stat">
+<span class="stat-number">❤️</span>
+<span class="stat-label">
+عشق بی‌قیدوشرط
+</span>
+</div>
+
+</div>
+
+</div>
+
 </section>
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+<div class="container">
+
+<h2 class="section-title">
+درباره ما
+</h2>
+
+<p class="section-intro">
+سلام، ما نگین هستیم.
+</p>
+
+<div class="card about-highlight reveal">
+
+<p>
+
+مرکز آموزشی و توانبخشی نگین، ثمره‌ی سال‌ها عشق و تلاش
+اسدالله و ساحل حیدری است که با همراهی نیکوکارانه‌ی
+اجمیر خان میرزاد، امروز به خانه‌ای امن برای کودکان دارای
+معلولیت در کابل تبدیل شده است.
+
+اینجا، ما به هر کودکی می‌آموزیم که می‌تواند،
+همان‌طور که دیگران می‌توانند.
+
+</p>
+
+<p style="margin-top:18px">
+
+ما باور داریم که هیچ کودکی نباید به خاطر تفاوت‌هایش
+از آموزش و فرصت‌های زندگی محروم بماند.
+مرکز نگین، پاسخی است به سال‌ها بی‌پاسخی و پناهی است
+برای کودکانی که جامعه آن‌ها را فراموش کرده بود.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     STORY
+===================================================== -->
+
+<section class="section-soft" id="story">
+
+<div class="container">
+
+<h2 class="section-title">
+داستان نگین؛ رویایی که به واقعیت پیوست
+</h2>
+
+<div class="card story-card reveal">
+
+<p>
+
+مرکز آموزشی و توانبخشی نگین، حاصل سال‌ها آرزوی
+اسدالله حیدری و ساحل حیدری است.
+
+آنان که سال‌ها در میان کودکان دارای معلولیت زیستند
+و با چشم‌های خود، محرومیت‌های بی‌شمار این کودکان را دیدند،
+تصمیم گرفتند که تغییری اساسی ایجاد کنند.
+
+</p>
+
+<p style="margin-top:18px">
+
+سال‌ها تلاش، پیگیری و دل‌سپردن به ناامیدی‌های مکرر،
+سرانجام با همراهی ارزشمند اجمیر خان میرزاد،
+پسر جوان و نیکوکاری که دل در گروِ خدمت به همنوع داشت،
+به ثمر نشست.
+
+</p>
+
+<p style="margin-top:18px">
+
+اجمیر خان با دانش، انرژی و سرمایه‌ی وجودی خود،
+پل شد میان یک رؤیای دیرینه و یک واقعیت ملموس.
+
+</p>
+
+<p style="margin-top:18px">
+
+امروز، مرکز نگین به عنوان یکی از مراکز تخصصی
+آموزشی و توانبخشی کودکان دارای معلولیت در کابل،
+پناهگاهی امن برای کودکانی است که جامعه آن‌ها را
+فراموش کرده بود.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     FOUNDERS MESSAGE
+===================================================== -->
 
 <section>
-  <div class="container">
-    <div class="section-head">
-      <h2>معرفی کوتاه مرکز</h2>
-      <p>سلام، ما نگین هستیم.</p>
-    </div>
-    <div class="card">
-      <p>مرکز آموزشی و توانبخشی نگین، ثمره‌ی سال‌ها عشق و تلاش اسدالله و ساحل حیدری است که با همراهی نیکوکارانه‌ی اجمیر خان میرزاد، امروز به خانه‌ای امن برای کودکان دارای معلولیت در کابل تبدیل شده است. اینجا، ما به هر کودکی می‌آموزیم که می‌تواند، همان‌طور که دیگران می‌توانند.</p>
-      <p>ما باور داریم که هیچ کودکی نباید به خاطر تفاوت‌هایش از آموزش و فرصت‌های زندگی محروم بماند. مرکز نگین، پاسخی است به سال‌ها بی‌پاسخی و پناهی است برای کودکانی که جامعه آن‌ها را فراموش کرده بود.</p>
-    </div>
-  </div>
+
+<div class="container">
+
+<div class="founder-message reveal">
+
+<h2>
+پیام بنیان‌گذاران
+</h2>
+
+<p>
+
+سال‌ها پیش، وقتی به چشم‌های پرامید کودکان دارای
+معلولیت نگاه می‌کردیم، به خود قول دادیم که روزی
+خانه‌ای برای آن‌ها بسازیم.
+
+خانه‌ای که در آن، کسی به خاطر تفاوت‌هایش طرد نشود؛
+خانه‌ای که در آن، هر کودکی بتواند پرواز کند.
+
+امروز، با کمک شما، آن قول را عملی می‌کنیم.
+
+</p>
+
+<div class="founder-names">
+— اسدالله حیدری و ساحل حیدری، بنیان‌گذاران
+</div>
+
+<br>
+
+<p>
+
+این مرکز، فقط یک ساختمان نیست؛
+پاسخی است به سال‌ها بی‌پاسخی.
+من به این راه افتخار می‌کنم و از همه دعوت می‌کنم
+که در این مسیر انسانی همراه ما باشند.
+
+</p>
+
+<div class="founder-names">
+— اجمیر خان میرزاد
+<br>
+«با اراده می‌توان، با همت می‌سازیم»
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="about">
-  <div class="container">
-    <div class="section-head">
-      <h2>داستان نگین؛ رویایی که به واقعیت پیوست</h2>
-    </div>
-    <div class="card">
-      <p>مرکز آموزشی و توانبخشی نگین، حاصل سال‌ها آرزوی اسدالله حیدری و ساحل حیدری است. آنان که سال‌ها در میان کودکان دارای معلولیت زیستند و با چشم‌های خود، محرومیت‌های بی‌شمار این کودکان را دیدند، تصمیم گرفتند که تغییری اساسی ایجاد کنند.</p>
-      <p>سال‌ها تلاش، پیگیری و دل‌سپردن به ناامیدی‌های مکرر، سرانجام با همراهی ارزشمند اجمیر خان میرزاد، پسر جوان و نیکوکاری که دل در گروِ خدمت به همنوع داشت، به ثمر نشست. اجمیر خان با دانش، انرژی و سرمایه‌ی وجودی خود، پل شد میان یک رؤیای دیرینه و یک واقعیت ملموس.</p>
-      <p>امروز، مرکز نگین به عنوان یکی از معدود مراکز تخصصی آموزشی و توانبخشی کودکان دارای معلولیت در کابل، پناهگاهی امن برای کودکانی است که جامعه آن‌ها را فراموش کرده بود.</p>
-    </div>
-  </div>
+<!-- =====================================================
+     AJMIR KHAN
+===================================================== -->
+
+<section class="section-soft" id="ajmir">
+
+<div class="container">
+
+<h2 class="section-title">
+نقش اجمیر خان میرزاد؛ جوانی که رؤیا را به واقعیت پیوند زد
+</h2>
+
+<div class="card ajmir reveal">
+
+<div class="person-header">
+
+<div class="person-avatar">
+    🤝
+</div>
+
+<div>
+
+<h3>
+اجمیر خان میرزاد
+</h3>
+
+<div class="person-role">
+مشاور ارشد و حامی کلیدی مرکز آموزشی و توانبخشی نگین
+</div>
+
+</div>
+
+</div>
+
+<div class="quote">
+«با اراده می‌توان، با همت می‌سازیم»
+</div>
+
+<h3 style="margin-top:30px">
+کسی که آمد تا بماند
+</h3>
+
+<p>
+
+اجمیر خان میرزاد، جوانی است که در دوران پرالتهاب
+زندگی‌اش، دغدغه‌ای بزرگ در دل داشت:
+خدمت به همنوع.
+
+او که از نزدیک شاهد درد و رنج خانواده‌های دارای
+کودکان معلول بود، نمی‌توانست بی‌تفاوت بماند.
+
+آنچه اجمیر خان را از دیگران متمایز می‌کند،
+نه تنها سخاوت مالی او، بلکه حضور قلبی و عاطفی
+او در کنار این مرکز است.
+
+</p>
+
+<h3 style="margin-top:30px">
+پلی از جنس امید
+</h3>
+
+<p>
+
+اجمیر خان با دانش، بینش و سرمایه‌ی وجودی خود،
+پل شد میان یک رویای دست‌نیافتنی و یک واقعیت ملموس.
+
+او با برنامه‌ریزی دقیق، پیگیری‌های مستمر و حمایت‌های
+بی‌وقفه‌ی خود، زمینه‌ی راه‌اندازی این مرکز را فراهم کرد.
+
+او نه فقط تأمین کننده‌ی منابع مالی،
+که مشاوری امین، همراهی دلسوز و حامی‌ای قدرتمند
+برای تیم بنیان‌گذار بود.
+
+</p>
+
+<p style="margin-top:18px">
+
+در روزهایی که ناامیدی بر دل‌ها سنگینی می‌کرد،
+اجمیر خان با روحیه‌ی جوانی و ایمان راسخ خود،
+امید را به تیم بازگرداند.
+
+او بارها و بارها نشان داد که برایش موفقیت این پروژه،
+فقط یک تعهد مالی نیست؛ یک آرزوی قلبی است که
+به دوش کشیده است.
+
+</p>
+
+<h3 style="margin-top:30px">
+افتخاری برای نسل جوان
+</h3>
+
+<p>
+
+اجمیر خان میرزاد، نماد نسل جوانِ بیدار،
+مسئول و انسان‌دوست افغانستان است.
+
+نسلی که با وجود تمام مشکلات و ناامیدی‌های پیرامون،
+هنوز هم به ساختن و خدمت به همنوع باور دارد.
+
+او ثابت کرد که برای تغییر، نیازی به منتظر ماندن نیست؛
+با اراده و همت می‌توان آغاز کرد.
+
+</p>
+
+<div class="quote">
+
+«این مرکز، فقط یک ساختمان نیست؛ پاسخی است به
+سال‌ها بی‌پاسخی. من به این راه افتخار می‌کنم و از همه
+دعوت می‌کنم که در این مسیر انسانی همراه ما باشند.»
+
+<br>
+— اجمیر خان میرزاد
+
+</div>
+
+<h3 style="margin-top:30px">
+تأثیر حضور او در مرکز نگین
+</h3>
+
+<p>
+
+حضور اجمیر خان در مرکز نگین، فراتر از یک حمایت مالی،
+روحیه‌ی تازه‌ای به تیم بخشیده و اعتمادبه‌نفس خانواده‌ها
+را افزایش داده است.
+
+او نه تنها در مراحل راه‌اندازی، بلکه در ادامه‌ی مسیر نیز
+به‌عنوان مشاور ارشد و حامی کلیدی در کنار مرکز باقی
+خواهد ماند.
+
+برنامه‌های او برای آینده شامل گسترش خدمات،
+جذب خیرین بیشتر و ایجاد شبکه‌ای از حمایت‌های پایدار
+برای کودکان دارای معلولیت است.
+
+</p>
+
+<h3 style="margin-top:30px">
+سپاس از همراهی بی‌نظیر او
+</h3>
+
+<p>
+
+مرکز آموزشی و توانبخشی نگین، امروز به برکت وجود
+انسان‌هایی مانند اجمیر خان میرزاد، بر پا ایستاده است.
+
+اسدالله و ساحل حیدری، بارها از حمایت‌های بی‌دریغ او
+سخن گفته‌اند و او را نور امیدی در تاریکیِ سال‌های
+دشوار خوانده‌اند.
+
+ما در مرکز نگین، به وجود چنین همراهانی افتخار می‌کنیم
+و از صمیم قلب، سپاسگزار حضور اجمیر خان میرزاد
+در کنار خود هستیم.
+
+</p>
+
+<div class="quote">
+
+اجمیر خان میرزاد؛
+مردی که با عشقش، نگین را درخشان‌تر کرد. ✨
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+
+<!-- =====================================================
+     VISION MISSION
+===================================================== -->
+
+<section class="vision">
+
+<div class="container">
+
+<h2 class="section-title">
+چشم‌انداز و مأموریت
+</h2>
+
+<div class="grid grid-2">
+
+<div class="card vm-card reveal">
+
+<div class="vm-icon">
+🌍
+</div>
+
+<h3>
+چشم‌انداز
+</h3>
+
+<p>
+
+جامعه‌ای فراگیر که در آن هر کودک دارای معلولیت،
+فارغ از نوع و شدت آسیب، از حق آموزش باکیفیت
+و خدمات توانبخشی بهره‌مند شود و بتواند شکوفاترین
+نسخه خود را در فضایی امن و پویا تجربه کند.
+
+</p>
+
+</div>
+
+<div class="card vm-card reveal">
+
+<div class="vm-icon">
+🎯
+</div>
+
+<h3>
+مأموریت
+</h3>
+
+<p>
+
+ارائه خدمات آموزشی، توانبخشی و حمایتی تخصصی
+و یکپارچه به کودکان دارای معلولیت، با تکیه بر
+رویکرد تیمی میان‌رشته‌ای و مشارکت فعال خانواده‌ها،
+به منظور ارتقای کیفیت زندگی، استقلال و مشارکت
+اجتماعی این کودکان.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     VALUES
+===================================================== -->
 
 <section>
-  <div class="container">
-    <div class="section-head">
-      <h2>پیام بنیان‌گذاران</h2>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <h3>اسدالله حیدری و ساحل حیدری</h3>
-        <p>سال‌ها پیش، وقتی به چشم‌های پرامید کودکان دارای معلولیت نگاه می‌کردیم، به خود قول دادیم که روزی خانه‌ای برای آن‌ها بسازیم. خانه‌ای که در آن، کسی به خاطر تفاوت‌هایش طرد نشود؛ خانه‌ای که در آن، هر کودکی بتواند پرواز کند. امروز، با کمک شما، آن قول را عملی می‌کنیم.</p>
-        <strong>— اسدالله حیدری و ساحل حیدری، بنیان‌گذاران</strong>
-      </div>
-      <div class="card highlight">
-        <h3>پیام اجمیر خان میرزاد</h3>
-        <p>این مرکز، فقط یک ساختمان نیست؛ پاسخی است به سال‌ها بی‌پاسخی. من به این راه افتخار می‌کنم و از همه دعوت می‌کنم که در این مسیر انسانی همراه ما باشند.</p>
-        <p class="quote">«با اراده می‌توان، با همت می‌سازیم»</p>
-        <strong>— اجمیر خان میرزاد</strong>
-      </div>
-    </div>
-  </div>
+
+<div class="container">
+
+<h2 class="section-title">
+ارزش‌های ما
+</h2>
+
+<div class="grid grid-3">
+
+<div class="card value-card reveal">
+
+<span class="value-number">
+۱
+</span>
+
+<h3>
+عشق بی‌قیدوشرط
+</h3>
+
+<p>
+
+هر کودکی، مهم نیست با چه توانایی‌هایی،
+در اینجا پذیرفته و دوست داشته می‌شود.
+
+ما به جای نگاه به محدودیت‌ها،
+به توانایی‌های کودکان نگاه می‌کنیم.
+
+</p>
+
+</div>
+
+<div class="card value-card reveal">
+
+<span class="value-number">
+۲
+</span>
+
+<h3>
+باور به توانمندی
+</h3>
+
+<p>
+
+ما به هر کودکی می‌آموزیم که می‌تواند.
+باور به توانمندی‌های کودکان،
+اساس تمام برنامه‌های ماست.
+
+</p>
+
+</div>
+
+<div class="card value-card reveal">
+
+<span class="value-number">
+۳
+</span>
+
+<h3>
+همبستگی و مشارکت
+</h3>
+
+<p>
+
+باور داریم که تغییر واقعی،
+با همکاری خانواده‌ها، جامعه و خیرین
+امکان‌پذیر است.
+
+هیچ‌کس به تنهایی نمی‌تواند،
+اما همه با هم می‌توانیم.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="about">
-  <div class="container">
-    <div class="section-head">
-      <h2>نقش اجمیر خان میرزاد؛ جوانی که رؤیا را به واقعیت پیوند زد</h2>
-      <p>«با اراده می‌توان، با همت می‌سازیم»</p>
-    </div>
+<!-- =====================================================
+     SERVICES
+===================================================== -->
 
-    <div class="card">
-      <h3>اجمیر خان میرزاد</h3>
-      <p><strong>مشاور ارشد و حامی کلیدی مرکز آموزشی و توانبخشی نگین</strong></p>
+<section class="section-soft" id="services">
 
-      <p>در مسیر طولانی و پرپیچ‌وخم تحقق مرکز نگین، نقطه‌ی عطفی وجود دارد که نمی‌توان از آن گذشت؛ نقطه‌ای که در آن، یک رؤیای دیرینه به یک تعهد عملی تبدیل شد. آن نقطه، حضور اجمیر خان میرزاد، پسر جوانی است که با دلی سرشار از مهر انسانی و همتی والا، پا به میدان گذاشت و مسیر تاریخ این مرکز را برای همیشه تغییر داد.</p>
+<div class="container">
 
-      <h3>کسی که آمد تا بماند</h3>
-      <p>اجمیر خان میرزاد، جوانی است که در دوران پرالتهاب زندگی‌اش، دغدغه‌ای بزرگ در دل داشت: خدمت به همنوع. او که از نزدیک شاهد درد و رنج خانواده‌های دارای کودکان معلول بود، نمی‌توانست بی‌تفاوت بماند. آنچه اجمیر خان را از دیگران متمایز می‌کند، نه تنها سخاوت مالی او، بلکه حضورِ قلبی و عاطفی‌اش در کنار این مرکز است.</p>
+<h2 class="section-title">
+سه محور اصلی فعالیت
+</h2>
 
-      <p>او وقتی با آرزوی اسدالله و ساحل حیدری آشنا شد، نه به عنوان یک ناظر، بلکه به عنوان یک شریکِ راه، آستین همت را بالا زد. اجمیر خان به خوبی می‌دانست که ساختن یک مرکز آموزشی و توانبخشی فقط به پول نیاز ندارد؛ به عشق، زمان، انرژی و تعهدِ بی‌دریغ نیز نیاز است. و او همه‌ی این‌ها را با خود آورد.</p>
+<p class="section-intro">
+خدمات نگین بر پایه نیازهای واقعی کودکان و خانواده‌های آنان طراحی شده است.
+</p>
 
-      <h3>پلی از جنس امید</h3>
-      <p>اجمیر خان با دانش، بینش و سرمایه‌ی وجودی خود، پل شد میان یک رویای دست‌نیافتنی و یک واقعیت ملموس. او با برنامه‌ریزی دقیق، پیگیری‌های مستمر و حمایت‌های بی‌وقفه‌ی خود، زمینه‌ی راه‌اندازی این مرکز را فراهم کرد. او نه فقط تأمین کننده‌ی منابع مالی، که مشاوری امین، همراهی دلسوز و حامی‌ای قدرتمند برای تیم بنیان‌گذار بود.</p>
+<div class="grid grid-3">
 
-      <p>در روزهایی که ناامیدی بر دل‌ها سنگینی می‌کرد، اجمیر خان با روحیه‌ی جوانی و ایمان راسخ خود، امید را به تیم بازگرداند. او بارها و بارها نشان داد که برایش موفقیت این پروژه، فقط یک تعهد مالی نیست؛ یک آرزوی قلبی است که به دوش کشیده است. هر وقت صحبت از کودکان دارای معلولیت می‌شد، چشمانش از عشق و دلسوزی می‌درخشید و همین عشق، انگیزه‌ای شد برای همه‌ی کسانی که در این راه قدم برداشتند.</p>
+<div class="card service-card reveal">
 
-      <h3>افتخاری برای نسل جوان</h3>
-      <p>اجمیر خان میرزاد، نماد نسل جوانِ بیدار، مسئول و انسان‌دوست افغانستان است. نسلی که با وجود تمام مشکلات و ناامیدی‌های پیرامون، هنوز هم به ساختن و خدمت به همنوع باور دارد. او ثابت کرد که برای تغییر، نیازی به منتظر ماندن نیست؛ با اراده و همت می‌توان آغاز کرد.</p>
+<div class="icon">
+📚
+</div>
 
-      <p>او در یکی از پیام‌هایش گفت:</p>
-      <p class="quote">«این مرکز، فقط یک ساختمان نیست؛ پاسخی است به سال‌ها بی‌پاسخی. من به این راه افتخار می‌کنم و از همه دعوت می‌کنم که در این مسیر انسانی همراه ما باشند.»</p>
-      <p><strong>— اجمیر خان میرزاد</strong></p>
+<h3>
+آموزش تخصصی
+</h3>
 
-      <p class="quote">«با اراده می‌توان، با همت می‌سازیم»</p>
+<p>
 
-      <p>این کلمات، نه یک شعار، که باورِ عمیقِ او را نشان می‌دهد. اجمیر خان با عمل خود، به همه‌ی جوانان این سرزمین پیام داد که هر کسی، در هر جایگاهی، می‌تواند بخشی از یک تغییر بزرگ باشد.</p>
+برنامه‌های آموزشی فردی‌سازی‌شده با نسبت مربی به
+دانش‌آموز پایین، تا هر کودک بتواند بهترین نسخه‌ی
+خود را شکوفا کند.
 
-      <h3>تأثیر حضور او در مرکز نگین</h3>
-      <p>حضور اجمیر خان در مرکز نگین، فراتر از یک حمایت مالی، روحیه‌ی تازه‌ای به تیم بخشیده و اعتمادبه‌نفس خانواده‌ها را افزایش داده است. او نه تنها در مراحل راه‌اندازی، بلکه در ادامه‌ی مسیر نیز به‌عنوان مشاور ارشد و حامی کلیدی در کنار مرکز باقی خواهد ماند. برنامه‌های او برای آینده شامل گسترش خدمات، جذب خیرین بیشتر و ایجاد شبکه‌ای از حمایت‌های پایدار برای کودکان دارای معلولیت است.</p>
+</p>
 
-      <p>اجمیر خان باور دارد که هر کودکی، فارغ از هر محدودیتی، شایسته‌ی یک زندگیِ باکرامت است و به همین دلیل، هیچ‌گاه از تلاش برای بهبود شرایط این کودکان دست نخواهد کشید.</p>
+</div>
 
-      <h3>سپاس از همراهی بی‌نظیر او</h3>
-      <p>مرکز آموزشی و توانبخشی نگین، امروز به برکت وجود انسان‌هایی مانند اجمیر خان میرزاد، بر پا ایستاده است. اسدالله و ساحل حیدری، بارها از حمایت‌های بی‌دریغ او سخن گفته‌اند و او را نور امیدی در تاریکیِ سال‌های دشوار خوانده‌اند.</p>
+<div class="card service-card reveal">
 
-      <p>ما در مرکز نگین، به وجود چنین همراهانی افتخار می‌کنیم و از صمیم قلب، سپاسگزار حضور اجمیر خان میرزاد در کنار خود هستیم. او نشان داد که جوانان این سرزمین، اگر اراده کنند، می‌توانند تاریخ‌ساز شوند.</p>
+<div class="icon">
+🧩
+</div>
 
-      <p class="quote"><strong>اجمیر خان میرزاد؛ مردی که با عشقش، نگین را درخشان‌تر کرد. ✨</strong></p>
-    </div>
-  </div>
+<h3>
+توانبخشی حرفه‌ای
+</h3>
+
+<p>
+
+ارائه خدمات فیزیوتراپی، کاردرمانی، گفتاردرمانی
+و روان‌درمانی برای ارتقای توانایی‌های جسمی،
+گفتاری و روانی کودکان.
+
+</p>
+
+</div>
+
+<div class="card service-card reveal">
+
+<div class="icon">
+🤝
+</div>
+
+<h3>
+حمایت از خانواده
+</h3>
+
+<p>
+
+مشاوره، کارگاه‌های آموزشی و حمایت عاطفی از والدین،
+زیرا می‌دانیم که خانواده، اولین و مهم‌ترین مدرسه
+هر کودک است.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section>
-  <div class="container">
-    <div class="section-head">
-      <h2>چشم‌انداز، مأموریت و ارزش‌های ما</h2>
-    </div>
+<!-- =====================================================
+     TEAM
+===================================================== -->
 
-    <div class="grid">
-      <div class="card">
-        <h3>چشم‌انداز</h3>
-        <p>جامعه‌ای فراگیر که در آن هر کودک دارای معلولیت، فارغ از نوع و شدت آسیب، از حق آموزش باکیفیت و خدمات توانبخشی بهره‌مند شود و بتواند شکوفاترین نسخه خود را در فضایی امن و پویا تجربه کند.</p>
-      </div>
+<section id="team">
 
-      <div class="card">
-        <h3>مأموریت</h3>
-        <p>ارائه خدمات آموزشی، توانبخشی و حمایتی تخصصی و یکپارچه به کودکان دارای معلولیت، با تکیه بر رویکرد تیمی میان‌رشته‌ای و مشارکت فعال خانواده‌ها، به منظور ارتقای کیفیت زندگی، استقلال و مشارکت اجتماعی این کودکان.</p>
-      </div>
-    </div>
+<div class="container">
 
-    <div class="grid">
-      <div class="card">
-        <h3>عشق بی‌قیدوشرط</h3>
-        <p>هر کودکی، مهم نیست با چه توانایی‌هایی، در اینجا پذیرفته و دوست داشته می‌شود. ما به جای نگاه به محدودیت‌ها، به توانایی‌های کودکان نگاه می‌کنیم.</p>
-      </div>
-      <div class="card">
-        <h3>باور به توانمندی</h3>
-        <p>ما به هر کودکی می‌آموزیم که می‌تواند. باور به توانمندی‌های کودکان، اساس تمام برنامه‌های ماست.</p>
-      </div>
-      <div class="card">
-        <h3>همبستگی و مشارکت</h3>
-        <p>باور داریم که تغییر واقعی، با همکاری خانواده‌ها، جامعه و خیرین امکان‌پذیر است. هیچ‌کس به تنهایی نمی‌تواند، اما همه با هم می‌توانیم.</p>
-      </div>
-    </div>
-  </div>
+<h2 class="section-title">
+تیم ما
+</h2>
+
+<p class="section-intro">
+تیمی از انسان‌های متعهد و متخصص که در کنار کودکان و خانواده‌هایشان هستند.
+</p>
+
+<div class="grid grid-4">
+
+<div class="card team-card reveal">
+
+<div class="team-avatar">
+👨‍💼
+</div>
+
+<h3>
+اسدالله حیدری
+</h3>
+
+<span class="team-role">
+بنیان‌گذار و مدیر اجرایی
+</span>
+
+<p>
+
+سال‌ها در حوزه حمایت از کودکان دارای معلولیت
+فعالیت داشته و با عشق و تعهدی بی‌نظیر،
+هدایت این مرکز را بر عهده دارد.
+
+</p>
+
+</div>
+
+<div class="card team-card reveal">
+
+<div class="team-avatar">
+👩‍🏫
+</div>
+
+<h3>
+ساحل حیدری
+</h3>
+
+<span class="team-role">
+بنیان‌گذار و مدیر آموزشی
+</span>
+
+<p>
+
+با سال‌ها تجربه در آموزش کودکان دارای نیازهای
+ویژه، برنامه‌های آموزشی مرکز را طراحی و
+نظارت می‌کند.
+
+</p>
+
+</div>
+
+<div class="card team-card reveal">
+
+<div class="team-avatar">
+🤝
+</div>
+
+<h3>
+اجمیر خان میرزاد
+</h3>
+
+<span class="team-role">
+مشاور ارشد و حامی کلیدی
+</span>
+
+<p>
+
+جوانی انسان‌دوست و خیر که با حمایت‌های بی‌دریغ
+خود، تحقق این رویا را ممکن ساخت.
+
+</p>
+
+</div>
+
+<div class="card team-card reveal">
+
+<div class="team-avatar">
+🧑‍⚕️
+</div>
+
+<h3>
+تیم تخصصی
+</h3>
+
+<span class="team-role">
+قلب تپنده‌ی نگین
+</span>
+
+<p>
+
+مربیان آموزش ویژه، فیزیوتراپیست‌ها،
+کاردرمان‌گران، گفتاردرمان‌گران، روان‌شناسان
+و مددکاران اجتماعی.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="about">
-  <div class="container">
-    <div class="section-head">
-      <h2>سه محور اصلی فعالیت</h2>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <h3>آموزش تخصصی</h3>
-        <p>برنامه‌های آموزشی فردی‌سازی‌شده با نسبت مربی به دانش‌آموز پایین، تا هر کودک بتواند بهترین نسخه‌ی خود را شکوفا کند.</p>
-      </div>
-      <div class="card">
-        <h3>توانبخشی حرفه‌ای</h3>
-        <p>ارائه خدمات فیزیوتراپی، کاردرمانی، گفتاردرمانی و روان‌درمانی برای ارتقای توانایی‌های جسمی، گفتاری و روانی کودکان.</p>
-      </div>
-      <div class="card">
-        <h3>حمایت از خانواده</h3>
-        <p>مشاوره، کارگاه‌های آموزشی و حمایت عاطفی از والدین، زیرا می‌دانیم که خانواده، اولین و مهم‌ترین مدرسه‌ی هر کودک است.</p>
-      </div>
-    </div>
-  </div>
+<!-- =====================================================
+     WHY NEGIN
+===================================================== -->
+
+<section class="section-soft">
+
+<div class="container">
+
+<h2 class="section-title">
+چرا به نگین نیاز داریم؟
+</h2>
+
+<div class="need-box reveal">
+
+<p>
+
+در کشوری که سال‌ها درگیر ناامنی و فقر بوده،
+کودکان دارای معلولیت، قربانیان خاموش‌ترین
+و بی‌عدالت‌ترین صحنه‌ها هستند.
+
+آنان نه تنها از موهبت‌های اولیه‌ی زندگی مانند
+آموزش و درمان محرومند، بلکه اغلب پشت درهای
+بسته‌ی مدارس و درمانگاه‌ها رها می‌شوند.
+
+</p>
+
+<div class="need-list">
+
+<div class="need-item">
+
+<span>✓</span>
+
+<p>
+مدرسه‌ای که رمپ ندارد، می‌تواند مانع آموزش کودک شود.
+</p>
+
+</div>
+
+<div class="need-item">
+
+<span>✓</span>
+
+<p>
+کلاسی که معلم آموزش‌دیده ندارد، فرصت رشد کودک را محدود می‌کند.
+</p>
+
+</div>
+
+<div class="need-item">
+
+<span>✓</span>
+
+<p>
+نبود تجهیزات توانبخشی، روند استقلال کودک را دشوار می‌سازد.
+</p>
+
+</div>
+
+<div class="need-item">
+
+<span>✓</span>
+
+<p>
+مرکز نگین آمده است تا بخشی از این خلأ را پر کند.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section>
-  <div class="container">
-    <div class="section-head">
-      <h2>تیم ما</h2>
-      <p>قلب تپنده‌ی نگین</p>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <h3>اسدالله حیدری — بنیان‌گذار و مدیر اجرایی</h3>
-        <p>سال‌ها در حوزه حمایت از کودکان دارای معلولیت فعالیت داشته و با عشق و تعهدی بی‌نظیر، هدایت این مرکز را بر عهده دارد.</p>
-      </div>
-      <div class="card">
-        <h3>ساحل حیدری — بنیان‌گذار و مدیر آموزشی</h3>
-        <p>با سال‌ها تجربه در آموزش کودکان دارای نیازهای ویژه، برنامه‌های آموزشی مرکز را طراحی و نظارت می‌کند.</p>
-      </div>
-      <div class="card highlight">
-        <h3>اجمیر خان میرزاد — مشاور ارشد و حامی کلیدی</h3>
-        <p class="quote">«با اراده می‌توان، با همت می‌سازیم»</p>
-        <p>جوانی انسان‌دوست و خیر که با حمایت‌های بی‌دریغ خود، تحقق این رویا را ممکن ساخت.</p>
-      </div>
-      <div class="card">
-        <h3>تیم تخصصی — قلب تپنده‌ی نگین</h3>
-        <p>تیم ما متشکل از مربیان آموزش ویژه، فیزیوتراپیست‌ها، کاردرمان‌گران، گفتاردرمان‌گران، روان‌شناسان و مددکاران اجتماعی است که همگی با عشق و تخصص، در کنار کودکان و خانواده‌هایشان هستند.</p>
-      </div>
-    </div>
-  </div>
+<!-- =====================================================
+     SUPPORT
+===================================================== -->
+
+<section id="support">
+
+<div class="container">
+
+<h2 class="section-title">
+دعوت به همکاری
+</h2>
+
+<p class="section-intro">
+
+ما به شما نیاز داریم.
+
+مرکز نگین با عشق ساخته شده، اما برای ادامه مسیر
+و کمک به کودکان بیشتر، به حمایت شما نیاز دارد.
+
+</p>
+
+<div class="grid grid-3">
+
+<div class="card support-card reveal">
+
+<div class="support-icon">
+💰
+</div>
+
+<h3>
+کمک مالی
+</h3>
+
+<p>
+
+حتی یک مبلغ کوچک می‌تواند یک جلسه گفتاردرمانی
+یا فیزیوتراپی را برای کودکی که به آن نیاز دارد،
+فراهم کند.
+
+</p>
+
+</div>
+
+<div class="card support-card reveal">
+
+<div class="support-icon">
+🙋
+</div>
+
+<h3>
+داوطلبی
+</h3>
+
+<p>
+
+اگر زمان، تخصص یا انرژی برای کمک دارید،
+به تیم ما بپیوندید.
+
+</p>
+
+</div>
+
+<div class="card support-card reveal">
+
+<div class="support-icon">
+🏢
+</div>
+
+<h3>
+همکاری سازمانی
+</h3>
+
+<p>
+
+اگر نهاد، سازمان یا شرکتی هستید که می‌خواهد
+با ما همکاری کند، با ما تماس بگیرید.
+
+</p>
+
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:30px">
+
+<a
+href="#contact"
+class="btn btn-primary">
+🤝 اعلام آمادگی برای همکاری
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="about">
-  <div class="container">
-    <div class="section-head">
-      <h2>چرا به نگین نیاز داریم؟</h2>
-    </div>
-    <div class="card">
-      <p>در کشوری که سال‌ها درگیر ناامنی و فقر بوده، کودکان دارای معلولیت، قربانیان خاموش‌ترین و بی‌عدالت‌ترین صحنه‌ها هستند. آنان نه تنها از موهبت‌های اولیه‌ی زندگی مانند آموزش و درمان محرومند، بلکه اغلب پشت درهای بسته‌ی مدارس و درمانگاه‌ها رها می‌شوند.</p>
-      <p>مدرسه‌ای که رمپ ندارد، کلاسی که معلم آموزش‌دیده ندارد، درمانگاهی که تجهیزات فیزیوتراپی ندارد—این‌ها واقعیت‌های تلخی هستند که هر روز، زندگی صدها کودک را تحت تأثیر قرار می‌دهند. مرکز نگین آمده است تا بخشی از این خلأ را پر کند.</p>
-    </div>
-  </div>
+<!-- =====================================================
+     TESTIMONIALS
+===================================================== -->
+
+<section class="section-soft">
+
+<div class="container">
+
+<h2 class="section-title">
+نظرات خانواده‌ها
+</h2>
+
+<div class="grid grid-2">
+
+<div class="card testimonial reveal">
+
+<p>
+
+پسرم قبل از آمدن به نگین، هیچ‌کس به فکر آموزشش نبود.
+امروز، اولین کلماتش را به زبان آورده و من هر روز
+برای او می‌خندم.
+
+نگین، هدیه‌ای از آسمان بود.
+
+</p>
+
+<span class="testimonial-author">
+— مادر یکی از دانش‌آموزان
+</span>
+
+</div>
+
+<div class="card testimonial reveal">
+
+<p>
+
+وقتی دیدم بچّه‌ام با ویلچر وارد کلاس شد و با لبخند
+از من خداحافظی کرد، فهمیدم که نگین همان جایی است
+که سال‌ها دنبالش می‌گشتم.
+
+</p>
+
+<span class="testimonial-author">
+— پدر یکی از دانش‌آموزان
+</span>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section>
-  <div class="container">
-    <div class="section-head">
-      <h2>دعوت به همکاری</h2>
-      <p>ما به شما نیاز داریم.</p>
-    </div>
-    <div class="card">
-      <p>مرکز نگین با عشق ساخته شده، اما برای ادامه‌ی مسیر و کمک به کودکان بیشتر، به حمایت شما نیاز دارد. هر کمکی، هرچند کوچک، برای کودکی که همه‌چیزش را از دست داده، می‌تواند همه‌چیز باشد.</p>
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
-      <h3>شما می‌توانید از سه راه به ما کمک کنید:</h3>
-      <ul>
-        <li><strong>کمک مالی:</strong> حتی یک مبلغ کوچک می‌تواند یک جلسه‌ی گفتاردرمانی یا فیزیوتراپی را برای کودکی که به آن نیاز دارد، فراهم کند.</li>
-        <li><strong>داوطلبی:</strong> اگر زمان، تخصص یا انرژی برای کمک دارید، به تیم ما بپیوندید.</li>
-        <li><strong>همکاری سازمانی:</strong> اگر نهاد، سازمان یا شرکتی هستید که می‌خواهد با ما همکاری کند، با ما تماس بگیرید.</li>
-      </ul>
-      <p><a class="btn btn-primary" href="support.html">همکاری و حمایت</a></p>
-    </div>
-  </div>
+<section id="contact">
+
+<div class="container">
+
+<h2 class="section-title">
+تماس با ما
+</h2>
+
+<p class="section-intro">
+برای آشنایی بیشتر، همکاری، حمایت یا دریافت اطلاعات با مرکز نگین در تماس شوید.
+</p>
+
+<div class="contact-grid">
+
+<div class="card contact-card reveal">
+
+<div class="contact-icon">
+📍
+</div>
+
+<h3>
+آدرس
+</h3>
+
+<p>
+سرک ۳۷، پروژه وزیر آباد،
+کابل، افغانستان
+</p>
+
+</div>
+
+<div class="card contact-card reveal">
+
+<div class="contact-icon">
+📞
+</div>
+
+<h3>
+شماره تماس
+</h3>
+
+<p>
+<a href="tel:0786838002">
+۰۷۸۶۸۳۸۰۰۲
+</a>
+</p>
+
+</div>
+
+<div class="card contact-card reveal">
+
+<div class="contact-icon">
+✉️
+</div>
+
+<h3>
+ایمیل
+</h3>
+
+<p>
+<a href="mailto:negineducationcenter@gmail.com">
+negineducationcenter@gmail.com
+</a>
+</p>
+
+</div>
+
+<div class="card contact-card reveal">
+
+<div class="contact-icon">
+🕐
+</div>
+
+<h3>
+ساعات کاری
+</h3>
+
+<p>
+شنبه تا چهارشنبه:
+۸ صبح تا ۴ بعدازظهر
+<br>
+پنجشنبه:
+۸ صبح تا ۱۲ ظهر
+</p>
+
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:28px">
+
+<a
+href="https://maps.app.goo.gl/UTwdrbUfqR6ewS9D9"
+target="_blank"
+rel="noopener"
+class="btn btn-primary">
+
+📍 مشاهده موقعیت مرکز در Google Maps
+
+</a>
+
+</div>
+
+<!-- MAP -->
+
+<div class="map-box">
+
+<iframe
+src="https://www.google.com/maps?q=H555%2BPWR%20Kabul%2C%20Afghanistan&output=embed"
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade"
+title="موقعیت مرکز آموزشی و توانبخشی نگین">
+</iframe>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="about">
-  <div class="container">
-    <div class="section-head">
-      <h2>نظرات خانواده‌ها</h2>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <p>«پسرم قبل از آمدن به نگین، هیچ‌کس به فکر آموزشش نبود. امروز، اولین کلماتش را به زبان آورده و من هر روز برایش می‌خندم. نگین، هدیه‌ای از آسمان بود.»</p>
-        <strong>— مادر یکی از دانش‌آموزان</strong>
-      </div>
-      <div class="card">
-        <p>«وقتی دیدم بچّه‌ام با ویلچر وارد کلاس شد و با لبخند از من خداحافظی کرد، فهمیدم که نگین همان جایی است که سال‌ها دنبالش می‌گشتم.»</p>
-        <strong>— پدر یکی از دانش‌آموزان</strong>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- =====================================================
+     CONTACT FORM
+===================================================== -->
 
-<section>
-  <div class="container">
-    <div class="section-head">
-      <h2>اطلاعات تماس</h2>
-    </div>
-    <div class="card">
-      <p><strong>بنیان‌گذاران:</strong> اسدالله حیدری و ساحل حیدری</p>
-      <p><strong>مشاور و حامی کلیدی:</strong> اجمیر خان میرزاد</p>
-      <p><strong>شعار اجمیر خان میرزاد:</strong> با اراده می‌توان، با همت می‌سازیم</p>
-      <p><strong>آدرس مرکز:</strong> سرک ۳۷، پروژه وزیر آباد، کابل، افغانستان</p>
-      <p><strong>موقعیت مکانی:</strong> <a href="https://maps.app.goo.gl/UTwdrbUfqR6ewS9D9" target="_blank" rel="noopener noreferrer">مشاهده در نقشه گوگل</a></p>
-      <p><strong>شماره تماس:</strong> <a href="tel:0786838002">۰۷۸۶۸۳۸۰۰۲</a></p>
-      <p><strong>ایمیل:</strong> <a href="mailto:negineducationcenter@gmail.com">negineducationcenter@gmail.com</a></p>
-      <p><strong>ساعات کاری:</strong> شنبه تا چهارشنبه: ۸ صبح تا ۴ بعدازظهر؛ پنجشنبه: ۸ صبح تا ۱۲ ظهر</p>
-    </div>
-  </div>
+<section class="section-soft">
+
+<div class="container">
+
+<h2 class="section-title">
+پیام برای مرکز نگین
+</h2>
+
+<p class="section-intro">
+
+فرم زیر به‌صورت مستقیم برنامه ایمیل دستگاه شما را باز می‌کند.
+برای ارسال آنلاین واقعی، بعداً می‌توان Formspree یا سرویس مشابه را متصل کرد.
+
+</p>
+
+<div class="card form-wrapper">
+
+<form id="contactForm">
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label for="name">
+نام
+</label>
+
+<input
+id="name"
+name="name"
+required
+placeholder="نام شما">
+
+</div>
+
+<div class="form-group">
+
+<label for="phone">
+شماره تماس
+</label>
+
+<input
+id="phone"
+name="phone"
+placeholder="شماره تماس">
+
+</div>
+
+<div class="form-group">
+
+<label for="email">
+ایمیل
+</label>
+
+<input
+id="email"
+name="email"
+type="email"
+placeholder="ایمیل شما">
+
+</div>
+
+<div class="form-group">
+
+<label for="subject">
+موضوع
+</label>
+
+<select id="subject">
+
+<option>
+همکاری
+</option>
+
+<option>
+حمایت
+</option>
+
+<option>
+دریافت معلومات
+</option>
+
+<option>
+خدمات آموزشی
+</option>
+
+<option>
+توانبخشی
+</option>
+
+<option>
+سایر
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group full">
+
+<label for="message">
+پیام
+</label>
+
+<textarea
+id="message"
+name="message"
+required
+placeholder="پیام خود را بنویسید..."></textarea>
+
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:22px">
+
+<button
+type="submit"
+class="btn btn-primary">
+
+📨 ارسال پیام
+
+</button>
+
+</div>
+
+<div
+id="formMessage"
+class="form-message">
+</div>
+
+</form>
+
+</div>
+
+</div>
+
 </section>
 
 </main>
 
-<div class="floating">
-  <button class="float-btn" id="readPageFloat" title="خواندن صفحه" aria-label="خواندن صفحه">🔊</button>
-</div>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h3>مرکز آموزشی و توانبخشی نگین</h3>
-        <p>خانه‌ای برای آموزش، توانبخشی، توانمندسازی و حمایت از کودکان دارای معلولیت.</p>
-      </div>
-      <div>
-        <h3>دسترسی سریع</h3>
-        <p><a href="about.html">درباره ما</a></p>
-        <p><a href="services.html">خدمات</a></p>
-        <p><a href="support.html">همکاری و حمایت</a></p>
-      </div>
-      <div>
-        <h3>ارتباط</h3>
-        <p>کابل، پروژه وزیرآباد، سرک ۳۷</p>
-        <p><a href="tel:0786838002">۰۷۸۶۸۳۸۰۰۲</a></p>
-        <p><a href="mailto:negineducationcenter@gmail.com">negineducationcenter@gmail.com</a></p>
-      </div>
-    </div>
-    <div class="footer-bottom">© <span data-year></span> مرکز آموزشی و توانبخشی نگین — تمامی حقوق محفوظ است.</div>
-  </div>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>
+مرکز آموزشی و توانبخشی نگین
+</h3>
+
+<p>
+
+هر کودک، یک نگین.
+
+ما باور داریم که هر کودک،
+فارغ از هر محدودیت،
+شایسته آموزش، احترام، فرصت و زندگی باکرامت است.
+
+</p>
+
+<p style="margin-top:12px">
+
+<strong>
+«با اراده می‌توان، با همت می‌سازیم»
+</strong>
+
+</p>
+
+</div>
+
+<div>
+
+<h3>
+لینک‌های سریع
+</h3>
+
+<ul class="footer-links">
+
+<li>
+<a href="#home">خانه</a>
+</li>
+
+<li>
+<a href="#about">درباره ما</a>
+</li>
+
+<li>
+<a href="#services">خدمات</a>
+</li>
+
+<li>
+<a href="#team">تیم ما</a>
+</li>
+
+<li>
+<a href="#support">همکاری و حمایت</a>
+</li>
+
+<li>
+<a href="#contact">تماس با ما</a>
+</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>
+اطلاعات تماس
+</h3>
+
+<p>
+📍 سرک ۳۷، پروژه وزیر آباد، کابل
+</p>
+
+<p>
+📞
+<a
+href="tel:0786838002"
+style="color:white">
+۰۷۸۶۸۳۸۰۰۲
+</a>
+</p>
+
+<p>
+✉️
+<a
+href="mailto:negineducationcenter@gmail.com"
+style="color:white">
+negineducationcenter@gmail.com
+</a>
+</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+© <span id="year"></span>
+مرکز آموزشی و توانبخشی نگین.
+تمام حقوق محفوظ است.
+
+<br>
+
+بنیان‌گذاران:
+اسدالله حیدری و ساحل حیدری
+|
+مشاور و حامی کلیدی:
+اجمیر خان میرزاد
+
+</div>
+
+</div>
+
 </footer>
 
-<script src="assets/js/script.js"></script>
+<!-- =====================================================
+     SMART ASSISTANT
+===================================================== -->
+
+<button
+class="smart-button"
+onclick="toggleSmart()"
+aria-label="باز کردن نگین هوشمند">
+
+🤖
+
+</button>
+
+<div
+class="smart-window"
+id="smartWindow">
+
+<div class="smart-header">
+
+<strong>
+نگین هوشمند
+</strong>
+
+<button
+onclick="toggleSmart()"
+aria-label="بستن">
+×
+</button>
+
+</div>
+
+<div
+class="smart-body"
+id="smartBody">
+
+<div class="smart-message">
+
+سلام! من «نگین هوشمند» هستم. 💎
+
+<br>
+
+من برای راهنمایی اولیه درباره مرکز آموزشی
+و توانبخشی نگین طراحی شده‌ام.
+
+<br><br>
+
+می‌توانید درباره خدمات، تماس،
+همکاری و اطلاعات مرکز سؤال کنید.
+
+</div>
+
+</div>
+
+<div class="smart-footer">
+
+<input
+id="smartInput"
+placeholder="پیام خود را بنویسید..."
+onkeydown="if(event.key==='Enter')sendSmart()">
+
+<button onclick="sendSmart()">
+ارسال
+</button>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+     BACK TO TOP
+===================================================== -->
+
+<button
+class="top-button"
+id="topButton"
+onclick="window.scrollTo({top:0,behavior:'smooth'})"
+aria-label="بازگشت به بالا">
+
+↑
+
+</button>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
-document.getElementById('readPageFloat')?.addEventListener('click', () => {
-  document.getElementById('readPage')?.click();
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu(){
+
+    const nav =
+        document.getElementById("nav");
+
+    nav.classList.toggle("open");
+
+}
+
+document.querySelectorAll(".nav a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document
+        .getElementById("nav")
+        .classList.remove("open");
+
+    });
+
 });
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+function toggleDarkMode(){
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+        "neginDarkMode",
+        document.body.classList.contains("dark")
+            ? "1"
+            : "0"
+    );
+
+}
+
+if(
+    localStorage.getItem("neginDarkMode") === "1"
+){
+
+    document.body.classList.add("dark");
+
+}
+
+/* =========================================================
+   FONT SIZE
+========================================================= */
+
+let currentFont = 16;
+
+function changeFont(direction){
+
+    currentFont += direction * 1;
+
+    if(currentFont < 14)
+        currentFont = 14;
+
+    if(currentFont > 22)
+        currentFont = 22;
+
+    document.documentElement.style
+        .setProperty(
+            "--font-size",
+            currentFont + "px"
+        );
+
+    localStorage.setItem(
+        "neginFontSize",
+        currentFont
+    );
+
+}
+
+const savedFont =
+    localStorage.getItem("neginFontSize");
+
+if(savedFont){
+
+    currentFont = parseInt(savedFont);
+
+    document.documentElement.style
+        .setProperty(
+            "--font-size",
+            currentFont + "px"
+        );
+
+}
+
+/* =========================================================
+   HIGH CONTRAST
+========================================================= */
+
+function toggleContrast(){
+
+    document.body.classList.toggle(
+        "high-contrast"
+    );
+
+}
+
+/* =========================================================
+   TEXT TO SPEECH
+========================================================= */
+
+function speakPage(){
+
+    if(!("speechSynthesis" in window)){
+
+        alert(
+            "مرورگر شما از خواندن صوتی پشتیبانی نمی‌کند."
+        );
+
+        return;
+    }
+
+    stopSpeaking();
+
+    const text =
+        document.querySelector("main").innerText;
+
+    const utterance =
+        new SpeechSynthesisUtterance(text);
+
+    utterance.lang = "fa-AF";
+
+    utterance.rate = .9;
+
+    utterance.pitch = 1;
+
+    speechSynthesis.speak(
+        utterance
+    );
+
+}
+
+function stopSpeaking(){
+
+    if("speechSynthesis" in window){
+
+        speechSynthesis.cancel();
+
+    }
+
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+document
+.querySelectorAll(".reveal")
+.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll(
+        "main section[id]"
+    );
+
+const navLinks =
+    document.querySelectorAll(
+        ".nav a"
+    );
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        let current = "home";
+
+        sections.forEach(section => {
+
+            const top =
+                section.offsetTop - 150;
+
+            if(
+                window.scrollY >= top
+            ){
+
+                current =
+                    section.id;
+
+            }
+
+        });
+
+        navLinks.forEach(link => {
+
+            link.classList.remove(
+                "active"
+            );
+
+            if(
+                link.getAttribute("href")
+                === "#" + current
+            ){
+
+                link.classList.add(
+                    "active"
+                );
+
+            }
+
+        });
+
+    }
+);
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const topButton =
+    document.getElementById(
+        "topButton"
+    );
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(window.scrollY > 500){
+
+            topButton.classList.add(
+                "show"
+            );
+
+        }else{
+
+            topButton.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+document
+.getElementById("contactForm")
+.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById(
+                "name"
+            ).value.trim();
+
+        const phone =
+            document.getElementById(
+                "phone"
+            ).value.trim();
+
+        const email =
+            document.getElementById(
+                "email"
+            ).value.trim();
+
+        const subject =
+            document.getElementById(
+                "subject"
+            ).value;
+
+        const message =
+            document.getElementById(
+                "message"
+            ).value.trim();
+
+        const body =
+`نام: ${name}
+
+شماره تماس: ${phone}
+
+ایمیل: ${email}
+
+موضوع: ${subject}
+
+پیام:
+
+${message}`;
+
+        const mailto =
+            "mailto:negineducationcenter@gmail.com"
+            + "?subject="
+            + encodeURIComponent(
+                "پیام از وبسایت نگین - " + subject
+            )
+            + "&body="
+            + encodeURIComponent(body);
+
+        const formMessage =
+            document.getElementById(
+                "formMessage"
+            );
+
+        formMessage.style.display =
+            "block";
+
+        formMessage.textContent =
+            "در حال باز کردن برنامه ایمیل شما...";
+
+        window.location.href =
+            mailto;
+
+    }
+);
+
+/* =========================================================
+   SMART ASSISTANT
+========================================================= */
+
+function toggleSmart(){
+
+    document
+    .getElementById("smartWindow")
+    .classList.toggle("open");
+
+}
+
+function sendSmart(){
+
+    const input =
+        document.getElementById(
+            "smartInput"
+        );
+
+    const body =
+        document.getElementById(
+            "smartBody"
+        );
+
+    const question =
+        input.value.trim();
+
+    if(!question)
+        return;
+
+    addSmartMessage(
+        question,
+        true
+    );
+
+    input.value = "";
+
+    setTimeout(
+        () => {
+
+            const answer =
+                smartAnswer(
+                    question
+                );
+
+            addSmartMessage(
+                answer,
+                false
+            );
+
+        },
+        450
+    );
+
+}
+
+function addSmartMessage(
+    text,
+    user
+){
+
+    const body =
+        document.getElementById(
+            "smartBody"
+        );
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+    div.className =
+        "smart-message"
+        +
+        (user
+            ? " smart-user"
+            : "");
+
+    div.textContent =
+        text;
+
+    body.appendChild(div);
+
+    body.scrollTop =
+        body.scrollHeight;
+
+}
+
+function smartAnswer(question){
+
+    const q =
+        question.toLowerCase();
+
+    if(
+        q.includes("تماس") ||
+        q.includes("شماره") ||
+        q.includes("تلفن")
+    ){
+
+        return "شماره تماس مرکز نگین: ۰۷۸۶۸۳۸۰۰۲";
+
+    }
+
+    if(
+        q.includes("ایمیل") ||
+        q.includes("email")
+    ){
+
+        return "ایمیل مرکز نگین: negineducationcenter@gmail.com";
+
+    }
+
+    if(
+        q.includes("آدرس") ||
+        q.includes("موقعیت") ||
+        q.includes("کجا")
+    ){
+
+        return "آدرس مرکز: سرک ۳۷، پروژه وزیر آباد، کابل، افغانستان.";
+
+    }
+
+    if(
+        q.includes("خدمت") ||
+        q.includes("توانبخشی")
+    ){
+
+        return "نگین در سه محور اصلی فعالیت می‌کند: آموزش تخصصی، توانبخشی حرفه‌ای و حمایت از خانواده.";
+
+    }
+
+    if(
+        q.includes("آموزش")
+    ){
+
+        return "مرکز نگین برای کودکان دارای معلولیت برنامه‌های آموزشی فردی‌سازی‌شده و متناسب با نیازهای آنان ارائه می‌کند.";
+
+    }
+
+    if(
+        q.includes("همکاری") ||
+        q.includes("کمک") ||
+        q.includes("حمایت")
+    ){
+
+        return "شما می‌توانید از طریق کمک مالی، داوطلبی یا همکاری سازمانی از مرکز نگین حمایت کنید. برای هماهنگی با ما تماس بگیرید.";
+
+    }
+
+    if(
+        q.includes("اجمیر")
+    ){
+
+        return "اجمیر خان میرزاد مشاور ارشد و حامی کلیدی مرکز آموزشی و توانبخشی نگین است.";
+
+    }
+
+    if(
+        q.includes("ساعت") ||
+        q.includes("زمان")
+    ){
+
+        return "ساعات کاری: شنبه تا چهارشنبه از ۸ صبح تا ۴ بعدازظهر و پنجشنبه از ۸ صبح تا ۱۲ ظهر.";
+
+    }
+
+    return "من برای پاسخ‌گویی درباره مرکز نگین طراحی شده‌ام. می‌توانید درباره خدمات، آدرس، شماره تماس، ایمیل، همکاری یا اجمیر خان میرزاد سؤال کنید.";
+
+}
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(event.key === "Escape"){
+
+            document
+            .getElementById("nav")
+            .classList.remove("open");
+
+            document
+            .getElementById("smartWindow")
+            .classList.remove("open");
+
+        }
+
+    }
+);
+
 </script>
+
 </body>
 </html>
-'''
-
-about.write_text(html, encoding="utf-8")
-
-# Rebuild ZIP with the updated project.
-zip_path = Path("/mnt/data/negin-education-github-pages-updated.zip")
-with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
-    for p in sorted(root.rglob("*")):
-        if p.is_file():
-            z.write(p, p.relative_to(root.parent))
-
-print(f"صفحه about.html با متن کامل جدید جایگزین شد.")
-print(f"ZIP به‌روزشده: {zip_path}")
-print("محتوای اصلی شامل معرفی، داستان نگین، پیام بنیان‌گذاران، نقش کامل اجمیر خان میرزاد، چشم‌انداز، مأموریت، ارزش‌ها، سه محور فعالیت، تیم، چرایی نیاز به نگین، دعوت به همکاری، نظرات خانواده‌ها و اطلاعات تماس است.")
