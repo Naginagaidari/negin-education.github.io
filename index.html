@@ -1,34 +1,55 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>مرکز آموزشی و توانبخشی نگین | مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت</title>
+
+    <meta name="description"
+        content="مرکز آموزشی و توانبخشی نگین؛ وابسته به مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت، برای حمایت آموزشی، توانبخشی و ایجاد فرصت‌های برابر برای کودکان دارای معلولیت در افغانستان.">
+
+    <meta name="keywords"
+        content="مرکز آموزشی نگین, مرکز توانبخشی نگین, آموزش ویژه, کودکان دارای معلولیت, فیزیوتراپی, گفتاردرمانی, کاردرمانی, افغانستان">
 
     <meta name="theme-color" content="#0b5e7c">
 
-    <meta name="description"
-          content="مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت - مرکز آموزشی و توانبخشی نگین">
-
-    <title>
-        مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت | مرکز آموزشی و توانبخشی نگین
-    </title>
-
     <style>
+        :root {
+            --primary: #0b5e7c;
+            --primary-light: #1a7a9e;
+            --primary-dark: #063b4f;
+            --gold: #FFC800;
+            --gold-dark: #D4A800;
+            --secondary: #d4a373;
+            --teal: #2a9d8f;
 
-        /* =====================================================
-           RESET
-        ===================================================== */
+            --bg: #f7f3eb;
+            --white: #ffffff;
+
+            --text: #1e293b;
+            --text-secondary: #475569;
+
+            --border: #d1c5b0;
+
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+
+            --shadow: 0 10px 35px rgba(6, 59, 79, .12);
+            --radius: 20px;
+        }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
@@ -40,16 +61,10 @@
                 Arial,
                 sans-serif;
 
-            background: #f7f3eb;
-            color: #1e293b;
-
-            line-height: 1.8;
-
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.9;
             overflow-x: hidden;
-
-            transition:
-                background .35s ease,
-                color .35s ease;
         }
 
         a {
@@ -57,7 +72,10 @@
             text-decoration: none;
         }
 
-        button {
+        button,
+        input,
+        textarea,
+        select {
             font-family: inherit;
         }
 
@@ -66,1474 +84,813 @@
             display: block;
         }
 
-        :root {
-            --primary: #0b5e7c;
-            --primary-light: #1a7a9e;
-            --primary-dark: #063b4f;
-
-            --gold: #FFC800;
-            --gold-dark: #D4A800;
-
-            --secondary: #d4a373;
-            --teal: #2a9d8f;
-
-            --cream: #f7f3eb;
-            --white: #ffffff;
-
-            --text: #1e293b;
-            --muted: #475569;
-
-            --border: #d1c5b0;
-
-            --success: #28a745;
-            --danger: #dc3545;
-            --warning: #ffc107;
-
-            --shadow:
-                0 18px 50px rgba(6, 59, 79, .14);
-
-            --radius: 24px;
+        .container {
+            width: min(1180px, calc(100% - 30px));
+            margin-inline: auto;
         }
 
-
-        /* =====================================================
-           SCROLLBAR
-        ===================================================== */
-
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--cream);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 20px;
-        }
-
-
-        /* =====================================================
+        /* =========================
            ACCESS BAR
-        ===================================================== */
+        ========================== */
 
         .access-bar {
-            width: 100%;
             background: var(--primary-dark);
             color: var(--white);
-
-            min-height: 42px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 6px 15px;
-
-            font-size: .85rem;
+            padding: 7px 0;
+            font-size: .82rem;
         }
 
         .access-inner {
-            width: min(1200px, 100%);
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 15px;
-        }
-
-        .access-message {
-            opacity: .95;
-        }
-
-        .access-tools {
-            display: flex;
             align-items: center;
+            gap: 10px;
+        }
+
+        .access-actions {
+            display: flex;
             gap: 7px;
+            flex-wrap: wrap;
         }
 
         .access-btn {
-            border: 1px solid rgba(255,255,255,.35);
-
-            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.25);
+            background: transparent;
             color: white;
-
-            width: 34px;
-            height: 30px;
-
+            padding: 5px 10px;
             border-radius: 8px;
-
             cursor: pointer;
-
             transition: .25s;
         }
 
         .access-btn:hover {
             background: var(--gold);
-            color: var(--primary-dark);
+            color: #000;
         }
 
-
-        /* =====================================================
+        /* =========================
            HEADER
-        ===================================================== */
+        ========================== */
 
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #0b5e7c,
-                    #063b4f
-                );
-
-            color: white;
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,.15);
+            background: rgba(255,255,255,.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(11,94,124,.1);
         }
 
-        .header-container {
-            width: min(1250px, 100%);
-            margin: auto;
-
-            min-height: 92px;
-
-            padding: 12px 20px;
-
+        .navbar {
+            min-height: 76px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             gap: 20px;
         }
-
-
-        /* =====================================================
-           BRAND
-        ===================================================== */
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 14px;
-
+            gap: 12px;
             min-width: 0;
         }
 
         .brand-logo {
-            width: 62px;
-            height: 62px;
-
-            border-radius: 18px;
-
-            object-fit: cover;
-
-            background: white;
-
-            padding: 5px;
-
-            border: 2px solid var(--gold);
-
-            box-shadow:
-                0 8px 20px rgba(0,0,0,.22);
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            border-radius: 14px;
         }
 
         .brand-text {
-            min-width: 0;
+            line-height: 1.35;
         }
 
-        .brand-center {
-            font-size: .82rem;
-            color: #e6f4f8;
-
-            margin-bottom: 2px;
-
-            white-space: nowrap;
-        }
-
-        .brand-institute {
-            font-size: 1.15rem;
-
+        .brand-main {
+            color: var(--primary);
+            font-size: 1.05rem;
             font-weight: 900;
-
-            color: var(--gold);
-
-            line-height: 1.4;
         }
 
-        .brand-en {
+        .brand-sub {
+            color: var(--text-secondary);
             font-size: .68rem;
-
-            opacity: .75;
-
             direction: ltr;
-
             text-align: right;
         }
 
-
-        /* =====================================================
-           HEADER ACTIONS
-        ===================================================== */
-
-        .header-actions {
+        nav ul {
+            list-style: none;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 4px;
         }
 
-        .header-action {
-            width: 46px;
-            height: 46px;
-
-            border-radius: 14px;
-
-            border:
-                1px solid rgba(255,255,255,.25);
-
-            background:
-                rgba(255,255,255,.08);
-
-            color: white;
-
-            cursor: pointer;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 1.35rem;
-
-            transition: .3s;
-        }
-
-        .header-action:hover {
-            background: var(--gold);
-            color: var(--primary-dark);
-
-            transform:
-                translateY(-2px)
-                rotateY(10deg);
-        }
-
-
-        /* =====================================================
-           THREE LINE MENU
-        ===================================================== */
-
-        .menu-button {
-            width: 50px;
-            height: 50px;
-
-            border: none;
-
-            border-radius: 15px;
-
-            background: var(--gold);
-
-            color: var(--primary-dark);
-
-            cursor: pointer;
-
-            display: flex;
-            flex-direction: column;
-
-            justify-content: center;
-            align-items: center;
-
-            gap: 5px;
-
-            box-shadow:
-                0 8px 20px rgba(0,0,0,.2);
-
-            transition: .3s;
-        }
-
-        .menu-button:hover {
-            background: white;
-
-            transform:
-                translateY(-2px)
-                scale(1.04);
-        }
-
-        .menu-button span {
-            width: 25px;
-            height: 3px;
-
-            background: currentColor;
-
-            border-radius: 5px;
-
-            transition: .3s;
-        }
-
-        .menu-button.active span:nth-child(1) {
-            transform:
-                translateY(8px)
-                rotate(45deg);
-        }
-
-        .menu-button.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-button.active span:nth-child(3) {
-            transform:
-                translateY(-8px)
-                rotate(-45deg);
-        }
-
-
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-
-        .navigation {
-            position: fixed;
-
-            top: 0;
-            right: -360px;
-
-            width: min(350px, 88vw);
-
-            height: 100vh;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #063b4f,
-                    #0b5e7c
-                );
-
-            z-index: 2000;
-
-            padding: 100px 25px 30px;
-
-            box-shadow:
-                -20px 0 50px rgba(0,0,0,.25);
-
-            transition: right .35s ease;
-
-            overflow-y: auto;
-        }
-
-        .navigation.open {
-            right: 0;
-        }
-
-        .nav-title {
-            color: var(--gold);
-
-            font-weight: 900;
-
-            font-size: 1.2rem;
-
-            margin-bottom: 20px;
-        }
-
-        .nav-link {
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            padding: 13px 15px;
-
-            margin-bottom: 7px;
-
-            border-radius: 12px;
-
-            color: white;
-
+        nav a {
+            display: block;
+            padding: 9px 11px;
+            border-radius: 10px;
+            color: var(--text);
+            font-weight: 700;
+            font-size: .88rem;
             transition: .25s;
         }
 
-        .nav-link:hover {
-            background:
-                rgba(255,255,255,.12);
-
-            padding-right: 22px;
-
-            color: var(--gold);
+        nav a:hover,
+        nav a.active {
+            background: rgba(11,94,124,.1);
+            color: var(--primary);
         }
 
-        .nav-icon {
-            font-size: 1.2rem;
+        .header-tools {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .nav-close {
-            position: absolute;
-
-            top: 20px;
-            left: 20px;
-
-            width: 40px;
-            height: 40px;
-
-            border: 1px solid rgba(255,255,255,.25);
-
-            border-radius: 10px;
-
-            background: transparent;
-
-            color: white;
-
-            font-size: 1.5rem;
-
+        .icon-btn {
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--primary);
+            border-radius: 12px;
             cursor: pointer;
+            font-size: 1.1rem;
+            transition: .25s;
         }
 
-        .nav-close:hover {
-            background: var(--gold);
-            color: var(--primary-dark);
+        .icon-btn:hover {
+            background: var(--primary);
+            color: white;
         }
 
-        .menu-overlay {
-            position: fixed;
-
-            inset: 0;
-
-            background: rgba(0,0,0,.5);
-
-            z-index: 1500;
-
-            opacity: 0;
-            visibility: hidden;
-
-            transition: .3s;
+        .menu-btn {
+            display: none;
         }
 
-        .menu-overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-
-        /* =====================================================
+        /* =========================
            HERO
-        ===================================================== */
+        ========================== */
 
         .hero {
             position: relative;
-
             min-height: 650px;
-
             display: flex;
             align-items: center;
-
             overflow: hidden;
-
             background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(255,200,0,.18),
-                    transparent 30%
-                ),
-
                 linear-gradient(
                     135deg,
-                    #0b5e7c 0%,
-                    #063b4f 100%
+                    rgba(6,59,79,.97),
+                    rgba(11,94,124,.92),
+                    rgba(26,122,158,.88)
                 );
-
             color: white;
         }
 
         .hero::before {
             content: "";
-
             position: absolute;
-
-            width: 600px;
-            height: 600px;
-
-            border-radius: 50%;
-
-            border: 1px solid
-                rgba(255,255,255,.1);
-
-            right: -250px;
-            top: -250px;
-
-            box-shadow:
-                0 0 0 50px rgba(255,255,255,.02),
-                0 0 0 100px rgba(255,255,255,.02);
+            inset: 0;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(255,200,0,.2), transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(42,157,143,.2), transparent 35%);
+            pointer-events: none;
         }
 
-        .hero-container {
-            width: min(1200px, 100%);
-
-            margin: auto;
-
-            padding: 70px 25px;
-
-            display: grid;
-
-            grid-template-columns:
-                1.15fr .85fr;
-
-            align-items: center;
-
-            gap: 60px;
-
+        .hero-grid {
             position: relative;
-
-            z-index: 2;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 45px;
+            padding: 70px 0;
         }
 
-        .hero-small-title {
-            font-size: 1rem;
-
-            color: #d9f1f6;
-
-            margin-bottom: 8px;
+        .hero-content {
+            animation: fadeUp .8s ease both;
         }
 
-        .hero-main-title {
-            font-size:
-                clamp(2rem, 5vw, 4rem);
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.2);
+            padding: 7px 13px;
+            border-radius: 999px;
+            font-size: .85rem;
+            margin-bottom: 18px;
+        }
 
-            font-weight: 950;
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.2;
+            font-weight: 900;
+            margin-bottom: 18px;
+        }
 
-            line-height: 1.25;
-
+        .hero h1 span {
             color: var(--gold);
-
-            margin-bottom: 15px;
         }
 
-        .hero-subtitle {
-            font-size:
-                clamp(1rem, 2vw, 1.25rem);
+        .hero-title-en {
+            direction: ltr;
+            text-align: right;
+            opacity: .82;
+            font-size: .95rem;
+            margin-bottom: 20px;
+        }
 
-            color: white;
-
-            max-width: 720px;
-
-            margin-bottom: 25px;
+        .hero p {
+            max-width: 680px;
+            color: rgba(255,255,255,.9);
+            font-size: 1.05rem;
+            margin-bottom: 28px;
         }
 
         .hero-buttons {
             display: flex;
-
-            flex-wrap: wrap;
-
             gap: 12px;
+            flex-wrap: wrap;
         }
 
         .btn {
+            border: 0;
+            cursor: pointer;
+            padding: 12px 21px;
+            border-radius: 12px;
+            font-weight: 800;
+            transition: .25s;
             display: inline-flex;
-
             align-items: center;
             justify-content: center;
-
             gap: 8px;
-
-            padding: 13px 22px;
-
-            border-radius: 13px;
-
-            border: 1px solid transparent;
-
-            cursor: pointer;
-
-            font-weight: 800;
-
-            transition: .3s;
         }
 
-        .btn-primary {
+        .btn-gold {
             background: var(--gold);
-            color: var(--primary-dark);
-
-            box-shadow:
-                0 10px 25px rgba(0,0,0,.2);
+            color: #000;
         }
 
-        .btn-primary:hover {
-            background: #fff;
-            transform: translateY(-3px);
+        .btn-gold:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
         }
 
         .btn-outline {
-            background: transparent;
-
-            border-color:
-                rgba(255,255,255,.5);
-
             color: white;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,.5);
         }
 
         .btn-outline:hover {
             background: white;
+            color: var(--primary);
+        }
+
+        .hero-image-wrap {
+            position: relative;
+            animation: fadeIn 1s ease both;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: 30px;
+            border: 5px solid rgba(255,255,255,.18);
+            box-shadow: 0 25px 60px rgba(0,0,0,.3);
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 20px;
+            right: -15px;
+            background: white;
             color: var(--primary-dark);
+            padding: 15px 20px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,.25);
+            font-weight: 900;
         }
 
-
-        /* =====================================================
-           HERO CARD
-        ===================================================== */
-
-        .hero-card {
-            min-height: 350px;
-
-            border-radius: 35px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.17),
-                    rgba(255,255,255,.05)
-                );
-
-            border:
-                1px solid rgba(255,255,255,.2);
-
-            backdrop-filter:
-                blur(14px);
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 30px;
-
-            box-shadow:
-                0 30px 60px rgba(0,0,0,.2);
-
-            transform:
-                perspective(1000px)
-                rotateY(-4deg);
-        }
-
-        .hero-emblem {
-            width: 230px;
-            height: 230px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    #fff 0%,
-                    #fff 48%,
-                    var(--gold) 49%,
-                    var(--gold) 55%,
-                    #0b5e7c 56%,
-                    #063b4f 100%
-                );
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            color: var(--primary-dark);
-
-            font-size: 4rem;
-
-            box-shadow:
-                0 20px 45px rgba(0,0,0,.3);
-
-            animation:
-                float 5s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%,100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-12px);
-            }
-        }
-
-
-        /* =====================================================
+        /* =========================
            SECTION
-        ===================================================== */
+        ========================== */
 
-        .section {
-            width: min(1200px, 100%);
-
-            margin: auto;
-
-            padding:
-                80px 25px;
+        section {
+            padding: 80px 0;
         }
 
-        .section-header {
+        .section-head {
             text-align: center;
-
-            margin-bottom: 45px;
+            max-width: 750px;
+            margin: 0 auto 45px;
         }
 
         .section-kicker {
-            color: var(--secondary);
-
-            font-weight: 900;
-
-            font-size: .95rem;
-        }
-
-        .section-title {
             color: var(--primary);
-
-            font-size:
-                clamp(1.7rem, 4vw, 2.6rem);
-
-            font-weight: 950;
-
-            margin-top: 5px;
+            font-weight: 900;
+            margin-bottom: 7px;
         }
 
-        .section-line {
-            width: 70px;
+        .section-head h2 {
+            font-size: clamp(1.7rem, 4vw, 2.5rem);
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .section-head h2::after {
+            content: "";
+            display: block;
+            width: 65px;
             height: 4px;
-
             background: var(--gold);
-
             border-radius: 10px;
-
             margin: 12px auto;
         }
 
-        .section-description {
-            max-width: 760px;
-
-            margin: 0 auto;
-
-            color: var(--muted);
+        .section-head p {
+            color: var(--text-secondary);
         }
 
+        /* =========================
+           TITLE CARD
+        ========================== */
 
-        /* =====================================================
-           ABOUT
-        ===================================================== */
-
-        .about-grid {
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 25px;
-        }
-
-        .about-card {
+        .institution-title {
             background: white;
-
+            border-right: 6px solid var(--secondary);
             border-radius: var(--radius);
-
-            padding: 30px;
-
-            border:
-                1px solid var(--border);
-
+            padding: 32px;
             box-shadow: var(--shadow);
-
-            transition: .3s;
+            text-align: center;
         }
 
-        .about-card:hover {
-            transform: translateY(-7px);
-
-            border-color: var(--primary);
-        }
-
-        .about-icon {
-            width: 58px;
-            height: 58px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 16px;
-
-            background: #e8f4f7;
-
+        .org-name {
             color: var(--primary);
-
-            font-size: 1.7rem;
-
-            margin-bottom: 18px;
+            font-weight: 900;
+            font-size: 1.15rem;
         }
 
-        .about-card h3 {
-            color: var(--primary);
-
-            margin-bottom: 8px;
+        .org-name .en,
+        .center-name .en {
+            display: block;
+            direction: ltr;
+            color: var(--text-secondary);
+            opacity: .85;
+            font-weight: 400;
+            font-size: .78rem;
         }
 
-        .about-card p {
-            color: var(--muted);
-        }
-
-
-        /* =====================================================
-           SERVICES
-        ===================================================== */
-
-        .services-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 20px;
-        }
-
-        .service-card {
-            position: relative;
-
-            overflow: hidden;
-
-            background: white;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 22px;
-
-            padding: 28px;
-
-            box-shadow:
-                0 12px 35px rgba(6,59,79,.1);
-
-            transition: .35s;
-        }
-
-        .service-card::before {
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            right: 0;
-
-            width: 100%;
+        .divider {
+            width: 70px;
             height: 4px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--primary),
-                    var(--gold)
-                );
+            background: var(--gold);
+            border-radius: 10px;
+            margin: 14px auto;
         }
 
-        .service-card:hover {
-            transform:
-                translateY(-8px)
-                perspective(800px)
-                rotateX(2deg);
-
-            box-shadow:
-                0 25px 45px rgba(6,59,79,.18);
-        }
-
-        .service-number {
-            color: var(--gold-dark);
-
-            font-size: .8rem;
-
+        .center-name {
+            color: var(--primary);
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
             font-weight: 900;
         }
 
-        .service-icon {
-            font-size: 2.2rem;
+        /* =========================
+           ABOUT
+        ========================== */
 
-            margin: 10px 0;
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            border: 5px solid white;
+        }
+
+        .about-content h3 {
+            color: var(--primary);
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .mission-box {
+            margin-top: 20px;
+            background: rgba(255,200,0,.12);
+            border-right: 5px solid var(--gold);
+            padding: 18px;
+            border-radius: 12px;
+        }
+
+        /* =========================
+           SERVICES
+        ========================== */
+
+        .services {
+            background: white;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 25px 18px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 15px;
+            background: rgba(11,94,124,.1);
+            border-radius: 18px;
+            font-size: 2rem;
         }
 
         .service-card h3 {
             color: var(--primary);
-
-            margin-bottom: 7px;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
         }
 
         .service-card p {
-            color: var(--muted);
-
-            font-size: .94rem;
+            color: var(--text-secondary);
+            font-size: .85rem;
         }
 
+        /* =========================
+           VALUES
+        ========================== */
 
-        /* =====================================================
-           MISSION
-        ===================================================== */
-
-        .mission {
-            background:
-                linear-gradient(
-                    135deg,
-                    #0b5e7c,
-                    #063b4f
-                );
-
-            color: white;
-
-            position: relative;
-
-            overflow: hidden;
-        }
-
-        .mission::before {
-            content: "◆";
-
-            position: absolute;
-
-            font-size: 350px;
-
-            color: rgba(255,200,0,.05);
-
-            left: -60px;
-            bottom: -130px;
-
-            transform: rotate(20deg);
-        }
-
-        .mission-grid {
-            width: min(1200px,100%);
-
-            margin: auto;
-
-            padding: 75px 25px;
-
+        .values-grid {
             display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 45px;
-
-            position: relative;
-            z-index: 1;
-        }
-
-        .mission h2 {
-            color: var(--gold);
-
-            font-size: 2.2rem;
-
-            margin-bottom: 15px;
-        }
-
-        .mission p {
-            color: #e8f4f7;
-        }
-
-        .mission-list {
-            display: grid;
-
-            gap: 13px;
-        }
-
-        .mission-item {
-            display: flex;
-
-            align-items: flex-start;
-
-            gap: 12px;
-
-            padding: 14px;
-
-            background:
-                rgba(255,255,255,.07);
-
-            border:
-                1px solid rgba(255,255,255,.1);
-
-            border-radius: 14px;
-        }
-
-        .mission-item span:first-child {
-            color: var(--gold);
-
-            font-size: 1.2rem;
-        }
-
-
-        /* =====================================================
-           MAP
-        ===================================================== */
-
-        .map-section {
-            background: var(--cream);
-        }
-
-        .map-card {
-            position: relative;
-
-            min-height: 500px;
-
-            border-radius: 32px;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #dceff3,
-                    #b7dce5
-                );
-
-            border:
-                1px solid #a9cbd2;
-
-            box-shadow:
-                0 35px 70px rgba(6,59,79,.22);
-
-            transform:
-                perspective(1200px)
-                rotateX(1deg);
-        }
-
-        /* نقشهٔ سه بعدی */
-        .map-surface {
-            position: absolute;
-
-            inset: 0;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #eaf4f0 25%,
-                    #d8e9e1 25%,
-                    #d8e9e1 50%,
-                    #eaf4f0 50%,
-                    #eaf4f0 75%,
-                    #d8e9e1 75%
-                );
-
-            background-size: 90px 90px;
-
-            transform:
-                perspective(700px)
-                rotateX(5deg);
-
-            opacity: .95;
-        }
-
-        .road {
-            position: absolute;
-
-            height: 16px;
-
-            background:
-                #ffffff;
-
-            border:
-                3px solid #b6c6c0;
-
-            border-radius: 20px;
-
-            box-shadow:
-                0 3px 7px rgba(0,0,0,.15);
-
-            transform: rotate(-22deg);
-        }
-
-        .road.r1 {
-            width: 120%;
-            right: -80px;
-            top: 35%;
-        }
-
-        .road.r2 {
-            width: 100%;
-            left: -90px;
-            top: 65%;
-
-            transform: rotate(18deg);
-        }
-
-        .road.r3 {
-            width: 70%;
-            right: 10%;
-            top: 55%;
-
-            transform: rotate(78deg);
-        }
-
-        .map-water {
-            position: absolute;
-
-            width: 340px;
-            height: 180px;
-
-            border-radius: 50%;
-
-            background:
-                #a8d9e6;
-
-            left: -80px;
-            top: 50px;
-
-            transform:
-                rotate(-12deg);
-
-            opacity: .7;
-        }
-
-        .map-pin {
-            position: absolute;
-
-            right: 50%;
-            top: 47%;
-
-            transform:
-                translate(50%,-50%);
-
-            width: 72px;
-            height: 72px;
-
-            border-radius:
-                50% 50% 50% 0;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #e63946,
-                    #b71c2a
-                );
-
-            transform-origin: bottom;
-
-            rotate: -45deg;
-
-            box-shadow:
-                0 15px 30px rgba(0,0,0,.3);
-
-            animation:
-                pinBounce 2.5s infinite;
-        }
-
-        .map-pin::after {
-            content: "";
-
-            position: absolute;
-
-            width: 25px;
-            height: 25px;
-
-            border-radius: 50%;
-
-            background: white;
-
-            top: 23px;
-            left: 23px;
-        }
-
-        @keyframes pinBounce {
-
-            0%,100% {
-                translate: 0 0;
-            }
-
-            50% {
-                translate: 0 -10px;
-            }
-        }
-
-        .map-label {
-            position: absolute;
-
-            right: 25px;
-            bottom: 25px;
-
-            background:
-                rgba(255,255,255,.94);
-
-            backdrop-filter: blur(10px);
-
-            padding: 18px 20px;
-
-            border-radius: 17px;
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,.18);
-
-            max-width: 360px;
-
-            border-right:
-                5px solid var(--gold);
-        }
-
-        .map-label h3 {
-            color: var(--primary);
-
-            margin-bottom: 5px;
-        }
-
-        .map-label p {
-            color: var(--muted);
-
-            font-size: .9rem;
-
-            margin-bottom: 12px;
-        }
-
-        .map-button {
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            padding: 10px 16px;
-
-            background: var(--primary);
-
-            color: white;
-
-            border-radius: 10px;
-
-            font-weight: 800;
-
-            transition: .3s;
-        }
-
-        .map-button:hover {
-            background: var(--primary-light);
-
-            transform: translateY(-2px);
-        }
-
-
-        /* =====================================================
-           CONTACT
-        ===================================================== */
-
-        .contact-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
-        .contact-card {
+        .value-card {
             background: white;
-
             padding: 28px;
-
-            border-radius: 20px;
-
-            text-align: center;
-
-            border:
-                1px solid var(--border);
-
-            box-shadow: var(--shadow);
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 20px rgba(0,0,0,.05);
         }
 
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-
-            margin: auto auto 15px;
-
-            border-radius: 50%;
-
-            background:
-                #e8f4f7;
-
+        .value-card strong {
+            display: block;
             color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
 
-            display: flex;
+        .value-card p {
+            color: var(--text-secondary);
+        }
 
-            align-items: center;
-            justify-content: center;
+        /* =========================
+           CONTACT
+        ========================== */
 
+        .contact-section {
+            background: #fff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 30px;
+        }
+
+        .contact-info {
+            background: linear-gradient(
+                145deg,
+                var(--primary-dark),
+                var(--primary)
+            );
+            color: white;
+            border-radius: 25px;
+            padding: 35px;
+        }
+
+        .contact-info h3 {
+            color: var(--gold);
             font-size: 1.6rem;
+            margin-bottom: 20px;
         }
 
-        .contact-card h3 {
+        .contact-item {
+            display: flex;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .contact-item-icon {
+            width: 40px;
+            height: 40px;
+            flex: 0 0 40px;
+            display: grid;
+            place-items: center;
+            background: rgba(255,255,255,.1);
+            border-radius: 10px;
+        }
+
+        .contact-item small {
+            display: block;
+            opacity: .7;
+        }
+
+        .contact-form {
+            background: var(--bg);
+            padding: 35px;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            color: var(--primary-dark);
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--text);
+            padding: 12px 14px;
+            border-radius: 11px;
+            outline: none;
+            transition: .2s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(11,94,124,.1);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-message {
+            display: none;
+            margin-top: 15px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .form-message.success {
+            display: block;
+            background: rgba(40,167,69,.12);
+            color: var(--success);
+        }
+
+        .form-message.error {
+            display: block;
+            background: rgba(220,53,69,.12);
+            color: var(--danger);
+        }
+
+        /* =========================
+           SEARCH MODAL
+        ========================== */
+
+        .search-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(6,59,79,.75);
+            backdrop-filter: blur(8px);
+            z-index: 3000;
+            display: none;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 80px 20px;
+        }
+
+        .search-overlay.show {
+            display: flex;
+        }
+
+        .search-box {
+            width: min(700px, 100%);
+            background: white;
+            border-radius: 22px;
+            padding: 25px;
+            box-shadow: 0 25px 70px rgba(0,0,0,.3);
+        }
+
+        .search-top {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-top input {
+            flex: 1;
+        }
+
+        .search-close {
+            width: 48px;
+            border: 0;
+            background: var(--danger);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            max-height: 400px;
+            overflow: auto;
+        }
+
+        .search-result {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .search-result a {
             color: var(--primary);
-
-            margin-bottom: 5px;
+            font-weight: 900;
         }
 
-        .contact-card p {
-            color: var(--muted);
-        }
-
-
-        /* =====================================================
+        /* =========================
            FOOTER
-        ===================================================== */
+        ========================== */
 
         footer {
             position: relative;
-
             background:
                 linear-gradient(
                     135deg,
-                    #0b5e7c,
-                    #063b4f
+                    #063b4f 0%,
+                    #0b5e7c 55%,
+                    #1a7a9e 100%
                 );
-
             color: white;
-
             overflow: hidden;
         }
 
         footer::before {
             content: "";
-
             position: absolute;
-
-            width: 450px;
-            height: 450px;
-
-            border-radius: 50%;
-
-            border:
-                1px solid rgba(255,200,0,.12);
-
-            left: -180px;
-            top: -220px;
+            inset: 0;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(255,200,0,.16), transparent 30%),
+                radial-gradient(circle at 15% 80%, rgba(42,157,143,.2), transparent 30%);
+            pointer-events: none;
         }
 
         .footer-main {
-            width: min(1200px,100%);
-
-            margin: auto;
-
-            padding: 65px 25px 30px;
-
-            display: grid;
-
-            grid-template-columns:
-                1.5fr 1fr 1fr;
-
-            gap: 40px;
-
             position: relative;
             z-index: 1;
+            padding: 65px 0 35px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 35px;
+        }
+
+        .footer-brand {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .footer-image {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 3px solid rgba(255,200,0,.65);
+            box-shadow: 0 10px 30px rgba(0,0,0,.25);
         }
 
         .footer-title {
             color: var(--gold);
-
-            font-size: 1.35rem;
-
-            font-weight: 950;
-
-            margin-bottom: 10px;
-        }
-
-        .footer-small {
-            color: #d8edf2;
-
-            font-size: .85rem;
-
-            margin-bottom: 4px;
+            font-size: 1.25rem;
+            font-weight: 900;
+            margin-bottom: 8px;
         }
 
         .footer-text {
-            color: #e4f2f5;
+            color: rgba(255,255,255,.82);
+            font-size: .9rem;
+        }
 
-            font-size: .92rem;
-
-            max-width: 500px;
+        .footer-col h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
         }
 
         .footer-links {
-            display: grid;
+            list-style: none;
+        }
 
-            gap: 7px;
+        .footer-links li {
+            margin: 8px 0;
         }
 
         .footer-links a {
-            color: #d9eef2;
-
-            transition: .25s;
+            color: rgba(255,255,255,.82);
+            transition: .2s;
         }
 
         .footer-links a:hover {
             color: var(--gold);
-
-            transform:
-                translateX(-4px);
+            padding-right: 5px;
         }
 
         .footer-bottom {
-            width: min(1200px,100%);
-
-            margin: auto;
-
-            border-top:
-                1px solid rgba(255,255,255,.15);
-
-            padding:
-                18px 25px;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            gap: 15px;
-
-            color: #c9e1e6;
-
-            font-size: .8rem;
-
             position: relative;
             z-index: 1;
+            border-top: 1px solid rgba(255,255,255,.14);
+            padding: 18px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            color: rgba(255,255,255,.75);
+            font-size: .82rem;
         }
 
+        .footer-bottom strong {
+            color: var(--gold);
+        }
 
-        /* =====================================================
+        /* =========================
            BACK TO TOP
-        ===================================================== */
+        ========================== */
 
         .back-top {
             position: fixed;
-
-            left: 20px;
-            bottom: 20px;
-
-            width: 48px;
-            height: 48px;
-
-            border: none;
-
-            border-radius: 15px;
-
+            bottom: 22px;
+            left: 22px;
+            width: 46px;
+            height: 46px;
+            border: 0;
             background: var(--gold);
-
-            color: var(--primary-dark);
-
+            color: #000;
+            border-radius: 50%;
             cursor: pointer;
-
-            font-size: 1.3rem;
-
-            box-shadow:
-                0 10px 25px rgba(0,0,0,.2);
-
+            font-size: 1.2rem;
+            font-weight: 900;
+            z-index: 1500;
             opacity: 0;
             visibility: hidden;
-
             transition: .3s;
-
-            z-index: 900;
+            box-shadow: 0 8px 25px rgba(0,0,0,.2);
         }
 
         .back-top.show {
@@ -1541,331 +898,389 @@
             visibility: visible;
         }
 
+        /* =========================
+           TOAST
+        ========================== */
 
-        /* =====================================================
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 25px;
+            transform: translate(-50%, 120px);
+            background: var(--primary-dark);
+            color: white;
+            padding: 13px 20px;
+            border-radius: 12px;
+            z-index: 5000;
+            transition: .35s;
+            box-shadow: 0 10px 35px rgba(0,0,0,.25);
+        }
+
+        .toast.show {
+            transform: translate(-50%, 0);
+        }
+
+        /* =========================
+           ANIMATION
+        ========================== */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* =========================
            DARK MODE
-        ===================================================== */
+        ========================== */
 
-        body.dark-mode {
-            background: #0f1a1c;
-
-            color: #e2e8f0;
+        body.dark {
+            --bg: #0f1a1c;
+            --white: #1e2d30;
+            --text: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --primary: #2a9d8f;
+            --primary-light: #52b9a8;
+            --primary-dark: #1a6b61;
+            --gold: #e9c46a;
         }
 
-        body.dark-mode .section {
-            color: #e2e8f0;
-        }
-
-        body.dark-mode .section-title {
-            color: #52b9a8;
-        }
-
-        body.dark-mode .section-description,
-        body.dark-mode .about-card p,
-        body.dark-mode .service-card p,
-        body.dark-mode .contact-card p {
-            color: #94a3b8;
-        }
-
-        body.dark-mode .about-card,
-        body.dark-mode .service-card,
-        body.dark-mode .contact-card {
+        body.dark header,
+        body.dark .institution-title,
+        body.dark .service-card,
+        body.dark .value-card,
+        body.dark .contact-section,
+        body.dark .search-box {
             background: #1e2d30;
+        }
 
+        body.dark input,
+        body.dark textarea,
+        body.dark select,
+        body.dark .icon-btn {
+            background: #0f1a1c;
+            color: #e2e8f0;
             border-color: #334155;
         }
 
-        body.dark-mode .about-card h3,
-        body.dark-mode .service-card h3,
-        body.dark-mode .contact-card h3 {
-            color: #52b9a8;
-        }
-
-        body.dark-mode .about-icon,
-        body.dark-mode .contact-icon {
-            background: #263d40;
-            color: #52b9a8;
-        }
-
-        body.dark-mode .map-section {
+        body.dark .services {
             background: #0f1a1c;
         }
 
+        body.dark .section-head h2,
+        body.dark label {
+            color: #52b9a8;
+        }
 
-        /* =====================================================
+        /* =========================
            HIGH CONTRAST
-        ===================================================== */
+        ========================== */
 
-        body.high-contrast {
-            background: #ffffff;
-
-            color: #000000;
+        body.contrast {
+            --bg: #ffffff;
+            --white: #ffffff;
+            --text: #000000;
+            --text-secondary: #000000;
+            --primary: #0000ff;
+            --primary-light: #0000ff;
+            --primary-dark: #000000;
+            --gold: #ffff00;
+            --border: #000000;
         }
 
-        body.high-contrast header,
-        body.high-contrast footer,
-        body.high-contrast .mission,
-        body.high-contrast .access-bar {
+        body.contrast .hero,
+        body.contrast footer,
+        body.contrast .access-bar {
             background: #000000;
         }
 
-        body.high-contrast .hero {
-            background: #000000;
+        body.contrast .service-card,
+        body.contrast .value-card,
+        body.contrast .institution-title,
+        body.contrast .contact-form {
+            border: 2px solid #000;
         }
 
-        body.high-contrast .hero-main-title,
-        body.high-contrast .section-title,
-        body.high-contrast .footer-title {
-            color: #ffff00;
-        }
-
-        body.high-contrast .about-card,
-        body.high-contrast .service-card,
-        body.high-contrast .contact-card {
-            border: 3px solid #000;
-        }
-
-
-        /* =====================================================
+        /* =========================
            RESPONSIVE
-        ===================================================== */
+        ========================== */
 
-        @media (max-width: 900px) {
-
-            .hero-container,
-            .about-grid,
-            .mission-grid {
-                grid-template-columns: 1fr;
+        @media (max-width: 1050px) {
+            .service-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
-            .services-grid,
+            nav ul {
+                gap: 0;
+            }
+
+            nav a {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 850px) {
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                right: 15px;
+                left: 15px;
+                background: white;
+                border-radius: 16px;
+                box-shadow: var(--shadow);
+                padding: 10px;
+                display: none;
+            }
+
+            body.dark nav {
+                background: #1e2d30;
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            nav ul {
+                display: block;
+            }
+
+            nav a {
+                padding: 12px;
+            }
+
+            .hero-grid,
+            .about-grid,
             .contact-grid {
-                grid-template-columns:
-                    repeat(2,1fr);
+                grid-template-columns: 1fr;
             }
 
             .hero {
                 min-height: auto;
             }
 
-            .hero-card {
-                min-height: 280px;
+            .hero-content {
+                text-align: center;
             }
 
-            .footer-main {
-                grid-template-columns:
-                    1fr 1fr;
-            }
-        }
-
-
-        @media (max-width: 650px) {
-
-            .access-inner {
-                justify-content: center;
-            }
-
-            .access-message {
-                display: none;
-            }
-
-            .header-container {
-                min-height: 78px;
-
-                padding:
-                    9px 12px;
-            }
-
-            .brand-logo {
-                width: 48px;
-                height: 48px;
-
-                border-radius: 13px;
-            }
-
-            .brand-center {
-                font-size: .67rem;
-            }
-
-            .brand-institute {
-                font-size: .88rem;
-            }
-
-            .brand-en {
-                display: none;
-            }
-
-            .header-action {
-                width: 40px;
-                height: 40px;
-            }
-
-            .menu-button {
-                width: 44px;
-                height: 44px;
-            }
-
-            .hero-container {
-                padding:
-                    55px 18px;
+            .hero p {
+                margin-inline: auto;
             }
 
             .hero-buttons {
-                flex-direction: column;
+                justify-content: center;
             }
 
-            .btn {
+            .hero-image-wrap {
+                max-width: 650px;
+                margin-inline: auto;
                 width: 100%;
             }
 
-            .section {
-                padding:
-                    60px 18px;
-            }
-
-            .services-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
             .footer-main {
-                grid-template-columns: 1fr;
-
-                padding:
-                    50px 18px 25px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-
-                padding:
-                    15px 18px;
-            }
-
-            .map-card {
-                min-height: 430px;
-            }
-
-            .map-label {
-                right: 15px;
-                left: 15px;
-
-                bottom: 15px;
-
-                max-width: none;
+                grid-template-columns: 1fr 1fr;
             }
         }
 
+        @media (max-width: 600px) {
+
+            .access-inner {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .access-actions {
+                justify-content: center;
+            }
+
+            .brand-sub {
+                display: none;
+            }
+
+            .brand-main {
+                font-size: .9rem;
+            }
+
+            .brand-logo {
+                width: 45px;
+                height: 45px;
+            }
+
+            .header-tools .icon-btn:not(.menu-btn) {
+                display: none;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .service-grid,
+            .values-grid,
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 24px;
+            }
+
+            .footer-brand {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                text-align: center;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 
-
 <body>
 
-    <!-- =====================================================
+    <!-- =========================
          ACCESSIBILITY BAR
-    ====================================================== -->
+    ========================== -->
 
     <div class="access-bar">
+        <div class="container access-inner">
 
-        <div class="access-inner">
-
-            <div class="access-message"
-                 data-fa="هر کودک، یک نگین؛ هر فرصت، یک گام به سوی استقلال."
-                 data-ps="هر ماشوم، یو ګاڼه؛ هر فرصت، د خپلواکۍ پر لور یو ګام.">
-                هر کودک، یک نگین؛ هر فرصت، یک گام به سوی استقلال.
+            <div>
+                دسترسی آسان برای همه؛ هر کودک، یک نگین
             </div>
 
-            <div class="access-tools">
-
-                <button
-                    class="access-btn"
-                    id="darkBtn"
-                    title="حالت تاریک">
-                    ◐
+            <div class="access-actions">
+                <button class="access-btn" id="darkBtn" type="button">
+                    🌙 حالت تاریک
                 </button>
 
-                <button
-                    class="access-btn"
-                    id="contrastBtn"
-                    title="کنتراست بالا">
-                    ◑
+                <button class="access-btn" id="contrastBtn" type="button">
+                    ◐ کنتراست
                 </button>
 
+                <button class="access-btn" id="fontPlus" type="button">
+                    A+
+                </button>
+
+                <button class="access-btn" id="fontMinus" type="button">
+                    A-
+                </button>
             </div>
 
         </div>
-
     </div>
 
 
-    <!-- =====================================================
+    <!-- =========================
          HEADER
-    ====================================================== -->
+    ========================== -->
 
     <header>
 
-        <div class="header-container">
+        <div class="container navbar">
 
-            <div class="brand">
+            <a href="#home" class="brand">
 
                 <img
                     src="logo.png"
                     alt="لوگوی مرکز آموزشی و توانبخشی نگین"
                     class="brand-logo"
-                    onerror="this.style.display='none'">
+                    onerror="this.style.display='none'"
+                >
 
                 <div class="brand-text">
 
-                    <!-- نام مرکز کوچک -->
-                    <div
-                        class="brand-center"
-                        data-fa="مرکز آموزشی و توانبخشی نگین"
-                        data-ps="د نگین ښوونیز او بیا رغونې مرکز">
+                    <div class="brand-main">
                         مرکز آموزشی و توانبخشی نگین
                     </div>
 
-                    <!-- نام مؤسسه برجسته -->
-                    <div
-                        class="brand-institute"
-                        data-fa="مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت"
-                        data-ps="د بې وزلو ښځو د خدمتونو او مسلکي زده کړو مؤسسه">
-                        مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت
-                    </div>
-
-                    <div class="brand-en">
-                        Service &amp; Vocational Institute for Underprivileged Women
+                    <div class="brand-sub">
+                        Negin Educational & Rehabilitation Center
                     </div>
 
                 </div>
 
-            </div>
+            </a>
 
 
-            <!-- دکمه‌های سمت دیگر -->
+            <nav id="mainNav">
 
-            <div class="header-actions">
+                <ul>
 
-                <!-- کره زمین / تغییر زبان -->
+                    <li>
+                        <a href="#home" class="active">خانه</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">درباره ما</a>
+                    </li>
+
+                    <li>
+                        <a href="#services">خدمات</a>
+                    </li>
+
+                    <li>
+                        <a href="#mission">مأموریت ما</a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">تماس با ما</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <div class="header-tools">
+
                 <button
-                    class="header-action"
-                    id="languageBtn"
-                    aria-label="تغییر زبان"
-                    title="تغییر زبان">
-                    🌐
+                    class="icon-btn"
+                    type="button"
+                    id="searchBtn"
+                    aria-label="جستجو"
+                    title="جستجو">
+                    🔎
                 </button>
 
-                <!-- منوی سه خط -->
                 <button
-                    class="menu-button"
-                    id="menuButton"
-                    aria-label="باز کردن منو"
-                    aria-expanded="false">
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
+                    class="icon-btn menu-btn"
+                    type="button"
+                    id="menuBtn"
+                    aria-label="منوی موبایل"
+                    title="منو">
+                    ☰
                 </button>
 
             </div>
@@ -1875,165 +1290,45 @@
     </header>
 
 
-    <!-- =====================================================
-         SIDE MENU
-    ====================================================== -->
-
-    <div
-        class="menu-overlay"
-        id="menuOverlay">
-    </div>
-
-    <nav
-        class="navigation"
-        id="navigation">
-
-        <button
-            class="nav-close"
-            id="navClose"
-            aria-label="بستن">
-            ×
-        </button>
-
-        <div
-            class="nav-title"
-            data-fa="منوی اصلی"
-            data-ps="اصلي مېنو">
-            منوی اصلی
-        </div>
-
-        <a
-            href="#home"
-            class="nav-link">
-            <span class="nav-icon">⌂</span>
-            <span
-                data-fa="خانه"
-                data-ps="کور">
-                خانه
-            </span>
-        </a>
-
-        <a
-            href="#about"
-            class="nav-link">
-            <span class="nav-icon">◆</span>
-            <span
-                data-fa="درباره ما"
-                data-ps="زموږ په اړه">
-                درباره ما
-            </span>
-        </a>
-
-        <a
-            href="#services"
-            class="nav-link">
-            <span class="nav-icon">♿</span>
-            <span
-                data-fa="خدمات"
-                data-ps="خدمتونه">
-                خدمات
-            </span>
-        </a>
-
-        <a
-            href="#mission"
-            class="nav-link">
-            <span class="nav-icon">★</span>
-            <span
-                data-fa="مأموریت و اهداف"
-                data-ps="موخه او اهداف">
-                مأموریت و اهداف
-            </span>
-        </a>
-
-        <a
-            href="#location"
-            class="nav-link">
-            <span class="nav-icon">📍</span>
-            <span
-                data-fa="موقعیت جغرافیایی"
-                data-ps="جغرافیایي موقعیت">
-                موقعیت جغرافیایی
-            </span>
-        </a>
-
-        <a
-            href="#contact"
-            class="nav-link">
-            <span class="nav-icon">☎</span>
-            <span
-                data-fa="تماس با ما"
-                data-ps="موږ سره اړیکه">
-                تماس با ما
-            </span>
-        </a>
-
-    </nav>
-
-
-    <!-- =====================================================
+    <!-- =========================
          HERO
-    ====================================================== -->
+    ========================== -->
 
     <main>
 
-        <section
-            class="hero"
-            id="home">
+        <section class="hero" id="home">
 
-            <div class="hero-container">
+            <div class="container hero-grid">
 
-                <div>
+                <div class="hero-content">
 
-                    <div
-                        class="hero-small-title"
-                        data-fa="مرکز آموزشی و توانبخشی نگین"
-                        data-ps="د نگین ښوونیز او بیا رغونې مرکز">
-                        مرکز آموزشی و توانبخشی نگین
+                    <div class="eyebrow">
+                        ♿ آموزش • توانبخشی • مشارکت
                     </div>
 
-                    <h1
-                        class="hero-main-title"
-                        data-fa="مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت"
-                        data-ps="د بې وزلو ښځو د خدمتونو او مسلکي زده کړو مؤسسه">
-                        مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت
+                    <h1>
+                        هر کودک،
+                        <span>یک نگین</span>
                     </h1>
 
-                    <p
-                        class="hero-subtitle"
-                        data-fa="باور داریم هر کودک شایسته فرصت برابر برای آموزش، رشد، توانبخشی و مشارکت در جامعه است."
-                        data-ps="موږ باور لرو چې هر ماشوم د زده کړې، ودې، بیا رغونې او په ټولنه کې د ګډون لپاره د برابر فرصت وړ دی.">
-                        باور داریم هر کودک شایسته فرصت برابر برای آموزش، رشد، توانبخشی و مشارکت در جامعه است.
+                    <div class="hero-title-en">
+                        Negin Educational & Rehabilitation Center
+                    </div>
+
+                    <p>
+                        مرکز آموزشی و توانبخشی نگین با هدف فراهم‌سازی
+                        فرصت‌های برابر آموزشی، توانبخشی و اجتماعی برای
+                        کودکان دارای معلولیت فعالیت می‌کند.
                     </p>
 
                     <div class="hero-buttons">
 
-                        <a
-                            href="#services"
-                            class="btn btn-primary">
-
-                            <span>♿</span>
-
-                            <span
-                                data-fa="آشنایی با خدمات"
-                                data-ps="له خدمتونو سره پېژندنه">
-                                آشنایی با خدمات
-                            </span>
-
+                        <a href="#services" class="btn btn-gold">
+                            مشاهده خدمات
                         </a>
 
-                        <a
-                            href="#location"
-                            class="btn btn-outline">
-
-                            <span>📍</span>
-
-                            <span
-                                data-fa="موقعیت مرکز"
-                                data-ps="د مرکز موقعیت">
-                                موقعیت مرکز
-                            </span>
-
+                        <a href="#contact" class="btn btn-outline">
+                            درخواست خدمات
                         </a>
 
                     </div>
@@ -2041,12 +1336,17 @@
                 </div>
 
 
-                <div class="hero-card">
+                <div class="hero-image-wrap">
 
-                    <div
-                        class="hero-emblem"
-                        aria-label="نگین">
-                        ◆
+                    <img
+                        src="hero-child.jpg"
+                        alt="کودک در محیط آموزشی و توانبخشی"
+                        class="hero-image"
+                        loading="eager"
+                    >
+
+                    <div class="hero-badge">
+                        ✨ فرصت برابر برای رشد و توانایی
                     </div>
 
                 </div>
@@ -2056,413 +1356,117 @@
         </section>
 
 
-        <!-- =================================================
-             ABOUT
-        ================================================== -->
+        <!-- =========================
+             INSTITUTION TITLE
+        ========================== -->
 
-        <section
-            class="section"
-            id="about">
+        <section>
 
-            <div class="section-header">
+            <div class="container">
 
-                <div
-                    class="section-kicker"
-                    data-fa="درباره مرکز"
-                    data-ps="د مرکز په اړه">
-                    درباره مرکز
-                </div>
+                <div class="institution-title">
 
-                <h2
-                    class="section-title"
-                    data-fa="هر کودک، یک نگین"
-                    data-ps="هر ماشوم، یوه ګاڼه">
-                    هر کودک، یک نگین
-                </h2>
+                    <div class="org-name">
 
-                <div class="section-line"></div>
+                        مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت
 
-                <p
-                    class="section-description"
-                    data-fa="مرکز آموزشی و توانبخشی نگین با هدف ایجاد فرصت‌های آموزشی، توانبخشی و حمایتی برای کودکان دارای معلولیت فعالیت می‌کند."
-                    data-ps="د نگین ښوونیز او بیا رغونې مرکز د معلولیت لرونکو ماشومانو لپاره د ښوونیزو، بیا رغونې او ملاتړ فرصتونو د برابرولو په موخه فعالیت کوي.">
-                    مرکز آموزشی و توانبخشی نگین با هدف ایجاد فرصت‌های آموزشی، توانبخشی و حمایتی برای کودکان دارای معلولیت فعالیت می‌کند.
-                </p>
-
-            </div>
-
-
-            <div class="about-grid">
-
-                <article class="about-card">
-
-                    <div class="about-icon">🎓</div>
-
-                    <h3
-                        data-fa="آموزش فراگیر"
-                        data-ps="ټول شموله زده کړه">
-                        آموزش فراگیر
-                    </h3>
-
-                    <p
-                        data-fa="فراهم‌سازی محیط آموزشی مناسب، قابل دسترس و محترمانه برای کودکان با نیازهای متفاوت."
-                        data-ps="د بېلابېلو اړتیاوو لرونکو ماشومانو لپاره د مناسب، د لاسرسي وړ او درناوي لرونکي ښوونیز چاپېریال برابرول.">
-                        فراهم‌سازی محیط آموزشی مناسب، قابل دسترس و محترمانه برای کودکان با نیازهای متفاوت.
-                    </p>
-
-                </article>
-
-
-                <article class="about-card">
-
-                    <div class="about-icon">💙</div>
-
-                    <h3
-                        data-fa="حمایت از خانواده"
-                        data-ps="د کورنۍ ملاتړ">
-                        حمایت از خانواده
-                    </h3>
-
-                    <p
-                        data-fa="همراهی با خانواده‌ها برای شناخت بهتر نیازهای کودک و تقویت مشارکت آنان در روند رشد و توانبخشی."
-                        data-ps="له کورنیو سره همکاري، څو د ماشوم اړتیاوې ښه وپېژني او د ودې او بیا رغونې په بهیر کې یې ګډون پیاوړی شي.">
-                        همراهی با خانواده‌ها برای شناخت بهتر نیازهای کودک و تقویت مشارکت آنان در روند رشد و توانبخشی.
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             SERVICES
-        ================================================== -->
-
-        <section
-            class="section"
-            id="services">
-
-            <div class="section-header">
-
-                <div
-                    class="section-kicker"
-                    data-fa="خدمات تخصصی"
-                    data-ps="ځانګړي خدمتونه">
-                    خدمات تخصصی
-                </div>
-
-                <h2
-                    class="section-title"
-                    data-fa="خدمات آموزشی و توانبخشی"
-                    data-ps="ښوونیز او بیا رغونې خدمتونه">
-                    خدمات آموزشی و توانبخشی
-                </h2>
-
-                <div class="section-line"></div>
-
-            </div>
-
-
-            <div class="services-grid">
-
-                <article class="service-card">
-
-                    <div class="service-number">01</div>
-
-                    <div class="service-icon">🎓</div>
-
-                    <h3
-                        data-fa="آموزش ویژه"
-                        data-ps="ځانګړې زده کړه">
-                        آموزش ویژه
-                    </h3>
-
-                    <p
-                        data-fa="برنامه‌های آموزشی متناسب با توانایی‌ها، نیازها و سرعت یادگیری هر کودک."
-                        data-ps="د هر ماشوم د وړتیاوو، اړتیاوو او د زده کړې د سرعت سره سم ځانګړي ښوونیز پروګرامونه.">
-                        برنامه‌های آموزشی متناسب با توانایی‌ها، نیازها و سرعت یادگیری هر کودک.
-                    </p>
-
-                </article>
-
-
-                <article class="service-card">
-
-                    <div class="service-number">02</div>
-
-                    <div class="service-icon">🧑‍🦽</div>
-
-                    <h3
-                        data-fa="فیزیوتراپی"
-                        data-ps="فزیوتراپي">
-                        فیزیوتراپی
-                    </h3>
-
-                    <p
-                        data-fa="کمک به بهبود حرکت، تعادل، قدرت عضلات و استقلال عملکردی کودک."
-                        data-ps="د ماشوم د حرکت، توازن، عضلاتي ځواک او د ورځنیو فعالیتونو د خپلواکۍ په ښه کولو کې مرسته.">
-                        کمک به بهبود حرکت، تعادل، قدرت عضلات و استقلال عملکردی کودک.
-                    </p>
-
-                </article>
-
-
-                <article class="service-card">
-
-                    <div class="service-number">03</div>
-
-                    <div class="service-icon">🗣️</div>
-
-                    <h3
-                        data-fa="گفتاردرمانی"
-                        data-ps="د وینا درملنه">
-                        گفتاردرمانی
-                    </h3>
-
-                    <p
-                        data-fa="تقویت گفتار، زبان، ارتباط و مهارت‌های ارتباطی کودکان."
-                        data-ps="د ماشومانو د وینا، ژبې، اړیکو او ارتباطي مهارتونو پیاوړتیا.">
-                        تقویت گفتار، زبان، ارتباط و مهارت‌های ارتباطی کودکان.
-                    </p>
-
-                </article>
-
-
-                <article class="service-card">
-
-                    <div class="service-number">04</div>
-
-                    <div class="service-icon">🖐️</div>
-
-                    <h3
-                        data-fa="کاردرمانی"
-                        data-ps="د حرفوي درملنې خدمت">
-                        کاردرمانی
-                    </h3>
-
-                    <p
-                        data-fa="تقویت مهارت‌های حرکتی ظریف، فعالیت‌های روزمره و استقلال کودک."
-                        data-ps="د کوچنیو حرکاتو، ورځنیو فعالیتونو او د ماشوم د خپلواکۍ مهارتونو پیاوړتیا.">
-                        تقویت مهارت‌های حرکتی ظریف، فعالیت‌های روزمره و استقلال کودک.
-                    </p>
-
-                </article>
-
-
-                <article class="service-card">
-
-                    <div class="service-number">05</div>
-
-                    <div class="service-icon">🦽</div>
-
-                    <h3
-                        data-fa="وسایل کمکی"
-                        data-ps="مرستندویه وسایل">
-                        وسایل کمکی
-                    </h3>
-
-                    <p
-                        data-fa="کمک به شناسایی و دسترسی به وسایل کمکی متناسب با نیازهای کودک."
-                        data-ps="د ماشوم د اړتیاوو سره سم د مرستندویه وسایلو په پېژندنه او لاسرسي کې مرسته.">
-                        کمک به شناسایی و دسترسی به وسایل کمکی متناسب با نیازهای کودک.
-                    </p>
-
-                </article>
-
-
-                <article class="service-card">
-
-                    <div class="service-number">06</div>
-
-                    <div class="service-icon">🤝</div>
-
-                    <h3
-                        data-fa="حمایت اجتماعی"
-                        data-ps="ټولنیز ملاتړ">
-                        حمایت اجتماعی
-                    </h3>
-
-                    <p
-                        data-fa="تقویت مشارکت کودک و خانواده و ایجاد ارتباط با منابع حمایتی جامعه."
-                        data-ps="د ماشوم او کورنۍ د ګډون پیاوړتیا او د ټولنې له ملاتړ کوونکو سرچینو سره اړیکه.">
-                        تقویت مشارکت کودک و خانواده و ایجاد ارتباط با منابع حمایتی جامعه.
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             MISSION
-        ================================================== -->
-
-        <section
-            class="mission"
-            id="mission">
-
-            <div class="mission-grid">
-
-                <div>
-
-                    <h2
-                        data-fa="مأموریت ما"
-                        data-ps="زموږ موخه">
-                        مأموریت ما
-                    </h2>
-
-                    <p
-                        data-fa="هدف ما ایجاد فرصت برابر برای کودکان، تقویت توانایی‌های فردی آنان و کمک به خانواده‌ها برای ساختن آینده‌ای مستقل‌تر و امیدوارکننده‌تر است."
-                        data-ps="زموږ موخه د ماشومانو لپاره د برابر فرصت برابرول، د هغوی د فردي وړتیاوو پیاوړتیا او له کورنیو سره مرسته ده، څو یو لا خپلواک او هیله من راتلونکی جوړ کړي.">
-                        هدف ما ایجاد فرصت برابر برای کودکان، تقویت توانایی‌های فردی آنان و کمک به خانواده‌ها برای ساختن آینده‌ای مستقل‌تر و امیدوارکننده‌تر است.
-                    </p>
-
-                </div>
-
-
-                <div class="mission-list">
-
-                    <div class="mission-item">
-
-                        <span>◆</span>
-
-                        <span
-                            data-fa="احترام به کرامت و حقوق هر کودک"
-                            data-ps="د هر ماشوم د کرامت او حقونو درناوی">
-                            احترام به کرامت و حقوق هر کودک
+                        <span class="en">
+                            Service &amp; Vocational Institute for Underprivileged Women
                         </span>
 
                     </div>
 
-                    <div class="mission-item">
+                    <div class="divider"></div>
 
-                        <span>◆</span>
+                    <div class="center-name">
 
-                        <span
-                            data-fa="دسترسی برابر به آموزش و توانبخشی"
-                            data-ps="ښوونې او بیا رغونې ته برابر لاسرسی">
-                            دسترسی برابر به آموزش و توانبخشی
-                        </span>
-
-                    </div>
-
-                    <div class="mission-item">
-
-                        <span>◆</span>
-
-                        <span
-                            data-fa="مشارکت فعال خانواده‌ها"
-                            data-ps="د کورنیو فعال ګډون">
-                            مشارکت فعال خانواده‌ها
-                        </span>
-
-                    </div>
-
-                    <div class="mission-item">
-
-                        <span>◆</span>
-
-                        <span
-                            data-fa="تقویت استقلال و مشارکت اجتماعی"
-                            data-ps="د خپلواکۍ او ټولنیز ګډون پیاوړتیا">
-                            تقویت استقلال و مشارکت اجتماعی
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             LOCATION / MAP
-        ================================================== -->
-
-        <section
-            class="map-section"
-            id="location">
-
-            <div class="section">
-
-                <div class="section-header">
-
-                    <div
-                        class="section-kicker"
-                        data-fa="موقعیت جغرافیایی"
-                        data-ps="جغرافیایي موقعیت">
-                        موقعیت جغرافیایی
-                    </div>
-
-                    <h2
-                        class="section-title"
-                        data-fa="مرکز آموزشی و توانبخشی نگین"
-                        data-ps="د نگین ښوونیز او بیا رغونې مرکز">
                         مرکز آموزشی و توانبخشی نگین
+
+                        <span class="en">
+                            Negin Educational &amp; Rehabilitation Center
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-head">
+
+                    <div class="section-kicker">
+                        درباره مرکز
+                    </div>
+
+                    <h2>
+                        همراه کودک در مسیر رشد
                     </h2>
 
-                    <div class="section-line"></div>
-
-                    <p
-                        class="section-description"
-                        data-fa="برای مشاهده موقعیت مرکز و دریافت مسیر، دکمه زیر را انتخاب کنید."
-                        data-ps="د مرکز موقعیت او د لارې د موندلو لپاره لاندې تڼۍ وټاکئ.">
-                        برای مشاهده موقعیت مرکز و دریافت مسیر، دکمه زیر را انتخاب کنید.
+                    <p>
+                        ما باور داریم که هر کودک توانایی‌ها و استعدادهای
+                        منحصربه‌فرد خود را دارد و شایسته فرصت برابر است.
                     </p>
 
                 </div>
 
 
-                <div class="map-card">
+                <div class="about-grid">
 
-                    <div class="map-surface">
+                    <div>
 
-                        <div class="map-water"></div>
-
-                        <div class="road r1"></div>
-                        <div class="road r2"></div>
-                        <div class="road r3"></div>
-
-                        <div class="map-pin"></div>
+                        <img
+                            src="file_00000000798481fd9ffa65f14dca5436.jpg"
+                            alt="مرکز آموزشی و توانبخشی نگین"
+                            class="about-image"
+                            loading="lazy"
+                        >
 
                     </div>
 
 
-                    <div class="map-label">
+                    <div class="about-content">
 
-                        <h3
-                            data-fa="📍 موقعیت مرکز"
-                            data-ps="📍 د مرکز موقعیت">
-                            📍 موقعیت مرکز
+                        <h3>
+                            مرکز آموزشی و توانبخشی نگین
                         </h3>
 
-                        <p
-                            data-fa="برای مشاهده نقشه واقعی، موقعیت و مسیر دسترسی در Google Maps روی دکمه زیر فشار دهید."
-                            data-ps="د ریښتینې نقشې، موقعیت او د لارې د لیدلو لپاره لاندې تڼۍ کېکاږئ.">
-                            برای مشاهده نقشه واقعی، موقعیت و مسیر دسترسی در Google Maps روی دکمه زیر فشار دهید.
+                        <p>
+                            مرکز آموزشی و توانبخشی نگین برای حمایت از
+                            کودکان دارای معلولیت و خانواده‌های آنان،
+                            محیطی آموزشی، توانبخشی، امن و فراگیر فراهم
+                            می‌سازد.
                         </p>
 
-                        <a
-                            href="https://maps.app.goo.gl/U8CNdH2Zcp1iDUaKA?g_st=aw"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="map-button">
+                        <p>
+                            رویکرد ما بر توانمندسازی کودک، افزایش استقلال،
+                            تقویت مشارکت اجتماعی و همکاری نزدیک با خانواده
+                            استوار است.
+                        </p>
 
-                            <span>🗺️</span>
+                        <div class="mission-box">
 
-                            <span
-                                data-fa="باز کردن در Google Maps"
-                                data-ps="په Google Maps کې خلاصول">
-                                باز کردن در Google Maps
-                            </span>
+                            <strong>
+                                💛 باور ما
+                            </strong>
 
-                        </a>
+                            <p>
+                                معلولیت نباید مانع دسترسی کودک به آموزش،
+                                توانبخشی، بازی، ارتباط و فرصت‌های برابر
+                                زندگی باشد.
+                            </p>
+
+                        </div>
 
                     </div>
 
@@ -2473,92 +1477,455 @@
         </section>
 
 
-        <!-- =================================================
-             CONTACT
-        ================================================== -->
+        <!-- =========================
+             SERVICES
+        ========================== -->
 
-        <section
-            class="section"
-            id="contact">
+        <section class="services" id="services">
 
-            <div class="section-header">
+            <div class="container">
 
-                <div
-                    class="section-kicker"
-                    data-fa="ارتباط با ما"
-                    data-ps="موږ سره اړیکه">
-                    ارتباط با ما
+                <div class="section-head">
+
+                    <div class="section-kicker">
+                        خدمات تخصصی
+                    </div>
+
+                    <h2>
+                        خدمات مرکز نگین
+                    </h2>
+
+                    <p>
+                        خدمات ما با محوریت نیازهای فردی کودک و همکاری
+                        خانواده و متخصصان ارائه می‌شود.
+                    </p>
+
                 </div>
 
-                <h2
-                    class="section-title"
-                    data-fa="در کنار شما هستیم"
-                    data-ps="موږ ستاسو تر څنګ یو">
-                    در کنار شما هستیم
-                </h2>
 
-                <div class="section-line"></div>
+                <div class="service-grid">
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            📚
+                        </div>
+
+                        <h3>
+                            آموزش ویژه
+                        </h3>
+
+                        <p>
+                            برنامه‌های آموزشی متناسب با توانایی‌ها،
+                            نیازها و سطح رشد کودک.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            🦽
+                        </div>
+
+                        <h3>
+                            فیزیوتراپی
+                        </h3>
+
+                        <p>
+                            حمایت از حرکت، تعادل، قدرت عضلانی و
+                            استقلال حرکتی کودک.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            🗣️
+                        </div>
+
+                        <h3>
+                            گفتاردرمانی
+                        </h3>
+
+                        <p>
+                            تقویت گفتار، زبان، ارتباط و مهارت‌های
+                            ارتباطی کودک.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            ✋
+                        </div>
+
+                        <h3>
+                            کاردرمانی
+                        </h3>
+
+                        <p>
+                            تقویت مهارت‌های روزمره، حرکتی، حسی و
+                            افزایش استقلال کودک.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">
+                            🤝
+                        </div>
+
+                        <h3>
+                            حمایت اجتماعی
+                        </h3>
+
+                        <p>
+                            همراهی خانواده و کمک به دسترسی کودک به
+                            فرصت‌های اجتماعی و حمایتی.
+                        </p>
+
+                    </article>
+
+                </div>
 
             </div>
 
+        </section>
 
-            <div class="contact-grid">
 
-                <article class="contact-card">
+        <!-- =========================
+             MISSION
+        ========================== -->
 
-                    <div class="contact-icon">📍</div>
+        <section id="mission">
 
-                    <h3
-                        data-fa="آدرس"
-                        data-ps="پته">
-                        آدرس
-                    </h3>
+            <div class="container">
 
-                    <p
-                        data-fa="کابل، افغانستان"
-                        data-ps="کابل، افغانستان">
-                        کابل، افغانستان
+                <div class="section-head">
+
+                    <div class="section-kicker">
+                        ارزش‌ها و مأموریت
+                    </div>
+
+                    <h2>
+                        آنچه برای ما مهم است
+                    </h2>
+
+                </div>
+
+
+                <div class="values-grid">
+
+                    <article class="value-card">
+
+                        <strong>
+                            ♿ دسترسی برابر
+                        </strong>
+
+                        <p>
+                            تلاش برای فراهم‌سازی فرصت‌های برابر آموزشی
+                            و توانبخشی برای کودکان.
+                        </p>
+
+                    </article>
+
+
+                    <article class="value-card">
+
+                        <strong>
+                            💙 کودک‌محوری
+                        </strong>
+
+                        <p>
+                            نیازها، توانایی‌ها و کرامت کودک در مرکز
+                            برنامه‌ریزی خدمات قرار دارد.
+                        </p>
+
+                    </article>
+
+
+                    <article class="value-card">
+
+                        <strong>
+                            🤝 همکاری با خانواده
+                        </strong>
+
+                        <p>
+                            خانواده بخش مهمی از مسیر رشد، آموزش و
+                            توانبخشی کودک است.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT / FORM
+        ========================== -->
+
+        <section class="contact-section" id="contact">
+
+            <div class="container">
+
+                <div class="section-head">
+
+                    <div class="section-kicker">
+                        ارتباط با ما
+                    </div>
+
+                    <h2>
+                        با مرکز نگین در تماس شوید
+                    </h2>
+
+                    <p>
+                        برای دریافت معلومات، درخواست خدمات یا ارسال پیام،
+                        فرم زیر را تکمیل نمایید.
                     </p>
 
-                </article>
+                </div>
 
 
-                <article class="contact-card">
-
-                    <div class="contact-icon">☎</div>
-
-                    <h3
-                        data-fa="تماس"
-                        data-ps="اړیکه">
-                        تماس
-                    </h3>
-
-                    <p
-                        data-fa="برای دریافت معلومات بیشتر با مرکز تماس بگیرید."
-                        data-ps="د نورو معلوماتو لپاره له مرکز سره اړیکه ونیسئ.">
-                        برای دریافت معلومات بیشتر با مرکز تماس بگیرید.
-                    </p>
-
-                </article>
+                <div class="contact-grid">
 
 
-                <article class="contact-card">
+                    <div class="contact-info">
 
-                    <div class="contact-icon">🌐</div>
+                        <h3>
+                            مرکز آموزشی و توانبخشی نگین
+                        </h3>
 
-                    <h3
-                        data-fa="زبان وب‌سایت"
-                        data-ps="د وېبپاڼې ژبه">
-                        زبان وب‌سایت
-                    </h3>
+                        <p>
+                            هر کودک، یک نگین؛ با هم برای آموزش،
+                            توانبخشی و آینده‌ای بهتر.
+                        </p>
 
-                    <p
-                        data-fa="دری / پښتو"
-                        data-ps="دري / پښتو">
-                        دری / پښتو
-                    </p>
 
-                </article>
+                        <div class="contact-item">
+
+                            <div class="contact-item-icon">
+                                📍
+                            </div>
+
+                            <div>
+                                <small>نشانی</small>
+                                افغانستان
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-item-icon">
+                                📧
+                            </div>
+
+                            <div>
+                                <small>ایمیل</small>
+                                negineducationcenter@gmail.com
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div class="contact-item-icon">
+                                🌐
+                            </div>
+
+                            <div>
+                                <small>وب‌سایت</small>
+                                Negin Educational Center
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- WEB3FORMS -->
+
+                    <div class="contact-form">
+
+                        <form
+                            id="contactForm"
+                            action="https://api.web3forms.com/submit"
+                            method="POST"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="access_key"
+                                value="3f3c6e5c-bced-4c18-b41b-a7b41ea1026a"
+                            >
+
+                            <input
+                                type="hidden"
+                                name="subject"
+                                value="پیام جدید از وب‌سایت مرکز آموزشی و توانبخشی نگین"
+                            >
+
+                            <input
+                                type="hidden"
+                                name="from_name"
+                                value="وب‌سایت مرکز آموزشی و توانبخشی نگین"
+                            >
+
+                            <input
+                                type="checkbox"
+                                name="botcheck"
+                                style="display:none"
+                            >
+
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+
+                                    <label for="name">
+                                        نام و نام خانوادگی
+                                    </label>
+
+                                    <input
+                                        id="name"
+                                        name="name"
+                                        type="text"
+                                        placeholder="نام و نام خانوادگی"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="email">
+                                        ایمیل
+                                    </label>
+
+                                    <input
+                                        id="email"
+                                        name="email"
+                                        type="email"
+                                        placeholder="example@email.com"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="phone">
+                                        شماره تماس
+                                    </label>
+
+                                    <input
+                                        id="phone"
+                                        name="phone"
+                                        type="tel"
+                                        placeholder="07XXXXXXXX"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="service">
+                                        نوع درخواست
+                                    </label>
+
+                                    <select
+                                        id="service"
+                                        name="service"
+                                    >
+
+                                        <option value="">
+                                            انتخاب نمایید
+                                        </option>
+
+                                        <option value="آموزش ویژه">
+                                            آموزش ویژه
+                                        </option>
+
+                                        <option value="فیزیوتراپی">
+                                            فیزیوتراپی
+                                        </option>
+
+                                        <option value="گفتاردرمانی">
+                                            گفتاردرمانی
+                                        </option>
+
+                                        <option value="کاردرمانی">
+                                            کاردرمانی
+                                        </option>
+
+                                        <option value="حمایت اجتماعی">
+                                            حمایت اجتماعی
+                                        </option>
+
+                                        <option value="معلومات عمومی">
+                                            معلومات عمومی
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-group full">
+
+                                    <label for="message">
+                                        پیام شما
+                                    </label>
+
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        placeholder="پیام خود را اینجا بنویسید..."
+                                        required
+                                    ></textarea>
+
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="btn btn-gold"
+                                id="submitBtn"
+                            >
+                                📩 ارسال پیام
+                            </button>
+
+
+                            <div
+                                id="formMessage"
+                                class="form-message"
+                                role="alert"
+                            ></div>
+
+                        </form>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -2567,407 +1934,793 @@
     </main>
 
 
-    <!-- =====================================================
+    <!-- =========================
          FOOTER
-    ====================================================== -->
+    ========================== -->
 
     <footer>
 
-        <div class="footer-main">
+        <div class="container footer-main">
+
 
             <div>
 
-                <div
-                    class="footer-small"
-                    data-fa="مرکز آموزشی و توانبخشی نگین"
-                    data-ps="د نگین ښوونیز او بیا رغونې مرکز">
-                    مرکز آموزشی و توانبخشی نگین
-                </div>
+                <div class="footer-brand">
 
-                <div
-                    class="footer-title"
-                    data-fa="مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت"
-                    data-ps="د بې وزلو ښځو د خدمتونو او مسلکي زده کړو مؤسسه">
-                    مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت
-                </div>
+                    <img
+                        src="file_00000000798481fd9ffa65f14dca5436.jpg"
+                        alt="مرکز آموزشی و توانبخشی نگین"
+                        class="footer-image"
+                        loading="lazy"
+                    >
 
-                <p
-                    class="footer-text"
-                    data-fa="با هدف ایجاد فرصت‌های برابر آموزشی و توانبخشی برای کودکان و حمایت از خانواده‌ها."
-                    data-ps="د ماشومانو لپاره د برابر ښوونیزو او بیا رغونې فرصتونو او د کورنیو د ملاتړ په موخه.">
-                    با هدف ایجاد فرصت‌های برابر آموزشی و توانبخشی برای کودکان و حمایت از خانواده‌ها.
-                </p>
+                    <div>
+
+                        <div class="footer-title">
+                            مرکز آموزشی و توانبخشی نگین
+                        </div>
+
+                        <p class="footer-text">
+                            وابسته به مؤسسه‌ی خدماتی و حرفه‌آموزی
+                            زنان بی‌بضاعت
+                        </p>
+
+                        <p
+                            class="footer-text"
+                            dir="ltr"
+                            style="margin-top:7px"
+                        >
+                            Negin Educational &amp; Rehabilitation Center
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <div>
+            <div class="footer-col">
 
-                <div
-                    class="footer-title"
-                    data-fa="دسترسی سریع"
-                    data-ps="چټک لاسرسی">
+                <h3>
                     دسترسی سریع
-                </div>
+                </h3>
 
-                <div class="footer-links">
+                <ul class="footer-links">
 
-                    <a href="#home"
-                       data-fa="خانه"
-                       data-ps="کور">
-                        خانه
-                    </a>
+                    <li>
+                        <a href="#home">خانه</a>
+                    </li>
 
-                    <a href="#about"
-                       data-fa="درباره ما"
-                       data-ps="زموږ په اړه">
-                        درباره ما
-                    </a>
+                    <li>
+                        <a href="#about">درباره ما</a>
+                    </li>
 
-                    <a href="#services"
-                       data-fa="خدمات"
-                       data-ps="خدمتونه">
-                        خدمات
-                    </a>
+                    <li>
+                        <a href="#services">خدمات</a>
+                    </li>
 
-                    <a href="#location"
-                       data-fa="موقعیت"
-                       data-ps="موقعیت">
-                        موقعیت
-                    </a>
+                    <li>
+                        <a href="#mission">مأموریت ما</a>
+                    </li>
 
-                </div>
+                    <li>
+                        <a href="#contact">تماس با ما</a>
+                    </li>
+
+                </ul>
 
             </div>
 
 
-            <div>
+            <div class="footer-col">
 
-                <div
-                    class="footer-title"
-                    data-fa="اطلاعات"
-                    data-ps="معلومات">
-                    اطلاعات
-                </div>
+                <h3>
+                    خدمات
+                </h3>
 
-                <div class="footer-links">
+                <ul class="footer-links">
 
-                    <a
-                        href="https://maps.app.goo.gl/U8CNdH2Zcp1iDUaKA?g_st=aw"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-fa="مشاهده موقعیت در Google Maps"
-                        data-ps="په Google Maps کې موقعیت وګورئ">
-                        مشاهده موقعیت در Google Maps
-                    </a>
+                    <li>
+                        <a href="#services">
+                            آموزش ویژه
+                        </a>
+                    </li>
 
-                    <a
-                        href="#contact"
-                        data-fa="تماس با مرکز"
-                        data-ps="له مرکز سره اړیکه">
-                        تماس با مرکز
-                    </a>
+                    <li>
+                        <a href="#services">
+                            فیزیوتراپی
+                        </a>
+                    </li>
 
-                    <a
-                        href="#"
-                        data-fa="حریم خصوصی"
-                        data-ps="د محرمیت تګلاره">
-                        حریم خصوصی
-                    </a>
+                    <li>
+                        <a href="#services">
+                            گفتاردرمانی
+                        </a>
+                    </li>
 
-                </div>
+                    <li>
+                        <a href="#services">
+                            کاردرمانی
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            درخواست خدمات
+                        </a>
+                    </li>
+
+                </ul>
 
             </div>
 
         </div>
 
 
-        <div class="footer-bottom">
+        <div class="container footer-bottom">
 
-            <span
-                data-fa="© ۲۰۲۶ تمامی حقوق محفوظ است."
-                data-ps="© ۲۰۲۶ ټول حقوق خوندي دي.">
-                © ۲۰۲۶ تمامی حقوق محفوظ است.
-            </span>
+            <div>
+                © <span id="year"></span>
+                تمامی حقوق برای
+                <strong>مرکز آموزشی و توانبخشی نگین</strong>
+                محفوظ است.
+            </div>
 
-            <span>
-                Negin Educational &amp; Rehabilitation Center
-            </span>
+            <div>
+                طراحی و توسعه با هدف دسترسی بهتر به آموزش و توانبخشی
+            </div>
 
         </div>
 
     </footer>
 
 
-    <!-- =====================================================
-         BACK TO TOP
-    ====================================================== -->
+    <!-- =========================
+         SEARCH
+    ========================== -->
+
+    <div
+        class="search-overlay"
+        id="searchOverlay"
+        aria-hidden="true"
+    >
+
+        <div class="search-box">
+
+            <div class="search-top">
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="در وب‌سایت جستجو کنید..."
+                    autocomplete="off"
+                >
+
+                <button
+                    class="icon-btn"
+                    type="button"
+                    id="voiceSearchBtn"
+                    title="جستجوی صوتی"
+                >
+                    🎙️
+                </button>
+
+                <button
+                    class="search-close"
+                    type="button"
+                    id="searchClose"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+            <div
+                class="search-results"
+                id="searchResults"
+            >
+                عبارت مورد نظر خود را جستجو کنید.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BACK TO TOP -->
 
     <button
         class="back-top"
         id="backTop"
-        aria-label="بازگشت به بالا">
+        type="button"
+        aria-label="بازگشت به بالا"
+    >
         ↑
     </button>
 
 
-    <!-- =====================================================
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+    ></div>
+
+
+    <!-- =========================
          JAVASCRIPT
-    ====================================================== -->
+    ========================== -->
 
     <script>
 
-        /* =================================================
-           MENU
-        ================================================= */
-
-        const menuButton =
-            document.getElementById("menuButton");
-
-        const navigation =
-            document.getElementById("navigation");
-
-        const menuOverlay =
-            document.getElementById("menuOverlay");
-
-        const navClose =
-            document.getElementById("navClose");
+        "use strict";
 
 
-        function openMenu() {
+        /* =========================
+           YEAR
+        ========================== */
 
-            navigation.classList.add("open");
-
-            menuOverlay.classList.add("show");
-
-            menuButton.classList.add("active");
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                "true"
-            );
-
-            document.body.style.overflow = "hidden";
-        }
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
 
 
-        function closeMenu() {
+        /* =========================
+           MOBILE MENU
+        ========================== */
 
-            navigation.classList.remove("open");
+        const menuBtn =
+            document.getElementById("menuBtn");
 
-            menuOverlay.classList.remove("show");
+        const mainNav =
+            document.getElementById("mainNav");
 
-            menuButton.classList.remove("active");
+        menuBtn.addEventListener("click", function () {
 
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+            mainNav.classList.toggle("open");
 
-            document.body.style.overflow = "";
-        }
-
-
-        menuButton.addEventListener(
-            "click",
-            openMenu
-        );
-
-        navClose.addEventListener(
-            "click",
-            closeMenu
-        );
-
-        menuOverlay.addEventListener(
-            "click",
-            closeMenu
-        );
+        });
 
 
-        document
-            .querySelectorAll(".nav-link")
-            .forEach(link => {
+        document.querySelectorAll("#mainNav a").forEach(link => {
 
-                link.addEventListener(
-                    "click",
-                    closeMenu
-                );
+            link.addEventListener("click", function () {
+
+                mainNav.classList.remove("open");
 
             });
 
-
-        /* =================================================
-           LANGUAGE
-        ================================================= */
-
-        const languageBtn =
-            document.getElementById("languageBtn");
-
-        let currentLanguage =
-            localStorage.getItem("negin-language") || "fa";
+        });
 
 
-        function translatePage(language) {
-
-            document
-                .querySelectorAll("[data-fa]")
-                .forEach(element => {
-
-                    if (language === "ps") {
-
-                        element.textContent =
-                            element.getAttribute("data-ps");
-
-                    } else {
-
-                        element.textContent =
-                            element.getAttribute("data-fa");
-
-                    }
-
-                });
-
-
-            if (language === "ps") {
-
-                document.documentElement.lang = "ps";
-
-                document.documentElement.dir = "rtl";
-
-                document.title =
-                    "د بې وزلو ښځو د خدمتونو او مسلکي زده کړو مؤسسه | د نگین ښوونیز او بیا رغونې مرکز";
-
-                languageBtn.title =
-                    "بیا دری ته واړوئ";
-
-            } else {
-
-                document.documentElement.lang = "fa";
-
-                document.documentElement.dir = "rtl";
-
-                document.title =
-                    "مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت | مرکز آموزشی و توانبخشی نگین";
-
-                languageBtn.title =
-                    "تغییر زبان به پشتو";
-
-            }
-
-
-            localStorage.setItem(
-                "negin-language",
-                language
-            );
-
-            currentLanguage = language;
-
-        }
-
-
-        languageBtn.addEventListener(
-            "click",
-            () => {
-
-                const newLanguage =
-                    currentLanguage === "fa"
-                        ? "ps"
-                        : "fa";
-
-                translatePage(newLanguage);
-
-            }
-        );
-
-
-        translatePage(currentLanguage);
-
-
-        /* =================================================
+        /* =========================
            DARK MODE
-        ================================================= */
+        ========================== */
 
         const darkBtn =
             document.getElementById("darkBtn");
 
+        darkBtn.addEventListener("click", function () {
+
+            document.body.classList.toggle("dark");
+
+            const isDark =
+                document.body.classList.contains("dark");
+
+            localStorage.setItem(
+                "negin-dark-mode",
+                isDark ? "on" : "off"
+            );
+
+            showToast(
+                isDark
+                    ? "حالت تاریک فعال شد."
+                    : "حالت روشن فعال شد."
+            );
+
+        });
+
 
         if (
-            localStorage.getItem("negin-dark") === "1"
+            localStorage.getItem("negin-dark-mode") === "on"
         ) {
 
-            document.body.classList.add(
-                "dark-mode"
-            );
+            document.body.classList.add("dark");
 
         }
 
 
-        darkBtn.addEventListener(
-            "click",
-            () => {
-
-                document.body.classList.toggle(
-                    "dark-mode"
-                );
-
-                localStorage.setItem(
-                    "negin-dark",
-
-                    document.body.classList.contains(
-                        "dark-mode"
-                    )
-                        ? "1"
-                        : "0"
-                );
-
-            }
-        );
-
-
-        /* =================================================
+        /* =========================
            HIGH CONTRAST
-        ================================================= */
+        ========================== */
 
         const contrastBtn =
             document.getElementById("contrastBtn");
 
+        contrastBtn.addEventListener("click", function () {
+
+            document.body.classList.toggle("contrast");
+
+            const enabled =
+                document.body.classList.contains("contrast");
+
+            localStorage.setItem(
+                "negin-contrast",
+                enabled ? "on" : "off"
+            );
+
+            showToast(
+                enabled
+                    ? "حالت کنتراست بالا فعال شد."
+                    : "حالت کنتراست بالا غیرفعال شد."
+            );
+
+        });
+
 
         if (
-            localStorage.getItem("negin-contrast") === "1"
+            localStorage.getItem("negin-contrast") === "on"
         ) {
 
-            document.body.classList.add(
-                "high-contrast"
-            );
+            document.body.classList.add("contrast");
 
         }
 
 
-        contrastBtn.addEventListener(
-            "click",
-            () => {
+        /* =========================
+           FONT SIZE
+        ========================== */
 
-                document.body.classList.toggle(
-                    "high-contrast"
-                );
+        let fontScale =
+            parseFloat(
+                localStorage.getItem("negin-font-scale")
+            ) || 1;
+
+        function applyFontScale() {
+
+            document.documentElement.style.fontSize =
+                (16 * fontScale) + "px";
+
+        }
+
+        applyFontScale();
+
+
+        document
+            .getElementById("fontPlus")
+            .addEventListener("click", function () {
+
+                fontScale =
+                    Math.min(1.25, fontScale + .05);
 
                 localStorage.setItem(
-                    "negin-contrast",
-
-                    document.body.classList.contains(
-                        "high-contrast"
-                    )
-                        ? "1"
-                        : "0"
+                    "negin-font-scale",
+                    fontScale
                 );
+
+                applyFontScale();
+
+            });
+
+
+        document
+            .getElementById("fontMinus")
+            .addEventListener("click", function () {
+
+                fontScale =
+                    Math.max(.9, fontScale - .05);
+
+                localStorage.setItem(
+                    "negin-font-scale",
+                    fontScale
+                );
+
+                applyFontScale();
+
+            });
+
+
+        /* =========================
+           SEARCH
+        ========================== */
+
+        const searchBtn =
+            document.getElementById("searchBtn");
+
+        const searchOverlay =
+            document.getElementById("searchOverlay");
+
+        const searchClose =
+            document.getElementById("searchClose");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const searchResults =
+            document.getElementById("searchResults");
+
+
+        const searchableSections = [
+
+            {
+                title: "خانه",
+                text: "هر کودک یک نگین آموزش توانبخشی مشارکت",
+                url: "#home"
+            },
+
+            {
+                title: "درباره ما",
+                text: "مرکز آموزشی توانبخشی کودکان معلول خانواده آموزش",
+                url: "#about"
+            },
+
+            {
+                title: "آموزش ویژه",
+                text: "آموزش ویژه برنامه آموزشی کودک",
+                url: "#services"
+            },
+
+            {
+                title: "فیزیوتراپی",
+                text: "فیزیوتراپی حرکت تعادل قدرت عضلانی",
+                url: "#services"
+            },
+
+            {
+                title: "گفتاردرمانی",
+                text: "گفتاردرمانی گفتار زبان ارتباط",
+                url: "#services"
+            },
+
+            {
+                title: "کاردرمانی",
+                text: "کاردرمانی مهارت حرکتی حسی استقلال",
+                url: "#services"
+            },
+
+            {
+                title: "حمایت اجتماعی",
+                text: "حمایت اجتماعی خانواده کودک",
+                url: "#services"
+            },
+
+            {
+                title: "مأموریت ما",
+                text: "دسترسی برابر کودک محوری همکاری خانواده",
+                url: "#mission"
+            },
+
+            {
+                title: "تماس با ما",
+                text: "تماس ایمیل درخواست خدمات پیام",
+                url: "#contact"
+            }
+
+        ];
+
+
+        function openSearch() {
+
+            searchOverlay.classList.add("show");
+
+            searchOverlay.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            setTimeout(() => {
+
+                searchInput.focus();
+
+            }, 100);
+
+        }
+
+
+        function closeSearch() {
+
+            searchOverlay.classList.remove("show");
+
+            searchOverlay.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            searchInput.value = "";
+
+            searchResults.textContent =
+                "عبارت مورد نظر خود را جستجو کنید.";
+
+        }
+
+
+        searchBtn.addEventListener(
+            "click",
+            openSearch
+        );
+
+
+        searchClose.addEventListener(
+            "click",
+            closeSearch
+        );
+
+
+        searchOverlay.addEventListener(
+            "click",
+            function (event) {
+
+                if (event.target === searchOverlay) {
+
+                    closeSearch();
+
+                }
 
             }
         );
 
 
-        /* =================================================
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    closeSearch();
+
+                }
+
+            }
+        );
+
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                const query =
+                    this.value.trim().toLowerCase();
+
+                if (!query) {
+
+                    searchResults.textContent =
+                        "عبارت مورد نظر خود را جستجو کنید.";
+
+                    return;
+
+                }
+
+
+                const results =
+                    searchableSections.filter(item =>
+
+                        (
+                            item.title +
+                            " " +
+                            item.text
+                        )
+                        .toLowerCase()
+                        .includes(query)
+
+                    );
+
+
+                if (!results.length) {
+
+                    searchResults.innerHTML =
+                        "<p>نتیجه‌ای پیدا نشد.</p>";
+
+                    return;
+
+                }
+
+
+                searchResults.innerHTML =
+                    results.map(item => `
+
+                        <div class="search-result">
+
+                            <a href="${item.url}">
+                                ${item.title}
+                            </a>
+
+                            <div>
+                                ${item.text}
+                            </div>
+
+                        </div>
+
+                    `).join("");
+
+            }
+        );
+
+
+        /* =========================
+           VOICE SEARCH
+        ========================== */
+
+        const voiceSearchBtn =
+            document.getElementById("voiceSearchBtn");
+
+
+        voiceSearchBtn.addEventListener(
+            "click",
+            function () {
+
+                const SpeechRecognition =
+                    window.SpeechRecognition ||
+                    window.webkitSpeechRecognition;
+
+
+                if (!SpeechRecognition) {
+
+                    showToast(
+                        "جستجوی صوتی در این مرورگر پشتیبانی نمی‌شود."
+                    );
+
+                    return;
+
+                }
+
+
+                const recognition =
+                    new SpeechRecognition();
+
+
+                recognition.lang = "fa-AF";
+
+                recognition.interimResults = false;
+
+                recognition.maxAlternatives = 1;
+
+
+                showToast(
+                    "لطفاً صحبت کنید..."
+                );
+
+
+                recognition.start();
+
+
+                recognition.onresult =
+                    function (event) {
+
+                        const transcript =
+                            event.results[0][0].transcript;
+
+                        searchInput.value =
+                            transcript;
+
+                        searchInput.dispatchEvent(
+                            new Event("input")
+                        );
+
+                    };
+
+
+                recognition.onerror =
+                    function () {
+
+                        showToast(
+                            "در جستجوی صوتی مشکلی رخ داد."
+                        );
+
+                    };
+
+            }
+        );
+
+
+        /* =========================
+           WEB3FORMS SUBMISSION
+        ========================== */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        const formMessage =
+            document.getElementById("formMessage");
+
+        const submitBtn =
+            document.getElementById("submitBtn");
+
+
+        contactForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                submitBtn.disabled = true;
+
+                submitBtn.textContent =
+                    "⏳ در حال ارسال...";
+
+
+                formMessage.className =
+                    "form-message";
+
+                formMessage.textContent = "";
+
+
+                try {
+
+                    const formData =
+                        new FormData(contactForm);
+
+
+                    const response =
+                        await fetch(
+                            contactForm.action,
+                            {
+                                method: "POST",
+                                body: formData,
+                                headers: {
+                                    "Accept":
+                                        "application/json"
+                                }
+                            }
+                        );
+
+
+                    const result =
+                        await response.json();
+
+
+                    if (
+                        response.ok &&
+                        result.success !== false
+                    ) {
+
+                        formMessage.className =
+                            "form-message success";
+
+                        formMessage.textContent =
+                            "پیام شما با موفقیت ارسال شد. از تماس شما با مرکز نگین سپاسگزاریم.";
+
+                        contactForm.reset();
+
+                        showToast(
+                            "پیام با موفقیت ارسال شد."
+                        );
+
+                    } else {
+
+                        throw new Error(
+                            "Form submission failed"
+                        );
+
+                    }
+
+                } catch (error) {
+
+                    formMessage.className =
+                        "form-message error";
+
+                    formMessage.textContent =
+                        "ارسال پیام موفق نشد. لطفاً دوباره تلاش کنید.";
+
+                    showToast(
+                        "خطا در ارسال پیام."
+                    );
+
+                } finally {
+
+                    submitBtn.disabled = false;
+
+                    submitBtn.textContent =
+                        "📩 ارسال پیام";
+
+                }
+
+            }
+        );
+
+
+        /* =========================
            BACK TO TOP
-        ================================================= */
+        ========================== */
 
         const backTop =
             document.getElementById("backTop");
@@ -2975,7 +2728,7 @@
 
         window.addEventListener(
             "scroll",
-            () => {
+            function () {
 
                 if (window.scrollY > 500) {
 
@@ -2993,7 +2746,7 @@
 
         backTop.addEventListener(
             "click",
-            () => {
+            function () {
 
                 window.scrollTo({
                     top: 0,
@@ -3004,44 +2757,99 @@
         );
 
 
-        /* =================================================
-           ESCAPE KEY
-        ================================================= */
+        /* =========================
+           ACTIVE NAVIGATION
+        ========================== */
 
-        document.addEventListener(
-            "keydown",
-            event => {
+        const sections =
+            document.querySelectorAll(
+                "main section[id]"
+            );
 
-                if (event.key === "Escape") {
 
-                    closeMenu();
+        window.addEventListener(
+            "scroll",
+            function () {
 
-                }
+                let current = "";
+
+
+                sections.forEach(section => {
+
+                    const sectionTop =
+                        section.offsetTop - 130;
+
+                    if (
+                        window.scrollY >= sectionTop
+                    ) {
+
+                        current =
+                            section.getAttribute("id");
+
+                    }
+
+                });
+
+
+                document
+                    .querySelectorAll("#mainNav a")
+                    .forEach(link => {
+
+                        link.classList.remove("active");
+
+                        if (
+                            link.getAttribute("href") ===
+                            "#" + current
+                        ) {
+
+                            link.classList.add("active");
+
+                        }
+
+                    });
 
             }
         );
 
 
-        /* =================================================
-           PREVENT EMPTY #
-        ================================================= */
+        /* =========================
+           TOAST
+        ========================== */
 
-        document
-            .querySelectorAll('a[href="#"]')
-            .forEach(link => {
+        let toastTimer;
 
-                link.addEventListener(
-                    "click",
-                    event => {
 
-                        event.preventDefault();
+        function showToast(message) {
 
-                    }
+            const toast =
+                document.getElementById("toast");
+
+
+            toast.textContent =
+                message;
+
+            toast.classList.add("show");
+
+
+            clearTimeout(toastTimer);
+
+
+            toastTimer =
+                setTimeout(
+                    function () {
+
+                        toast.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    3000
                 );
 
-            });
+        }
 
     </script>
 
 </body>
+
 </html>
