@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="مرکز آموزشی و توانبخشی نگین؛ ارائه خدمات آموزش ویژه، فیزیوتراپی، گفتاردرمانی و کاردرمانی برای کودکان با نیازهای ویژه.">
-    <meta name="keywords" content="مرکز آموزشی نگین, توانبخشی کودکان, آموزش ویژه, فیزیوتراپی, گفتاردرمانی, کاردرمانی">
+    <title>مرکز آموزشی و توانبخشی نگین | مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت</title>
+
+    <meta name="description" content="مرکز آموزشی و توانبخشی نگین؛ وابسته به مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت، با هدف آموزش، توانبخشی و حمایت از کودکان دارای معلولیت در افغانستان.">
+    <meta name="keywords" content="مرکز آموزشی نگین, مرکز توانبخشی نگین, آموزش ویژه, توانبخشی کودکان, فیزیوتراپی, گفتاردرمانی, کاردرمانی, افغانستان">
     <meta name="author" content="مرکز آموزشی و توانبخشی نگین">
 
     <meta name="theme-color" content="#0b5e7c">
 
-    <title>مرکز آموزشی و توانبخشی نگین | هر کودک، یک نگین</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         /* =========================================================
            Negin Educational & Rehabilitation Center
-           Complete GitHub Pages Single-File Website
-           ========================================================= */
+           Complete GitHub Pages index.html
+        ========================================================= */
 
         :root {
             --primary: #0b5e7c;
@@ -29,11 +33,11 @@
             --secondary: #d4a373;
             --teal: #2a9d8f;
 
-            --bg: #f7f3eb;
+            --cream: #f7f3eb;
             --white: #ffffff;
 
             --text: #1e293b;
-            --text-secondary: #475569;
+            --text-muted: #475569;
 
             --border: #d1c5b0;
 
@@ -41,16 +45,16 @@
             --danger: #dc3545;
             --warning: #ffc107;
 
-            --shadow: 0 10px 35px rgba(6, 59, 79, 0.12);
+            --shadow: 0 12px 35px rgba(6, 59, 79, 0.12);
             --shadow-hover: 0 18px 45px rgba(6, 59, 79, 0.20);
 
-            --radius: 18px;
-            --transition: 0.3s ease;
+            --radius: 20px;
+            --transition: .3s ease;
         }
 
-        /* =========================================================
+        /* =========================
            RESET
-           ========================================================= */
+        ========================= */
 
         * {
             margin: 0;
@@ -63,22 +67,15 @@
         }
 
         body {
-            font-family:
-                "Tajawal",
-                "Segoe UI",
-                Tahoma,
-                Arial,
-                sans-serif;
-
-            background: var(--bg);
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+            background: var(--cream);
             color: var(--text);
             line-height: 1.8;
             overflow-x: hidden;
         }
 
-        img {
-            max-width: 100%;
-            display: block;
+        body.no-scroll {
+            overflow: hidden;
         }
 
         a {
@@ -90,266 +87,213 @@
         input,
         textarea,
         select {
-            font: inherit;
+            font-family: inherit;
         }
 
         button {
             cursor: pointer;
         }
 
-        ul {
-            list-style: none;
+        img {
+            max-width: 100%;
+            display: block;
         }
 
-        /* =========================================================
-           ACCESSIBILITY
-           ========================================================= */
-
-        .skip-link {
-            position: fixed;
-            top: -100px;
-            right: 20px;
-            z-index: 9999;
-            background: var(--gold);
-            color: #000;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: 800;
+        .container {
+            width: min(1180px, calc(100% - 32px));
+            margin: auto;
         }
 
-        .skip-link:focus {
-            top: 20px;
-        }
-
-        :focus-visible {
-            outline: 3px solid var(--gold);
-            outline-offset: 3px;
-        }
-
-        /* =========================================================
+        /* =========================
            TOP ACCESS BAR
-           ========================================================= */
+        ========================= */
 
         .access-bar {
             background: var(--primary-dark);
             color: var(--white);
-            padding: 8px 5%;
+            padding: 7px 0;
+            font-size: .85rem;
+        }
+
+        .access-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 15px;
-            flex-wrap: wrap;
-            font-size: 0.9rem;
         }
 
-        .access-info {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-            align-items: center;
+        .access-message {
+            opacity: .9;
         }
 
-        .access-info span {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .access-tools {
+        .access-actions {
             display: flex;
             gap: 7px;
             flex-wrap: wrap;
         }
 
-        .access-tools button {
-            border: 1px solid rgba(255,255,255,0.25);
-            background: rgba(255,255,255,0.08);
-            color: white;
-            border-radius: 7px;
+        .access-btn {
+            border: 1px solid rgba(255,255,255,.25);
+            background: transparent;
+            color: #fff;
+            border-radius: 8px;
             padding: 4px 9px;
-            font-size: 0.8rem;
+            font-size: .75rem;
             transition: var(--transition);
         }
 
-        .access-tools button:hover {
+        .access-btn:hover,
+        .access-btn.active {
             background: var(--gold);
             color: #000;
+            border-color: var(--gold);
         }
 
-        /* =========================================================
+        /* =========================
            HEADER
-           ========================================================= */
+        ========================= */
 
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255,255,255,0.96);
+            background: rgba(255,255,255,.96);
             backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(11,94,124,0.12);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(11,94,124,.10);
+            box-shadow: 0 3px 20px rgba(0,0,0,.06);
         }
 
-        .navbar {
-            max-width: 1250px;
-            margin: auto;
-            padding: 13px 5%;
+        .nav {
+            min-height: 78px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 25px;
+            gap: 20px;
         }
-
-        /* =========================================================
-           BRAND
-           ========================================================= */
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 13px;
-            min-width: 260px;
+            gap: 12px;
+            min-width: 0;
         }
 
         .brand-logo {
-            width: 58px;
-            height: 58px;
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
             object-fit: contain;
-            border-radius: 50%;
-            background: var(--white);
-            border: 2px solid var(--gold);
-            padding: 3px;
-            box-shadow: 0 5px 15px rgba(6,59,79,0.12);
+            background: #fff;
+            border: 2px solid rgba(11,94,124,.12);
+            padding: 4px;
         }
 
         .brand-text {
-            line-height: 1.25;
-            text-align: right;
+            min-width: 0;
         }
 
-        /*
-         * نام مؤسسه:
-         * کوچک‌تر، نازک‌تر و فقط یک‌بار
-         */
-        .institution-name {
+        .brand-main {
             display: block;
-            font-size: 0.72rem;
-            font-weight: 500;
-            color: var(--secondary);
-            margin-bottom: 3px;
-            white-space: nowrap;
-        }
-
-        /*
-         * نام مرکز:
-         * بزرگ‌تر و ضخیم‌تر
-         */
-        .center-name {
-            display: block;
-            font-size: 1.18rem;
-            font-weight: 900;
             color: var(--primary);
-            white-space: nowrap;
+            font-size: 1.05rem;
+            font-weight: 900;
+            line-height: 1.4;
         }
 
-        .center-name-en {
+        .brand-sub {
             display: block;
+            color: var(--text-muted);
+            font-size: .68rem;
             direction: ltr;
             text-align: right;
-            color: var(--text-secondary);
-            font-size: 0.57rem;
-            font-weight: 400;
-            opacity: 0.8;
-            margin-top: 2px;
+            line-height: 1.3;
         }
 
-        /* =========================================================
-           NAVIGATION
-           ========================================================= */
-
-        nav ul {
+        .nav-links {
             display: flex;
             align-items: center;
             gap: 5px;
+            list-style: none;
         }
 
-        nav a {
+        .nav-links a {
             display: block;
-            padding: 8px 11px;
-            border-radius: 8px;
+            padding: 10px 13px;
             color: var(--text);
-            font-size: 0.92rem;
+            font-size: .92rem;
             font-weight: 700;
+            border-radius: 10px;
             transition: var(--transition);
         }
 
-        nav a:hover,
-        nav a.active {
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(11,94,124,.09);
             color: var(--primary);
-            background: rgba(11,94,124,0.08);
         }
 
-        .nav-actions {
+        .nav-tools {
             display: flex;
-            gap: 7px;
             align-items: center;
+            gap: 7px;
         }
 
         .icon-btn {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--border);
-            background: var(--white);
-            color: var(--primary);
-            border-radius: 10px;
+            width: 42px;
+            height: 42px;
             display: grid;
             place-items: center;
-            font-size: 1.05rem;
+            border: 1px solid var(--border);
+            background: #fff;
+            color: var(--primary);
+            border-radius: 12px;
+            font-size: 1.1rem;
             transition: var(--transition);
         }
 
         .icon-btn:hover {
             background: var(--primary);
-            color: white;
+            color: #fff;
             border-color: var(--primary);
         }
 
-        .mobile-menu {
+        .menu-btn {
             display: none;
         }
 
-        /* =========================================================
+        /* =========================
            SEARCH
-           ========================================================= */
+        ========================= */
 
         .search-panel {
+            display: none;
             position: fixed;
             inset: 0;
-            background: rgba(6,59,79,0.72);
-            backdrop-filter: blur(7px);
             z-index: 3000;
-            display: none;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 90px 20px;
+            background: rgba(6,59,79,.88);
+            backdrop-filter: blur(10px);
+            padding: 30px;
         }
 
-        .search-panel.active {
+        .search-panel.open {
             display: flex;
+            align-items: flex-start;
+            justify-content: center;
         }
 
         .search-box {
-            width: min(720px, 100%);
-            background: white;
-            border-radius: 20px;
+            width: min(700px, 100%);
+            margin-top: 100px;
+            background: #fff;
+            border-radius: 22px;
             padding: 25px;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+            box-shadow: 0 25px 70px rgba(0,0,0,.3);
         }
 
         .search-head {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             margin-bottom: 18px;
         }
 
@@ -357,58 +301,54 @@
             color: var(--primary);
         }
 
+        .close-search {
+            border: 0;
+            background: transparent;
+            font-size: 1.6rem;
+            color: var(--danger);
+        }
+
         .search-input-wrap {
             display: flex;
             gap: 8px;
+        }
+
+        .search-input {
+            flex: 1;
             border: 2px solid var(--border);
             border-radius: 12px;
-            padding: 5px;
-        }
-
-        .search-input-wrap input {
-            flex: 1;
-            border: none;
+            padding: 13px 15px;
             outline: none;
-            padding: 10px;
-            background: transparent;
+            font-size: 1rem;
         }
 
-        .search-input-wrap button {
-            border: none;
+        .search-input:focus {
+            border-color: var(--primary);
+        }
+
+        .search-submit {
+            border: 0;
             background: var(--primary);
-            color: white;
-            border-radius: 8px;
-            padding: 0 15px;
-        }
-
-        .voice-btn.listening {
-            background: var(--danger) !important;
-        }
-
-        .search-results {
-            margin-top: 18px;
-            max-height: 330px;
-            overflow-y: auto;
+            color: #fff;
+            border-radius: 12px;
+            padding: 0 18px;
         }
 
         .search-result {
-            padding: 13px;
-            border-bottom: 1px solid #eee;
+            margin-top: 18px;
+            color: var(--text-muted);
         }
 
-        .search-result a {
-            color: var(--primary);
-            font-weight: 800;
+        mark {
+            background: var(--gold);
+            color: #000;
+            padding: 1px 4px;
+            border-radius: 4px;
         }
 
-        .search-result p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        /* =========================================================
+        /* =========================
            HERO
-           ========================================================= */
+        ========================= */
 
         .hero {
             position: relative;
@@ -417,78 +357,84 @@
             align-items: center;
             overflow: hidden;
             background:
-                linear-gradient(
-                    135deg,
-                    rgba(6,59,79,0.96),
-                    rgba(11,94,124,0.88)
-                );
-            color: white;
+                linear-gradient(135deg, rgba(6,59,79,.96), rgba(11,94,124,.88)),
+                url('hero-child.jpg') center/cover no-repeat;
+            color: #fff;
         }
 
         .hero::before {
             content: "";
             position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(
-                    circle at 10% 20%,
-                    rgba(255,200,0,0.22),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 90% 80%,
-                    rgba(42,157,143,0.18),
-                    transparent 30%
-                );
+            width: 430px;
+            height: 430px;
+            border-radius: 50%;
+            background: rgba(255,200,0,.10);
+            top: -180px;
+            right: -120px;
         }
 
-        .hero-container {
-            max-width: 1250px;
-            width: 100%;
-            margin: auto;
-            padding: 70px 5%;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 55px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,200,0,.15);
+            bottom: -190px;
+            left: -100px;
         }
 
         .hero-content {
-            animation: fadeUp 0.8s ease both;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            align-items: center;
+            gap: 50px;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255,200,0,0.14);
-            border: 1px solid rgba(255,200,0,0.45);
+            padding: 7px 14px;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 999px;
             color: var(--gold);
-            border-radius: 50px;
-            padding: 7px 15px;
-            font-size: 0.9rem;
             font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 4.4rem);
-            line-height: 1.2;
-            font-weight: 900;
+            font-size: .9rem;
             margin-bottom: 18px;
         }
 
-        .hero h1 span {
+        .hero h1 {
+            font-size: clamp(2.1rem, 5vw, 4rem);
+            line-height: 1.25;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .hero h1 .gold {
             color: var(--gold);
         }
 
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.9);
-            max-width: 650px;
-            margin-bottom: 30px;
+        .hero-en {
+            direction: ltr;
+            text-align: right;
+            font-size: clamp(.8rem, 2vw, 1rem);
+            opacity: .75;
+            margin-bottom: 18px;
+        }
+
+        .hero-description {
+            max-width: 680px;
+            color: rgba(255,255,255,.88);
+            font-size: 1.05rem;
+            margin-bottom: 28px;
         }
 
         .hero-buttons {
@@ -498,198 +444,266 @@
         }
 
         .btn {
-            border: none;
-            border-radius: 12px;
-            padding: 12px 22px;
-            font-weight: 800;
-            transition: var(--transition);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            border: 0;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-weight: 800;
+            transition: var(--transition);
         }
 
         .btn-primary {
             background: var(--gold);
             color: #000;
+            box-shadow: 0 8px 25px rgba(255,200,0,.20);
         }
 
         .btn-primary:hover {
             background: var(--gold-dark);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
         .btn-outline {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.5);
-            color: white;
+            border: 1px solid rgba(255,255,255,.45);
+            background: rgba(255,255,255,.08);
+            color: #fff;
         }
 
         .btn-outline:hover {
-            background: white;
+            background: #fff;
             color: var(--primary);
         }
 
-        .hero-image {
+        .hero-card {
             position: relative;
-            animation: fadeUp 0.9s 0.15s ease both;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-height: 470px;
-            object-fit: cover;
+            padding: 12px;
+            background: rgba(255,255,255,.10);
+            border: 1px solid rgba(255,255,255,.22);
             border-radius: 28px;
-            border: 5px solid rgba(255,255,255,0.18);
-            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
-        }
-
-        .hero-image::after {
-            content: "هر کودک، یک نگین";
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            left: 20px;
-            text-align: center;
-            padding: 10px;
-            background: rgba(6,59,79,0.75);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,200,0,0.3);
-            color: var(--gold);
-            border-radius: 12px;
-            font-weight: 900;
+            box-shadow: 0 25px 60px rgba(0,0,0,.25);
         }
 
-        /* =========================================================
-           SECTION
-           ========================================================= */
+        .hero-card img {
+            width: 100%;
+            aspect-ratio: 4 / 4.5;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .hero-card-caption {
+            position: absolute;
+            right: 28px;
+            left: 28px;
+            bottom: 25px;
+            background: rgba(6,59,79,.86);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 14px;
+            padding: 12px 15px;
+        }
+
+        .hero-card-caption strong {
+            display: block;
+            color: var(--gold);
+        }
+
+        .hero-card-caption small {
+            opacity: .85;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
-            padding: 85px 5%;
+            padding: 85px 0;
         }
 
-        .section-container {
-            max-width: 1150px;
-            margin: auto;
-        }
-
-        .section-heading {
+        .section-head {
             text-align: center;
             max-width: 760px;
             margin: 0 auto 45px;
         }
 
-        .section-heading .eyebrow {
-            color: var(--secondary);
-            font-size: 0.9rem;
-            font-weight: 800;
-            margin-bottom: 7px;
-        }
-
-        .section-heading h2 {
+        .section-label {
+            display: inline-block;
             color: var(--primary);
-            font-size: clamp(1.8rem, 4vw, 2.7rem);
             font-weight: 900;
-            position: relative;
-            padding-bottom: 15px;
+            font-size: .9rem;
+            margin-bottom: 5px;
         }
 
-        .section-heading h2::after {
+        .section-title {
+            color: var(--primary-dark);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        .section-title::after {
             content: "";
-            position: absolute;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
+            display: block;
             width: 65px;
             height: 4px;
             background: var(--gold);
-            border-radius: 5px;
+            border-radius: 10px;
+            margin: 12px auto 0;
         }
 
-        .section-heading p {
-            color: var(--text-secondary);
-            margin-top: 16px;
+        .section-description {
+            color: var(--text-muted);
+            margin-top: 15px;
         }
 
-        /* =========================================================
+        /* =========================
+           INSTITUTION TITLE
+        ========================= */
+
+        .institution-section {
+            background: var(--cream);
+            padding: 50px 0 30px;
+        }
+
+        .institution-title {
+            max-width: 950px;
+            margin: auto;
+            padding: 35px 30px;
+            background: #fff;
+            border-right: 6px solid var(--secondary);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .org-name {
+            color: var(--primary);
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 900;
+        }
+
+        .org-name .en {
+            display: block;
+            direction: ltr;
+            color: var(--text-muted);
+            font-size: .78rem;
+            font-weight: 500;
+            opacity: .85;
+        }
+
+        .divider {
+            width: 70px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 10px;
+            margin: 13px auto;
+        }
+
+        .center-name {
+            color: var(--primary);
+            font-size: clamp(1.6rem, 4vw, 2.3rem);
+            font-weight: 900;
+        }
+
+        .center-name .en {
+            display: block;
+            direction: ltr;
+            color: var(--text-muted);
+            font-size: .9rem;
+            font-weight: 500;
+            opacity: .85;
+        }
+
+        /* =========================
            ABOUT
-           ========================================================= */
+        ========================= */
 
         .about {
-            background: var(--white);
+            background: #fff;
         }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 45px;
+            grid-template-columns: .9fr 1.1fr;
+            gap: 50px;
             align-items: center;
         }
 
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 17px;
-        }
-
-        .about-list {
-            display: grid;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .about-list li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-        }
-
-        .about-list li::before {
-            content: "✓";
-            width: 27px;
-            height: 27px;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            background: rgba(42,157,143,0.12);
-            color: var(--teal);
-            font-weight: 900;
-        }
-
-        .about-card {
-            background: linear-gradient(145deg, var(--primary), var(--primary-dark));
-            color: white;
+        .about-image {
             border-radius: 25px;
-            padding: 40px;
+            overflow: hidden;
             box-shadow: var(--shadow);
+            border: 7px solid #fff;
         }
 
-        .about-card h3 {
-            color: var(--gold);
+        .about-image img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+
+        .about-content h3 {
+            color: var(--primary);
             font-size: 1.7rem;
+            font-weight: 900;
+            margin-bottom: 14px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
             margin-bottom: 15px;
         }
 
-        /* =========================================================
-           SERVICES
-           ========================================================= */
-
-        .services {
-            background: var(--bg);
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
         }
 
-        .services-grid {
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: var(--cream);
+            border-radius: 12px;
+            font-weight: 700;
+        }
+
+        .feature-icon {
+            width: 35px;
+            height: 35px;
+            flex: 0 0 35px;
+            display: grid;
+            place-items: center;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services {
+            background: var(--cream);
+        }
+
+        .service-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
         .service-card {
-            background: white;
+            background: #fff;
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 28px 20px;
-            text-align: center;
+            padding: 25px 20px;
             transition: var(--transition);
             position: relative;
             overflow: hidden;
@@ -702,10 +716,7 @@
             right: 0;
             width: 100%;
             height: 4px;
-            background: var(--gold);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: var(--transition);
+            background: var(--primary);
         }
 
         .service-card:hover {
@@ -714,160 +725,192 @@
             border-color: var(--primary);
         }
 
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
         .service-icon {
-            width: 65px;
-            height: 65px;
-            margin: 0 auto 17px;
-            border-radius: 18px;
-            background: rgba(11,94,124,0.09);
-            color: var(--primary);
+            width: 58px;
+            height: 58px;
             display: grid;
             place-items: center;
-            font-size: 2rem;
+            border-radius: 16px;
+            background: rgba(11,94,124,.10);
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
         }
 
         .service-card h3 {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 8px;
+            color: var(--primary-dark);
+            margin-bottom: 7px;
+            font-size: 1.15rem;
+            font-weight: 900;
         }
 
         .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-size: .9rem;
         }
 
-        /* =========================================================
-           VALUES
-           ========================================================= */
+        /* =========================
+           MISSION
+        ========================= */
 
-        .values {
-            background: white;
+        .mission {
+            background:
+                linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: #fff;
         }
 
-        .values-grid {
+        .mission .section-label {
+            color: var(--gold);
+        }
+
+        .mission .section-title {
+            color: #fff;
+        }
+
+        .mission .section-description {
+            color: rgba(255,255,255,.8);
+        }
+
+        .mission-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+            gap: 20px;
         }
 
-        .value-card {
-            padding: 30px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            background: #fff;
-            transition: var(--transition);
+        .mission-card {
+            padding: 28px;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            text-align: center;
         }
 
-        .value-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .value-number {
-            color: var(--gold-dark);
-            font-size: 2rem;
+        .mission-card .number {
+            font-size: 2.3rem;
+            color: var(--gold);
             font-weight: 900;
             margin-bottom: 8px;
         }
 
-        .value-card h3 {
-            color: var(--primary);
+        .mission-card h3 {
             margin-bottom: 8px;
+            font-weight: 900;
         }
 
-        .value-card p {
-            color: var(--text-secondary);
+        .mission-card p {
+            color: rgba(255,255,255,.78);
+            font-size: .9rem;
         }
 
-        /* =========================================================
-           CTA
-           ========================================================= */
+        /* =========================
+           VALUES
+        ========================= */
 
-        .cta {
-            padding: 75px 5%;
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary-dark),
-                    var(--primary)
-                );
-            color: white;
+        .values {
+            background: #fff;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .value-card {
             text-align: center;
+            padding: 25px 15px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: #fff;
         }
 
-        .cta-container {
-            max-width: 900px;
-            margin: auto;
+        .value-card strong {
+            display: block;
+            color: var(--primary);
+            margin-top: 8px;
+            font-size: 1.05rem;
         }
 
-        .cta h2 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            color: var(--gold);
-            margin-bottom: 15px;
+        .value-card span {
+            color: var(--text-muted);
+            font-size: .82rem;
         }
 
-        .cta p {
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 25px;
+        .value-symbol {
+            font-size: 2rem;
         }
 
-        /* =========================================================
+        /* =========================
            CONTACT
-           ========================================================= */
+        ========================= */
 
         .contact {
-            background: var(--bg);
+            background: var(--cream);
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 35px;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 30px;
         }
 
-        .contact-info {
-            display: grid;
-            gap: 15px;
-        }
-
-        .contact-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 20px;
-        }
-
-        .contact-card strong {
-            display: block;
-            color: var(--primary);
-            margin-bottom: 4px;
-        }
-
-        .contact-card span {
-            color: var(--text-secondary);
-        }
-
+        .contact-card,
         .contact-form {
-            background: white;
+            background: #fff;
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 30px;
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: 0 8px 30px rgba(0,0,0,.05);
+        }
+
+        .contact-card h3,
+        .contact-form h3 {
+            color: var(--primary);
+            font-weight: 900;
+            margin-bottom: 18px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 13px;
+            padding: 13px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-item:last-child {
+            border-bottom: 0;
+        }
+
+        .contact-item-icon {
+            width: 42px;
+            height: 42px;
+            flex: 0 0 42px;
+            display: grid;
+            place-items: center;
+            background: rgba(11,94,124,.10);
+            color: var(--primary);
+            border-radius: 11px;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--primary-dark);
+        }
+
+        .contact-item span {
+            color: var(--text-muted);
+            font-size: .87rem;
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
 
         .form-group {
-            display: grid;
-            gap: 6px;
+            margin-bottom: 15px;
         }
 
         .form-group.full {
@@ -875,167 +918,212 @@
         }
 
         .form-group label {
-            color: var(--primary);
+            display: block;
+            margin-bottom: 6px;
             font-weight: 800;
-            font-size: 0.9rem;
+            color: var(--primary-dark);
+            font-size: .9rem;
         }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-control {
             width: 100%;
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: 11px;
             padding: 11px 13px;
-            outline: none;
             background: #fff;
             color: var(--text);
+            outline: none;
             transition: var(--transition);
         }
 
-        .form-group textarea {
-            min-height: 130px;
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(11,94,124,.10);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
             resize: vertical;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(11,94,124,0.08);
-        }
-
-        .form-message {
+        .form-status {
             display: none;
-            margin-top: 15px;
-            padding: 12px;
+            padding: 10px 13px;
             border-radius: 10px;
-            background: rgba(40,167,69,0.1);
+            margin-top: 12px;
+            background: rgba(40,167,69,.10);
             color: var(--success);
             font-weight: 700;
         }
 
-        /* =========================================================
+        .form-status.show {
+            display: block;
+        }
+
+        /* =========================
            FOOTER
-           ========================================================= */
+        ========================= */
 
         footer {
-            /*
-             * پایان سایت هماهنگ با Hero
-             */
-            background:
-                linear-gradient(
-                    135deg,
-                    #063b4f 0%,
-                    #0b5e7c 65%,
-                    #063b4f 100%
-                );
-
-            color: white;
-            padding-top: 60px;
             position: relative;
+            background:
+                linear-gradient(135deg, #063b4f, #0b5e7c);
+            color: #fff;
+            overflow: hidden;
         }
 
         footer::before {
             content: "";
             position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 5px;
-            background: var(--gold);
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,200,0,.13);
+            top: -280px;
+            left: -120px;
         }
 
-        .footer-container {
-            max-width: 1150px;
-            margin: auto;
-            padding: 0 5% 35px;
+        footer::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255,200,0,.05);
+            bottom: -190px;
+            right: -100px;
+        }
+
+        .footer-main {
+            position: relative;
+            z-index: 2;
+            padding: 65px 0 30px;
+        }
+
+        .footer-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr;
-            gap: 45px;
+            grid-template-columns: 1.2fr .8fr .8fr 1fr;
+            gap: 35px;
         }
 
         .footer-brand {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
+            gap: 13px;
+            margin-bottom: 16px;
         }
 
-        .footer-image {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 18px;
-            border: 2px solid rgba(255,200,0,0.7);
-            background: white;
-            padding: 2px;
+        .footer-logo {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+            background: #fff;
+            padding: 5px;
+            border-radius: 15px;
         }
 
         .footer-brand h3 {
             color: var(--gold);
-            font-size: 1.3rem;
-            margin-bottom: 8px;
+            font-size: 1.15rem;
+            line-height: 1.5;
+            font-weight: 900;
         }
 
-        .footer-brand p {
-            color: rgba(255,255,255,0.78);
-            font-size: 0.9rem;
+        .footer-brand small {
+            display: block;
+            direction: ltr;
+            opacity: .72;
+            font-size: .65rem;
+            line-height: 1.4;
         }
 
-        .footer-column h4 {
+        .footer-about {
+            color: rgba(255,255,255,.76);
+            font-size: .88rem;
+        }
+
+        .footer-col h4 {
             color: var(--gold);
+            font-size: 1rem;
             margin-bottom: 15px;
-            font-size: 1.05rem;
+            font-weight: 900;
         }
 
         .footer-links {
-            display: grid;
-            gap: 7px;
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 7px;
         }
 
         .footer-links a {
-            color: rgba(255,255,255,0.82);
+            color: rgba(255,255,255,.75);
+            font-size: .88rem;
             transition: var(--transition);
         }
 
         .footer-links a:hover {
             color: var(--gold);
-            padding-right: 5px;
+            padding-right: 4px;
+        }
+
+        .footer-image {
+            width: 100%;
+            max-width: 260px;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 2px solid rgba(255,200,0,.3);
+            margin-top: 5px;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.13);
-            padding: 18px 5%;
-            text-align: center;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem;
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255,255,255,.13);
+            padding: 18px 0;
         }
 
-        .footer-bottom strong {
+        .footer-bottom-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .copyright {
+            color: rgba(255,255,255,.68);
+            font-size: .8rem;
+        }
+
+        .slogan {
             color: var(--gold);
+            font-weight: 900;
         }
 
-        /* =========================================================
+        /* =========================
            BACK TO TOP
-           ========================================================= */
+        ========================= */
 
         .back-top {
             position: fixed;
-            bottom: 25px;
-            left: 25px;
-            width: 45px;
-            height: 45px;
-            border: none;
+            left: 20px;
+            bottom: 20px;
+            width: 46px;
+            height: 46px;
+            border: 0;
             border-radius: 50%;
             background: var(--gold);
             color: #000;
             font-size: 1.2rem;
             font-weight: 900;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            z-index: 1200;
+            box-shadow: 0 8px 25px rgba(0,0,0,.2);
+            z-index: 900;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(10px);
+            transform: translateY(15px);
             transition: var(--transition);
         }
 
@@ -1045,9 +1133,9 @@
             transform: translateY(0);
         }
 
-        /* =========================================================
+        /* =========================
            TOAST
-           ========================================================= */
+        ========================= */
 
         .toast {
             position: fixed;
@@ -1055,11 +1143,11 @@
             right: 25px;
             z-index: 5000;
             background: var(--primary-dark);
-            color: white;
+            color: #fff;
             padding: 13px 18px;
             border-right: 4px solid var(--gold);
-            border-radius: 10px;
-            box-shadow: var(--shadow);
+            border-radius: 12px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.25);
             transform: translateY(100px);
             opacity: 0;
             transition: var(--transition);
@@ -1070,268 +1158,115 @@
             opacity: 1;
         }
 
-        /* =========================================================
-           ANIMATIONS
-           ========================================================= */
+        /* =========================
+           MOBILE
+        ========================= */
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
+        @media (max-width: 1000px) {
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: 0.7s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* =========================================================
-           DARK MODE
-           ========================================================= */
-
-        body.dark-mode {
-            --primary: #2a9d8f;
-            --primary-light: #52b9a8;
-            --primary-dark: #1a6b61;
-
-            --gold: #e9c46a;
-
-            --bg: #0f1a1c;
-            --white: #1e2d30;
-
-            --text: #e2e8f0;
-            --text-secondary: #94a3b8;
-
-            --border: #334155;
-
-            background: #0f1a1c;
-            color: #e2e8f0;
-        }
-
-        body.dark-mode header {
-            background: rgba(15,26,28,0.96);
-            border-bottom-color: #334155;
-        }
-
-        body.dark-mode nav a {
-            color: #e2e8f0;
-        }
-
-        body.dark-mode .icon-btn {
-            background: #1e2d30;
-            color: #52b9a8;
-            border-color: #334155;
-        }
-
-        body.dark-mode .service-card,
-        body.dark-mode .value-card,
-        body.dark-mode .contact-card,
-        body.dark-mode .contact-form {
-            background: #1e2d30;
-            border-color: #334155;
-        }
-
-        body.dark-mode .about {
-            background: #0f1a1c;
-        }
-
-        body.dark-mode .values {
-            background: #0f1a1c;
-        }
-
-        body.dark-mode .services,
-        body.dark-mode .contact {
-            background: #101f21;
-        }
-
-        body.dark-mode .form-group input,
-        body.dark-mode .form-group textarea,
-        body.dark-mode .form-group select {
-            background: #0f1a1c;
-            color: #e2e8f0;
-            border-color: #334155;
-        }
-
-        body.dark-mode .search-box {
-            background: #1e2d30;
-        }
-
-        body.dark-mode .search-input-wrap {
-            border-color: #334155;
-        }
-
-        body.dark-mode .search-input-wrap input {
-            color: white;
-        }
-
-        /* =========================================================
-           HIGH CONTRAST
-           ========================================================= */
-
-        body.high-contrast {
-            background: #000 !important;
-            color: #fff !important;
-        }
-
-        body.high-contrast header,
-        body.high-contrast section,
-        body.high-contrast .about,
-        body.high-contrast .values,
-        body.high-contrast .services,
-        body.high-contrast .contact {
-            background: #000 !important;
-            color: #fff !important;
-        }
-
-        body.high-contrast .service-card,
-        body.high-contrast .value-card,
-        body.high-contrast .contact-card,
-        body.high-contrast .contact-form {
-            background: #1a1a1a !important;
-            color: #fff !important;
-            border: 2px solid #fff !important;
-        }
-
-        body.high-contrast a,
-        body.high-contrast h1,
-        body.high-contrast h2,
-        body.high-contrast h3,
-        body.high-contrast h4 {
-            color: #ffff00 !important;
-        }
-
-        body.high-contrast p,
-        body.high-contrast span,
-        body.high-contrast li {
-            color: #fff !important;
-        }
-
-        /* =========================================================
-           RESPONSIVE
-           ========================================================= */
-
-        @media (max-width: 1050px) {
-            .navbar {
-                flex-wrap: wrap;
-            }
-
-            nav {
-                order: 4;
-                width: 100%;
-                display: none;
-            }
-
-            nav.open {
-                display: block;
-            }
-
-            nav ul {
+            .nav-links {
+                position: fixed;
+                top: 78px;
+                right: 0;
+                width: min(330px, 90%);
+                height: calc(100vh - 78px);
+                background: #fff;
                 flex-direction: column;
                 align-items: stretch;
-                padding: 10px 0;
+                padding: 20px;
+                box-shadow: -10px 0 30px rgba(0,0,0,.10);
+                transform: translateX(110%);
+                transition: var(--transition);
             }
 
-            nav a {
-                text-align: center;
+            .nav-links.open {
+                transform: translateX(0);
             }
 
-            .mobile-menu {
+            .nav-links a {
+                padding: 14px;
+            }
+
+            .menu-btn {
                 display: grid;
             }
 
-            .hero-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-content {
-                text-align: center;
-            }
-
-            .hero-subtitle {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-image {
-                max-width: 600px;
-                width: 100%;
-                margin: auto;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 750px) {
-            .access-bar {
-                justify-content: center;
-                text-align: center;
-            }
-
-            .access-info {
-                justify-content: center;
-            }
-
-            .brand {
-                min-width: auto;
-            }
-
-            .institution-name {
-                font-size: 0.62rem;
-            }
-
-            .center-name {
-                font-size: 1rem;
-            }
-
-            .center-name-en {
-                font-size: 0.5rem;
-            }
-
-            .brand-logo {
-                width: 50px;
-                height: 50px;
-            }
-
-            section {
-                padding: 65px 5%;
-            }
-
+            .hero-grid,
             .about-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
             }
 
+            .hero {
+                min-height: auto;
+                padding: 75px 0;
+            }
+
+            .hero-card {
+                max-width: 500px;
+                margin: auto;
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .values-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .access-inner {
+                justify-content: center;
+                flex-direction: column;
+                gap: 4px;
             }
 
+            .access-message {
+                display: none;
+            }
+
+            .brand-sub {
+                display: none;
+            }
+
+            .brand-main {
+                font-size: .9rem;
+            }
+
+            .brand-logo {
+                width: 48px;
+                height: 48px;
+            }
+
+            .nav {
+                min-height: 68px;
+            }
+
+            .nav-links {
+                top: 68px;
+                height: calc(100vh - 68px);
+            }
+
+            .nav-tools .icon-btn:first-child {
+                display: none;
+            }
+
+            .institution-title {
+                padding: 27px 16px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .feature-list,
             .form-grid {
                 grid-template-columns: 1fr;
             }
@@ -1339,1712 +1274,1645 @@
             .form-group.full {
                 grid-column: auto;
             }
-        }
 
-        @media (max-width: 520px) {
-            .hero {
-                min-height: auto;
-            }
-
-            .hero-container {
-                padding-top: 60px;
-                padding-bottom: 60px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .services-grid {
+            .service-grid,
+            .mission-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-image {
+                max-width: 100%;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
             }
 
             .hero-buttons .btn {
                 width: 100%;
             }
+        }
 
-            .nav-actions .icon-btn {
-                width: 36px;
-                height: 36px;
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        body.dark-mode {
+            --primary: #2a9d8f;
+            --primary-light: #52b9a8;
+            --primary-dark: #1a6b61;
+
+            --gold: #e9c46a;
+            --gold-dark: #d8b557;
+
+            --cream: #0f1a1c;
+            --white: #1e2d30;
+
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border: #334155;
+
+            background: #0f1a1c;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode header {
+            background: rgba(15,26,28,.96);
+            border-bottom-color: rgba(82,185,168,.15);
+        }
+
+        body.dark-mode .nav-links,
+        body.dark-mode .icon-btn,
+        body.dark-mode .institution-title,
+        body.dark-mode .about,
+        body.dark-mode .values,
+        body.dark-mode .contact-card,
+        body.dark-mode .contact-form,
+        body.dark-mode .service-card,
+        body.dark-mode .value-card,
+        body.dark-mode .search-box,
+        body.dark-mode .form-control {
+            background: #1e2d30;
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .nav-links a,
+        body.dark-mode .section-title,
+        body.dark-mode .service-card h3,
+        body.dark-mode .contact-item strong,
+        body.dark-mode .form-group label {
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .institution-section,
+        body.dark-mode .services,
+        body.dark-mode .contact {
+            background: #0f1a1c;
+        }
+
+        body.dark-mode .feature {
+            background: #1e2d30;
+        }
+
+        /* =========================
+           HIGH CONTRAST
+        ========================= */
+
+        body.high-contrast {
+            --primary: #0000ff;
+            --primary-dark: #000;
+            --gold: #ffff00;
+            --cream: #fff;
+            --text: #000;
+            --text-muted: #000;
+            --border: #000;
+        }
+
+        body.high-contrast header,
+        body.high-contrast .institution-title,
+        body.high-contrast .service-card,
+        body.high-contrast .value-card,
+        body.high-contrast .contact-card,
+        body.high-contrast .contact-form {
+            border: 2px solid #000;
+        }
+
+        body.high-contrast .hero,
+        body.high-contrast footer,
+        body.high-contrast .mission {
+            background: #000;
+        }
+
+        body.high-contrast a {
+            color: #0000ff;
+        }
+
+        /* =========================
+           PRINT
+        ========================= */
+
+        @media print {
+            header,
+            .access-bar,
+            .back-top,
+            .hero-buttons,
+            .contact-form,
+            .search-panel {
+                display: none !important;
             }
 
-            .footer-brand {
-                flex-direction: column;
+            body,
+            .about,
+            .services,
+            .contact,
+            .values {
+                background: #fff !important;
+                color: #000 !important;
             }
 
-            .toast {
-                right: 15px;
-                left: 15px;
-                bottom: 15px;
+            section {
+                padding: 25px 0;
             }
         }
 
-        /* =========================================================
+        /* =========================
            REDUCED MOTION
-           ========================================================= */
+        ========================= */
 
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
             *,
             *::before,
             *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+                transition: none !important;
+                animation: none !important;
             }
         }
     </style>
-
-    <!-- Font -->
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
-        rel="stylesheet"
-    >
 </head>
 
 <body>
 
-    <a href="#main-content" class="skip-link">
-        پرش به محتوای اصلی
-    </a>
+<!-- =========================================================
+     ACCESSIBILITY BAR
+========================================================= -->
 
-    <!-- =========================================================
-         ACCESS BAR
-         ========================================================= -->
+<div class="access-bar">
+    <div class="container access-inner">
 
-    <div class="access-bar">
-
-        <div class="access-info">
-            <span>♿ دسترسی همگانی</span>
-            <span>🌱 آموزش و توانبخشی کودکان</span>
+        <div class="access-message">
+            مرکز آموزشی و توانبخشی نگین — هر کودک، یک نگین
         </div>
 
-        <div class="access-tools">
+        <div class="access-actions">
+            <button class="access-btn" id="fontIncrease" type="button">A+</button>
+            <button class="access-btn" id="fontDecrease" type="button">A−</button>
+            <button class="access-btn" id="contrastBtn" type="button">کنتراست</button>
+            <button class="access-btn" id="darkBtn" type="button">حالت شب</button>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <div class="container nav">
+
+        <a href="#home" class="brand" aria-label="مرکز آموزشی و توانبخشی نگین">
+
+            <img
+                src="logo.png"
+                alt="لوگوی مرکز آموزشی و توانبخشی نگین"
+                class="brand-logo"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="brand-text">
+
+                <span class="brand-main">
+                    مرکز آموزشی و توانبخشی نگین
+                </span>
+
+                <span class="brand-sub">
+                    Negin Educational &amp; Rehabilitation Center
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav aria-label="منوی اصلی">
+
+            <ul class="nav-links" id="navLinks">
+
+                <li><a href="#home">خانه</a></li>
+                <li><a href="#about">درباره ما</a></li>
+                <li><a href="#services">خدمات</a></li>
+                <li><a href="#mission">اهداف ما</a></li>
+                <li><a href="#contact">تماس با ما</a></li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="nav-tools">
 
             <button
+                class="icon-btn"
+                id="searchBtn"
                 type="button"
-                id="fontIncrease"
-                aria-label="افزایش اندازه نوشته"
-            >
-                A+
+                aria-label="جستجو"
+                title="جستجو">
+                🔍
             </button>
 
             <button
+                class="icon-btn menu-btn"
+                id="menuBtn"
                 type="button"
-                id="fontDecrease"
-                aria-label="کاهش اندازه نوشته"
-            >
-                A−
-            </button>
-
-            <button
-                type="button"
-                id="contrastToggle"
-                aria-label="حالت کنتراست بالا"
-            >
-                ◐ کنتراست
-            </button>
-
-            <button
-                type="button"
-                id="darkToggle"
-                aria-label="حالت تاریک"
-            >
-                🌙
+                aria-label="باز کردن منو"
+                aria-expanded="false">
+                ☰
             </button>
 
         </div>
 
     </div>
 
-    <!-- =========================================================
-         HEADER
-         ========================================================= -->
+</header>
 
-    <header>
 
-        <div class="navbar">
+<!-- =========================================================
+     SEARCH PANEL
+========================================================= -->
 
-            <a
-                href="#home"
-                class="brand"
-                aria-label="مرکز آموزشی و توانبخشی نگین"
-            >
+<div class="search-panel" id="searchPanel" aria-hidden="true">
 
-                <img
-                    src="logo.png"
-                    alt="لوگوی مرکز آموزشی و توانبخشی نگین"
-                    class="brand-logo"
-                    onerror="this.style.display='none'"
-                >
+    <div class="search-box">
 
-                <div class="brand-text">
+        <div class="search-head">
 
-                    <!-- فقط یک بار نام مؤسسه -->
-                    <span class="institution-name">
-                        مؤسسه‌ی خدماتی و حرفوی زنان بی‌بضاعت
-                    </span>
+            <h3>جستجو در وب‌سایت</h3>
 
-                    <!-- نام اصلی مرکز بزرگ و ضخیم -->
-                    <span class="center-name">
-                        مرکز آموزشی و توانبخشی نگین
-                    </span>
-
-                    <span class="center-name-en">
-                        Negin Educational & Rehabilitation Center
-                    </span>
-
-                </div>
-
-            </a>
-
-            <nav id="mainNav" aria-label="منوی اصلی">
-
-                <ul>
-
-                    <li>
-                        <a href="#home" class="active">
-                            خانه
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#about">
-                            درباره ما
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#services">
-                            خدمات
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#values">
-                            ارزش‌ها
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#contact">
-                            تماس با ما
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-            <div class="nav-actions">
-
-                <button
-                    type="button"
-                    class="icon-btn"
-                    id="searchOpen"
-                    aria-label="جستجو"
-                    title="جستجو"
-                >
-                    🔎
-                </button>
-
-                <button
-                    type="button"
-                    class="icon-btn mobile-menu"
-                    id="menuToggle"
-                    aria-label="باز کردن منو"
-                    title="منو"
-                >
-                    ☰
-                </button>
-
-            </div>
+            <button
+                class="close-search"
+                id="closeSearch"
+                type="button"
+                aria-label="بستن">
+                ×
+            </button>
 
         </div>
 
-    </header>
+        <div class="search-input-wrap">
 
-    <!-- =========================================================
-         SEARCH
-         ========================================================= -->
+            <input
+                type="search"
+                id="searchInput"
+                class="search-input"
+                placeholder="موضوع مورد نظر خود را جستجو کنید..."
+                aria-label="عبارت جستجو">
 
-    <div
-        class="search-panel"
-        id="searchPanel"
-        aria-hidden="true"
-    >
+            <button
+                class="search-submit"
+                id="searchSubmit"
+                type="button">
+                جستجو
+            </button>
 
-        <div class="search-box">
+        </div>
 
-            <div class="search-head">
-
-                <h3>
-                    جستجو در وبسایت
-                </h3>
-
-                <button
-                    type="button"
-                    class="icon-btn"
-                    id="searchClose"
-                    aria-label="بستن جستجو"
-                >
-                    ✕
-                </button>
-
-            </div>
-
-            <div class="search-input-wrap">
-
-                <input
-                    type="search"
-                    id="searchInput"
-                    placeholder="موضوع مورد نظر خود را جستجو کنید..."
-                    autocomplete="off"
-                    aria-label="جستجو"
-                >
-
-                <button
-                    type="button"
-                    id="voiceSearch"
-                    class="voice-btn"
-                    title="جستجوی صوتی"
-                    aria-label="جستجوی صوتی"
-                >
-                    🎙️
-                </button>
-
-                <button
-                    type="button"
-                    id="searchButton"
-                    aria-label="جستجو"
-                >
-                    جستجو
-                </button>
-
-            </div>
-
-            <div
-                class="search-results"
-                id="searchResults"
-                aria-live="polite"
-            ></div>
-
+        <div
+            class="search-result"
+            id="searchResult"
+            aria-live="polite">
         </div>
 
     </div>
 
-    <!-- =========================================================
-         MAIN
-         ========================================================= -->
+</div>
 
-    <main id="main-content">
 
-        <!-- =====================================================
-             HERO
-             ===================================================== -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-        <section
-            class="hero"
-            id="home"
-            aria-labelledby="hero-title"
-        >
+<main>
 
-            <div class="hero-container">
+<section class="hero" id="home">
 
-                <div class="hero-content">
+    <div class="container hero-content">
 
-                    <div class="hero-badge">
-                        ✦ هر کودک، یک نگین
-                    </div>
+        <div class="hero-grid">
 
-                    <h1 id="hero-title">
-                        آموزش، توانبخشی و
-                        <span>استقلال کودکان</span>
-                    </h1>
+            <div>
 
-                    <p class="hero-subtitle">
-                        مرکز آموزشی و توانبخشی نگین با رویکردی
-                        انسانی، فراگیر و کودک‌محور، برای رشد توانایی‌ها،
-                        افزایش استقلال و مشارکت کودکان با نیازهای ویژه
-                        تلاش می‌کند.
-                    </p>
-
-                    <div class="hero-buttons">
-
-                        <a
-                            href="#services"
-                            class="btn btn-primary"
-                        >
-                            مشاهده خدمات
-                            ←
-                        </a>
-
-                        <a
-                            href="#contact"
-                            class="btn btn-outline"
-                        >
-                            ارتباط با ما
-                        </a>
-
-                    </div>
-
+                <div class="hero-badge">
+                    ✦ هر کودک، یک نگین
                 </div>
 
-                <div class="hero-image">
+                <h1>
+                    <span>مرکز آموزشی و</span>
+                    <span class="gold">توانبخشی نگین</span>
+                </h1>
 
-                    <img
-                        src="hero-child.jpg"
-                        alt="کودکان در محیط آموزشی و توانبخشی"
-                        loading="eager"
-                        onerror="
-                            this.style.background='#0b5e7c';
-                            this.style.minHeight='350px';
-                        "
-                    >
-
+                <div class="hero-en">
+                    Negin Educational &amp; Rehabilitation Center
                 </div>
 
-            </div>
-
-        </section>
-
-        <!-- =====================================================
-             ABOUT
-             ===================================================== -->
-
-        <section
-            class="about reveal"
-            id="about"
-            aria-labelledby="about-title"
-        >
-
-            <div class="section-container">
-
-                <div class="section-heading">
-
-                    <div class="eyebrow">
-                        درباره مرکز
-                    </div>
-
-                    <h2 id="about-title">
-                        هر کودک، یک نگین
-                    </h2>
-
-                    <p>
-                        ما باور داریم هر کودک دارای استعداد،
-                        توانایی و ظرفیت رشد است.
-                    </p>
-
-                </div>
-
-                <div class="about-grid">
-
-                    <div class="about-text">
-
-                        <p>
-                            مرکز آموزشی و توانبخشی نگین با هدف فراهم‌سازی
-                            فرصت‌های آموزشی و توانبخشی برای کودکان با
-                            نیازهای ویژه فعالیت می‌کند.
-                        </p>
-
-                        <p>
-                            رویکرد ما بر احترام به فردیت کودک، همکاری
-                            خانواده، آموزش فراگیر و تقویت مهارت‌های
-                            کاربردی برای زندگی روزمره استوار است.
-                        </p>
-
-                        <ul class="about-list">
-
-                            <li>
-                                محیط آموزشی امن و حمایت‌گر
-                            </li>
-
-                            <li>
-                                توجه به توانایی‌های فردی هر کودک
-                            </li>
-
-                            <li>
-                                همکاری نزدیک با خانواده‌ها
-                            </li>
-
-                            <li>
-                                تمرکز بر استقلال و مشارکت اجتماعی
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                    <div class="about-card">
-
-                        <h3>
-                            مأموریت ما
-                        </h3>
-
-                        <p>
-                            ایجاد فرصت برابر برای یادگیری، رشد،
-                            توانبخشی و مشارکت کودکان؛ به‌گونه‌ای که
-                            هر کودک بتواند توانایی‌های خود را کشف و
-                            با اعتمادبه‌نفس بیشتری در جامعه حضور پیدا کند.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- =====================================================
-             SERVICES
-             ===================================================== -->
-
-        <section
-            class="services reveal"
-            id="services"
-            aria-labelledby="services-title"
-        >
-
-            <div class="section-container">
-
-                <div class="section-heading">
-
-                    <div class="eyebrow">
-                        خدمات تخصصی
-                    </div>
-
-                    <h2 id="services-title">
-                        خدمات آموزشی و توانبخشی
-                    </h2>
-
-                    <p>
-                        خدمات ما بر اساس نیازها و توانایی‌های هر کودک
-                        و با مشارکت خانواده تنظیم می‌شود.
-                    </p>
-
-                </div>
-
-                <div class="services-grid">
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            📚
-                        </div>
-
-                        <h3>
-                            آموزش ویژه
-                        </h3>
-
-                        <p>
-                            برنامه‌های آموزشی متناسب با توانایی،
-                            نیاز و سرعت یادگیری هر کودک.
-                        </p>
-
-                    </article>
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            🧑‍🦽
-                        </div>
-
-                        <h3>
-                            فیزیوتراپی
-                        </h3>
-
-                        <p>
-                            کمک به بهبود حرکت، تعادل، قدرت عضلانی
-                            و عملکرد جسمی کودک.
-                        </p>
-
-                    </article>
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            🗣️
-                        </div>
-
-                        <h3>
-                            گفتاردرمانی
-                        </h3>
-
-                        <p>
-                            تقویت گفتار، زبان، ارتباط و مهارت‌های
-                            ارتباطی کاربردی.
-                        </p>
-
-                    </article>
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            ✋
-                        </div>
-
-                        <h3>
-                            کاردرمانی
-                        </h3>
-
-                        <p>
-                            تقویت مهارت‌های حرکتی، شناختی، حسی و
-                            فعالیت‌های روزمره زندگی.
-                        </p>
-
-                    </article>
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            🦾
-                        </div>
-
-                        <h3>
-                            وسایل کمکی
-                        </h3>
-
-                        <p>
-                            شناسایی نیازهای کودک و راهنمایی در زمینه
-                            وسایل و تجهیزات کمکی مناسب.
-                        </p>
-
-                    </article>
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            👨‍👩‍👧
-                        </div>
-
-                        <h3>
-                            حمایت خانواده
-                        </h3>
-
-                        <p>
-                            همراهی و آگاهی‌دهی به خانواده‌ها برای
-                            حمایت بهتر از روند رشد کودک.
-                        </p>
-
-                    </article>
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            🧠
-                        </div>
-
-                        <h3>
-                            تقویت مهارت‌ها
-                        </h3>
-
-                        <p>
-                            تمرکز بر مهارت‌های شناختی، اجتماعی،
-                            ارتباطی و استقلال فردی.
-                        </p>
-
-                    </article>
-
-                    <article class="service-card">
-
-                        <div class="service-icon">
-                            🤝
-                        </div>
-
-                        <h3>
-                            مشارکت اجتماعی
-                        </h3>
-
-                        <p>
-                            کمک به افزایش حضور، ارتباط و مشارکت
-                            کودک در خانواده و جامعه.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- =====================================================
-             VALUES
-             ===================================================== -->
-
-        <section
-            class="values reveal"
-            id="values"
-            aria-labelledby="values-title"
-        >
-
-            <div class="section-container">
-
-                <div class="section-heading">
-
-                    <div class="eyebrow">
-                        اصول ما
-                    </div>
-
-                    <h2 id="values-title">
-                        ارزش‌های مرکز نگین
-                    </h2>
-
-                </div>
-
-                <div class="values-grid">
-
-                    <article class="value-card">
-
-                        <div class="value-number">
-                            ۰۱
-                        </div>
-
-                        <h3>
-                            احترام
-                        </h3>
-
-                        <p>
-                            احترام به کرامت، شخصیت، انتخاب‌ها و
-                            توانایی‌های هر کودک.
-                        </p>
-
-                    </article>
-
-                    <article class="value-card">
-
-                        <div class="value-number">
-                            ۰۲
-                        </div>
-
-                        <h3>
-                            برابری
-                        </h3>
-
-                        <p>
-                            فراهم‌سازی فرصت‌های برابر برای آموزش،
-                            رشد و مشارکت.
-                        </p>
-
-                    </article>
-
-                    <article class="value-card">
-
-                        <div class="value-number">
-                            ۰۳
-                        </div>
-
-                        <h3>
-                            توانمندسازی
-                        </h3>
-
-                        <p>
-                            کمک به کودک برای دستیابی به بیشترین
-                            سطح ممکن از استقلال و مشارکت.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- =====================================================
-             CTA
-             ===================================================== -->
-
-        <section class="cta reveal">
-
-            <div class="cta-container">
-
-                <h2>
-                    آینده بهتر از یک فرصت آغاز می‌شود
-                </h2>
-
-                <p>
-                    با آموزش، توانبخشی و حمایت درست، می‌توانیم
-                    زمینه رشد استعدادها و توانایی‌های کودکان را
-                    فراهم کنیم.
+                <p class="hero-description">
+                    ما باور داریم هر کودک دارای توانایی‌ها، استعدادها و ظرفیت‌های منحصربه‌فرد است.
+                    مرکز آموزشی و توانبخشی نگین با رویکردی فراگیر تلاش می‌کند زمینه آموزش،
+                    رشد، توانبخشی و مشارکت اجتماعی کودکان دارای معلولیت را فراهم سازد.
                 </p>
 
-                <a
-                    href="#contact"
-                    class="btn btn-primary"
+                <div class="hero-buttons">
+
+                    <a href="#services" class="btn btn-primary">
+                        مشاهده خدمات
+                        <span>←</span>
+                    </a>
+
+                    <a href="#about" class="btn btn-outline">
+                        درباره مرکز
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <img
+                    src="hero-child.jpg"
+                    alt="کودک در محیط آموزشی و توانبخشی"
+                    loading="eager"
+                    onerror="this.src='file_00000000798481fd9ffa65f14dca5436.jpg'"
                 >
-                    با ما در ارتباط شوید
-                </a>
 
-            </div>
+                <div class="hero-card-caption">
 
-        </section>
+                    <strong>
+                        فرصت برابر برای هر کودک
+                    </strong>
 
-        <!-- =====================================================
-             CONTACT
-             ===================================================== -->
-
-        <section
-            class="contact reveal"
-            id="contact"
-            aria-labelledby="contact-title"
-        >
-
-            <div class="section-container">
-
-                <div class="section-heading">
-
-                    <div class="eyebrow">
-                        ارتباط با ما
-                    </div>
-
-                    <h2 id="contact-title">
-                        با مرکز نگین در تماس باشید
-                    </h2>
-
-                    <p>
-                        برای دریافت معلومات بیشتر درباره خدمات،
-                        برنامه‌ها و همکاری با ما پیام بفرستید.
-                    </p>
-
-                </div>
-
-                <div class="contact-grid">
-
-                    <div class="contact-info">
-
-                        <div class="contact-card">
-
-                            <strong>
-                                📍 نشانی
-                            </strong>
-
-                            <span>
-                                کابل، افغانستان
-                            </span>
-
-                        </div>
-
-                        <div class="contact-card">
-
-                            <strong>
-                                📞 تماس
-                            </strong>
-
-                            <span>
-                                برای معلومات تماس با مرکز ارتباط بگیرید.
-                            </span>
-
-                        </div>
-
-                        <div class="contact-card">
-
-                            <strong>
-                                🤝 همکاری
-                            </strong>
-
-                            <span>
-                                برای همکاری‌های آموزشی، توانبخشی و اجتماعی
-                                با ما در تماس شوید.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                    <form
-                        class="contact-form"
-                        id="contactForm"
-                    >
-
-                        <div class="form-grid">
-
-                            <div class="form-group">
-
-                                <label for="name">
-                                    نام
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    required
-                                    placeholder="نام شما"
-                                >
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="phone">
-                                    شماره تماس
-                                </label>
-
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    placeholder="شماره تماس"
-                                >
-
-                            </div>
-
-                            <div class="form-group full">
-
-                                <label for="subject">
-                                    موضوع
-                                </label>
-
-                                <select
-                                    id="subject"
-                                    name="subject"
-                                >
-
-                                    <option value="">
-                                        انتخاب موضوع
-                                    </option>
-
-                                    <option>
-                                        آموزش ویژه
-                                    </option>
-
-                                    <option>
-                                        فیزیوتراپی
-                                    </option>
-
-                                    <option>
-                                        گفتاردرمانی
-                                    </option>
-
-                                    <option>
-                                        کاردرمانی
-                                    </option>
-
-                                    <option>
-                                        همکاری
-                                    </option>
-
-                                    <option>
-                                        سایر
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-                            <div class="form-group full">
-
-                                <label for="message">
-                                    پیام
-                                </label>
-
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    required
-                                    placeholder="پیام خود را بنویسید..."
-                                ></textarea>
-
-                            </div>
-
-                            <div class="form-group full">
-
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary"
-                                >
-                                    ارسال پیام
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                        <div
-                            class="form-message"
-                            id="formMessage"
-                        >
-                            پیام شما در این نسخه نمایشی ثبت شد.
-                            برای ارسال واقعی، فرم را به سرویس فرم یا
-                            Backend متصل کنید.
-                        </div>
-
-                    </form>
+                    <small>
+                        آموزش • توانبخشی • حمایت • توانمندسازی
+                    </small>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </div>
 
-    <!-- =========================================================
-         FOOTER
-         ========================================================= -->
+</section>
 
-    <footer>
 
-        <div class="footer-container">
+<!-- =========================================================
+     INSTITUTION TITLE
+========================================================= -->
 
-            <div class="footer-brand">
+<section class="institution-section">
 
-                <!-- تصویر جدید در پایان نام مرکز -->
+    <div class="container">
+
+        <div class="institution-title">
+
+            <div class="org-name">
+
+                مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت
+
+                <span class="en">
+                    Service &amp; Vocational Institute for Underprivileged Women
+                </span>
+
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="center-name">
+
+                مرکز آموزشی و توانبخشی نگین
+
+                <span class="en">
+                    Negin Educational &amp; Rehabilitation Center
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <span class="section-label">
+                درباره ما
+            </span>
+
+            <h2 class="section-title">
+                همراه رشد و توانمندی کودکان
+            </h2>
+
+            <p class="section-description">
+                محیطی امن، محترمانه و فراگیر برای یادگیری، رشد و شکوفایی استعدادهای کودکان.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-image">
+
                 <img
                     src="file_00000000798481fd9ffa65f14dca5436.jpg"
-                    alt="تصویر مرکز آموزشی و توانبخشی نگین"
-                    class="footer-image"
+                    alt="مرکز آموزشی و توانبخشی نگین"
                     loading="lazy"
-                    onerror="this.style.display='none'"
                 >
 
-                <div>
+            </div>
 
-                    <h3>
-                        مرکز آموزشی و توانبخشی نگین
-                    </h3>
 
-                    <p>
-                        هر کودک، یک نگین.
-                        فرصت برابر برای آموزش، توانبخشی،
-                        رشد و مشارکت.
-                    </p>
+            <div class="about-content">
+
+                <h3>
+                    هر کودک، یک نگین
+                </h3>
+
+                <p>
+                    مرکز آموزشی و توانبخشی نگین با هدف فراهم‌سازی فرصت‌های آموزشی و توانبخشی
+                    برای کودکان دارای معلولیت فعالیت می‌کند.
+                </p>
+
+                <p>
+                    ما بر این باوریم که آموزش و توانبخشی باید متناسب با نیازهای فردی هر کودک،
+                    با احترام به کرامت انسانی و با مشارکت خانواده انجام شود.
+                </p>
+
+                <div class="feature-list">
+
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        آموزش فراگیر
+                    </div>
+
+                    <div class="feature">
+                        <span class="feature-icon">♥</span>
+                        حمایت خانواده
+                    </div>
+
+                    <div class="feature">
+                        <span class="feature-icon">★</span>
+                        رشد استعدادها
+                    </div>
+
+                    <div class="feature">
+                        <span class="feature-icon">♿</span>
+                        توانبخشی تخصصی
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="footer-column">
+        </div>
 
-                <h4>
-                    دسترسی سریع
-                </h4>
+    </div>
 
-                <ul class="footer-links">
+</section>
 
-                    <li>
-                        <a href="#home">
-                            خانه
-                        </a>
-                    </li>
 
-                    <li>
-                        <a href="#about">
-                            درباره ما
-                        </a>
-                    </li>
+<!-- =========================================================
+     SERVICES
+========================================================= -->
 
-                    <li>
-                        <a href="#services">
-                            خدمات
-                        </a>
-                    </li>
+<section class="services" id="services">
 
-                    <li>
-                        <a href="#contact">
-                            تماس با ما
-                        </a>
-                    </li>
+    <div class="container">
 
-                </ul>
+        <div class="section-head">
+
+            <span class="section-label">
+                خدمات ما
+            </span>
+
+            <h2 class="section-title">
+                خدمات آموزشی و توانبخشی
+            </h2>
+
+            <p class="section-description">
+                مجموعه‌ای از خدمات برای پشتیبانی از رشد آموزشی، جسمی، ارتباطی و مهارتی کودکان.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <article class="service-card">
+
+                <div class="service-icon">📚</div>
+
+                <h3>
+                    آموزش ویژه
+                </h3>
+
+                <p>
+                    برنامه‌های آموزشی متناسب با توانایی، نیاز و سطح یادگیری هر کودک.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-icon">🦽</div>
+
+                <h3>
+                    فیزیوتراپی
+                </h3>
+
+                <p>
+                    حمایت از حرکت، تعادل، قدرت عضلانی و مهارت‌های حرکتی با رویکرد فردمحور.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-icon">🗣️</div>
+
+                <h3>
+                    گفتاردرمانی
+                </h3>
+
+                <p>
+                    پشتیبانی از مهارت‌های گفتار، زبان، ارتباط و تعامل اجتماعی کودکان.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-icon">✋</div>
+
+                <h3>
+                    کاردرمانی
+                </h3>
+
+                <p>
+                    تقویت مهارت‌های روزمره، حرکتی، شناختی و مشارکت مستقل کودک.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-icon">🧩</div>
+
+                <h3>
+                    ارزیابی و برنامه‌ریزی
+                </h3>
+
+                <p>
+                    شناخت نیازهای کودک و طراحی مسیر حمایتی متناسب با شرایط فردی او.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-icon">🛠️</div>
+
+                <h3>
+                    وسایل کمکی
+                </h3>
+
+                <p>
+                    شناسایی نیازها و حمایت در زمینه وسایل و تجهیزات کمک‌کننده به استقلال کودک.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-icon">👨‍👩‍👧</div>
+
+                <h3>
+                    حمایت اجتماعی
+                </h3>
+
+                <p>
+                    همکاری با خانواده‌ها و فراهم‌سازی حمایت‌های اجتماعی متناسب با نیازها.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-icon">📅</div>
+
+                <h3>
+                    نوبت‌دهی
+                </h3>
+
+                <p>
+                    امکان درخواست خدمات و هماهنگی برای مراجعه و دریافت خدمات مرکز.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MISSION
+========================================================= -->
+
+<section class="mission" id="mission">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <span class="section-label">
+                مأموریت ما
+            </span>
+
+            <h2 class="section-title">
+                ساختن فرصت، نه محدودیت
+            </h2>
+
+            <p class="section-description">
+                هدف ما ایجاد محیطی است که در آن هر کودک بتواند توانایی‌های خود را کشف و رشد دهد.
+            </p>
+
+        </div>
+
+
+        <div class="mission-grid">
+
+            <div class="mission-card">
+
+                <div class="number">01</div>
+
+                <h3>
+                    فرصت برابر
+                </h3>
+
+                <p>
+                    تلاش برای دسترسی عادلانه کودکان به آموزش و خدمات حمایتی.
+                </p>
 
             </div>
 
-            <div class="footer-column">
 
-                <h4>
-                    خدمات
-                </h4>
+            <div class="mission-card">
 
-                <ul class="footer-links">
+                <div class="number">02</div>
 
-                    <li>
-                        <a href="#services">
-                            آموزش ویژه
-                        </a>
-                    </li>
+                <h3>
+                    توانمندسازی
+                </h3>
 
-                    <li>
-                        <a href="#services">
-                            فیزیوتراپی
-                        </a>
-                    </li>
+                <p>
+                    تقویت مهارت‌ها و استقلال کودکان برای مشارکت بیشتر در جامعه.
+                </p>
 
-                    <li>
-                        <a href="#services">
-                            گفتاردرمانی
-                        </a>
-                    </li>
+            </div>
 
-                    <li>
-                        <a href="#services">
-                            کاردرمانی
-                        </a>
-                    </li>
 
-                </ul>
+            <div class="mission-card">
+
+                <div class="number">03</div>
+
+                <h3>
+                    مشارکت خانواده
+                </h3>
+
+                <p>
+                    خانواده را یکی از مهم‌ترین اعضای مسیر آموزشی و توانبخشی کودک می‌دانیم.
+                </p>
 
             </div>
 
         </div>
 
-        <div class="footer-bottom">
+    </div>
 
-            ©
-            <span id="year"></span>
-            —
-            <strong>
-                مرکز آموزشی و توانبخشی نگین
-            </strong>
+</section>
 
-            —
-            تمامی حقوق محفوظ است.
+
+<!-- =========================================================
+     VALUES
+========================================================= -->
+
+<section class="values">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <span class="section-label">
+                ارزش‌های ما
+            </span>
+
+            <h2 class="section-title">
+                اصولی که بر آن پایبندیم
+            </h2>
 
         </div>
 
-    </footer>
 
-    <!-- =========================================================
-         BACK TO TOP
-         ========================================================= -->
+        <div class="values-grid">
 
-    <button
-        type="button"
-        class="back-top"
-        id="backTop"
-        aria-label="بازگشت به بالا"
-        title="بازگشت به بالا"
-    >
-        ↑
-    </button>
+            <div class="value-card">
+                <div class="value-symbol">🤝</div>
+                <strong>احترام</strong>
+                <span>کرامت هر کودک ارزشمند است.</span>
+            </div>
 
-    <!-- =========================================================
-         TOAST
-         ========================================================= -->
+            <div class="value-card">
+                <div class="value-symbol">🌱</div>
+                <strong>رشد</strong>
+                <span>هر روز فرصتی برای پیشرفت است.</span>
+            </div>
 
-    <div
-        class="toast"
-        id="toast"
-        role="status"
-        aria-live="polite"
-    ></div>
+            <div class="value-card">
+                <div class="value-symbol">💡</div>
+                <strong>خلاقیت</strong>
+                <span>استعدادها مسیرهای گوناگون دارند.</span>
+            </div>
 
-    <!-- =========================================================
-         JAVASCRIPT
-         ========================================================= -->
+            <div class="value-card">
+                <div class="value-symbol">❤️</div>
+                <strong>همدلی</strong>
+                <span>هیچ خانواده‌ای نباید تنها بماند.</span>
+            </div>
 
-    <script>
-        "use strict";
+        </div>
 
-        /* =======================================================
-           ELEMENTS
-           ======================================================= */
+    </div>
 
-        const body = document.body;
+</section>
 
-        const menuToggle =
-            document.getElementById("menuToggle");
 
-        const mainNav =
-            document.getElementById("mainNav");
+<!-- =========================================================
+     CONTACT
+========================================================= -->
 
-        const searchOpen =
-            document.getElementById("searchOpen");
+<section class="contact" id="contact">
 
-        const searchPanel =
-            document.getElementById("searchPanel");
+    <div class="container">
 
-        const searchClose =
-            document.getElementById("searchClose");
+        <div class="section-head">
 
-        const searchInput =
-            document.getElementById("searchInput");
+            <span class="section-label">
+                ارتباط با ما
+            </span>
 
-        const searchButton =
-            document.getElementById("searchButton");
+            <h2 class="section-title">
+                با مرکز نگین در تماس باشید
+            </h2>
 
-        const voiceSearch =
-            document.getElementById("voiceSearch");
+            <p class="section-description">
+                برای دریافت معلومات بیشتر درباره خدمات، آموزش و برنامه‌های مرکز با ما تماس بگیرید.
+            </p>
 
-        const searchResults =
-            document.getElementById("searchResults");
+        </div>
 
-        const darkToggle =
-            document.getElementById("darkToggle");
 
-        const contrastToggle =
-            document.getElementById("contrastToggle");
+        <div class="contact-grid">
 
-        const fontIncrease =
-            document.getElementById("fontIncrease");
+            <div class="contact-card">
 
-        const fontDecrease =
-            document.getElementById("fontDecrease");
+                <h3>
+                    معلومات تماس
+                </h3>
 
-        const backTop =
-            document.getElementById("backTop");
 
-        const contactForm =
-            document.getElementById("contactForm");
+                <div class="contact-item">
 
-        const formMessage =
-            document.getElementById("formMessage");
+                    <div class="contact-item-icon">📍</div>
 
-        const toast =
-            document.getElementById("toast");
+                    <div>
+                        <strong>نشانی</strong>
+                        <span>کابل، افغانستان</span>
+                    </div>
 
-        /* =======================================================
-           YEAR
-           ======================================================= */
+                </div>
 
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
 
-        /* =======================================================
-           MOBILE MENU
-           ======================================================= */
+                <div class="contact-item">
 
-        if (menuToggle) {
+                    <div class="contact-item-icon">📞</div>
 
-            menuToggle.addEventListener("click", () => {
+                    <div>
+                        <strong>تماس</strong>
+                        <span>برای معلومات تماس با مرکز هماهنگ کنید.</span>
+                    </div>
 
-                const isOpen =
-                    mainNav.classList.toggle("open");
+                </div>
 
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    String(isOpen)
-                );
 
-            });
+                <div class="contact-item">
 
+                    <div class="contact-item-icon">✉️</div>
+
+                    <div>
+                        <strong>ایمیل</strong>
+                        <span>برای ارتباط رسمی با مرکز پیام ارسال کنید.</span>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-item-icon">🕐</div>
+
+                    <div>
+                        <strong>زمان پاسخ‌گویی</strong>
+                        <span>در ساعات کاری مرکز</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <form class="contact-form" id="contactForm">
+
+                <h3>
+                    پیام خود را ارسال کنید
+                </h3>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            نام و نام خانوادگی
+                        </label>
+
+                        <input
+                            id="name"
+                            name="name"
+                            class="form-control"
+                            type="text"
+                            required
+                            placeholder="نام شما">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            شماره تماس
+                        </label>
+
+                        <input
+                            id="phone"
+                            name="phone"
+                            class="form-control"
+                            type="tel"
+                            placeholder="شماره تماس">
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="subject">
+                            موضوع
+                        </label>
+
+                        <input
+                            id="subject"
+                            name="subject"
+                            class="form-control"
+                            type="text"
+                            required
+                            placeholder="موضوع پیام">
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="message">
+                            پیام
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            class="form-control"
+                            required
+                            placeholder="پیام خود را بنویسید..."></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button class="btn btn-primary" type="submit">
+                    ارسال پیام
+                    <span>✓</span>
+                </button>
+
+                <div
+                    class="form-status"
+                    id="formStatus"
+                    role="status">
+                    پیام شما در این نسخه نمایشی ثبت شد.
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-main">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <!-- BRAND -->
+
+                <div class="footer-col">
+
+                    <div class="footer-brand">
+
+                        <img
+                            src="logo.png"
+                            alt="لوگوی مرکز آموزشی و توانبخشی نگین"
+                            class="footer-logo"
+                            onerror="this.style.display='none'"
+                        >
+
+                        <div>
+
+                            <h3>
+                                مرکز آموزشی و توانبخشی نگین
+                            </h3>
+
+                            <small>
+                                Negin Educational &amp; Rehabilitation Center
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="footer-about">
+
+                        وابسته به مؤسسه‌ی خدماتی و حرفه‌آموزی زنان بی‌بضاعت.
+                        با باور به توانایی‌های هر کودک و با هدف ایجاد فرصت‌های برابر
+                        آموزشی و توانبخشی فعالیت می‌کنیم.
+
+                    </p>
+
+                </div>
+
+
+                <!-- LINKS -->
+
+                <div class="footer-col">
+
+                    <h4>
+                        دسترسی سریع
+                    </h4>
+
+                    <ul class="footer-links">
+
+                        <li><a href="#home">خانه</a></li>
+                        <li><a href="#about">درباره ما</a></li>
+                        <li><a href="#services">خدمات</a></li>
+                        <li><a href="#mission">اهداف ما</a></li>
+                        <li><a href="#contact">تماس با ما</a></li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- SERVICES -->
+
+                <div class="footer-col">
+
+                    <h4>
+                        خدمات
+                    </h4>
+
+                    <ul class="footer-links">
+
+                        <li><a href="#services">آموزش ویژه</a></li>
+                        <li><a href="#services">فیزیوتراپی</a></li>
+                        <li><a href="#services">گفتاردرمانی</a></li>
+                        <li><a href="#services">کاردرمانی</a></li>
+                        <li><a href="#services">حمایت اجتماعی</a></li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- FOOTER IMAGE -->
+
+                <div class="footer-col">
+
+                    <h4>
+                        هر کودک، یک نگین
+                    </h4>
+
+                    <img
+                        class="footer-image"
+                        src="file_00000000798481fd9ffa65f14dca5436.jpg"
+                        alt="تصویر مرکز آموزشی و توانبخشی نگین"
+                        loading="lazy"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div class="container footer-bottom-inner">
+
+            <div class="copyright">
+
+                © <span id="year"></span>
+                مرکز آموزشی و توانبخشی نگین.
+                تمامی حقوق محفوظ است.
+
+            </div>
+
+            <div class="slogan">
+                هر کودک، یک نگین ✦
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+
+<button
+    class="back-top"
+    id="backTop"
+    type="button"
+    aria-label="بازگشت به بالا"
+    title="بازگشت به بالا">
+    ↑
+</button>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite">
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+(function () {
+
+    "use strict";
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const body = document.body;
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    const searchBtn = document.getElementById("searchBtn");
+    const searchPanel = document.getElementById("searchPanel");
+    const closeSearch = document.getElementById("closeSearch");
+    const searchInput = document.getElementById("searchInput");
+    const searchSubmit = document.getElementById("searchSubmit");
+    const searchResult = document.getElementById("searchResult");
+
+    const darkBtn = document.getElementById("darkBtn");
+    const contrastBtn = document.getElementById("contrastBtn");
+
+    const fontIncrease = document.getElementById("fontIncrease");
+    const fontDecrease = document.getElementById("fontDecrease");
+
+    const backTop = document.getElementById("backTop");
+
+    const contactForm = document.getElementById("contactForm");
+    const formStatus = document.getElementById("formStatus");
+
+    const toast = document.getElementById("toast");
+
+    const year = document.getElementById("year");
+
+
+    /* =========================
+       YEAR
+    ========================= */
+
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    function closeMenu() {
+
+        if (!navLinks) return;
+
+        navLinks.classList.remove("open");
+
+        if (menuBtn) {
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.textContent = "☰";
         }
 
-        document.querySelectorAll("#mainNav a")
-            .forEach(link => {
+        body.classList.remove("no-scroll");
+    }
 
-                link.addEventListener("click", () => {
 
-                    mainNav.classList.remove("open");
+    if (menuBtn && navLinks) {
 
-                });
+        menuBtn.addEventListener("click", function () {
 
-            });
+            const isOpen = navLinks.classList.toggle("open");
 
-        /* =======================================================
-           SEARCH PANEL
-           ======================================================= */
-
-        function openSearch() {
-
-            searchPanel.classList.add("active");
-
-            searchPanel.setAttribute(
-                "aria-hidden",
-                "false"
+            menuBtn.setAttribute(
+                "aria-expanded",
+                String(isOpen)
             );
 
-            setTimeout(() => {
+            menuBtn.textContent = isOpen ? "×" : "☰";
+
+            body.classList.toggle("no-scroll", isOpen);
+
+        });
+
+
+        navLinks.querySelectorAll("a").forEach(function (link) {
+
+            link.addEventListener("click", closeMenu);
+
+        });
+
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    function openSearch() {
+
+        if (!searchPanel) return;
+
+        searchPanel.classList.add("open");
+        searchPanel.setAttribute("aria-hidden", "false");
+
+        body.classList.add("no-scroll");
+
+        setTimeout(function () {
+
+            if (searchInput) {
                 searchInput.focus();
-            }, 100);
+            }
+
+        }, 100);
+
+    }
+
+
+    function closeSearchPanel() {
+
+        if (!searchPanel) return;
+
+        searchPanel.classList.remove("open");
+        searchPanel.setAttribute("aria-hidden", "true");
+
+        body.classList.remove("no-scroll");
+
+    }
+
+
+    if (searchBtn) {
+        searchBtn.addEventListener("click", openSearch);
+    }
+
+    if (closeSearch) {
+        closeSearch.addEventListener("click", closeSearchPanel);
+    }
+
+
+    if (searchPanel) {
+
+        searchPanel.addEventListener("click", function (event) {
+
+            if (event.target === searchPanel) {
+                closeSearchPanel();
+            }
+
+        });
+
+    }
+
+
+    /* =========================
+       SEARCH ENGINE
+    ========================= */
+
+    const searchableSections = Array.from(
+        document.querySelectorAll(
+            "main section, .service-card, .value-card"
+        )
+    );
+
+
+    function performSearch() {
+
+        const query = searchInput
+            ? searchInput.value.trim()
+            : "";
+
+        if (!searchResult) return;
+
+        if (!query) {
+
+            searchResult.textContent =
+                "عبارت مورد نظر خود را وارد کنید.";
+
+            return;
 
         }
 
-        function closeSearch() {
+        const normalizedQuery = query.toLowerCase();
 
-            searchPanel.classList.remove("active");
+        let results = [];
 
-            searchPanel.setAttribute(
-                "aria-hidden",
-                "true"
-            );
+        searchableSections.forEach(function (section) {
+
+            const text =
+                section.innerText.toLowerCase();
+
+            if (text.includes(normalizedQuery)) {
+
+                results.push(section);
+
+            }
+
+        });
+
+
+        if (results.length === 0) {
+
+            searchResult.innerHTML =
+                "نتیجه‌ای برای <mark>" +
+                escapeHtml(query) +
+                "</mark> پیدا نشد.";
+
+            return;
 
         }
 
-        searchOpen.addEventListener(
-            "click",
-            openSearch
+
+        searchResult.innerHTML =
+            "تعداد نتایج پیدا شده: <strong>" +
+            results.length +
+            "</strong>. " +
+            "بخش‌های مرتبط در صفحه موجود است.";
+
+        results[0].scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        closeSearchPanel();
+
+        showToast(
+            "نتیجه جستجو پیدا شد."
         );
 
-        searchClose.addEventListener(
-            "click",
-            closeSearch
-        );
+    }
 
-        searchPanel.addEventListener(
-            "click",
-            event => {
 
-                if (event.target === searchPanel) {
-                    closeSearch();
-                }
-
-            }
-        );
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                if (event.key === "Escape") {
-
-                    closeSearch();
-
-                    mainNav.classList.remove("open");
-
-                }
-
-                if (
-                    event.key === "/" &&
-                    document.activeElement.tagName !== "INPUT" &&
-                    document.activeElement.tagName !== "TEXTAREA"
-                ) {
-
-                    event.preventDefault();
-                    openSearch();
-
-                }
-
-            }
-        );
-
-        /* =======================================================
-           SEARCH DATA
-           ======================================================= */
-
-        const searchableContent = [
-
-            {
-                title: "درباره مرکز آموزشی و توانبخشی نگین",
-                text:
-                    "معرفی مرکز، مأموریت، آموزش فراگیر، حمایت از کودکان و خانواده‌ها.",
-                url: "#about"
-            },
-
-            {
-                title: "آموزش ویژه",
-                text:
-                    "برنامه‌های آموزشی متناسب با نیاز و توانایی کودک.",
-                url: "#services"
-            },
-
-            {
-                title: "فیزیوتراپی",
-                text:
-                    "تقویت حرکت، تعادل، قدرت عضلانی و عملکرد جسمی.",
-                url: "#services"
-            },
-
-            {
-                title: "گفتاردرمانی",
-                text:
-                    "تقویت گفتار، زبان و مهارت‌های ارتباطی.",
-                url: "#services"
-            },
-
-            {
-                title: "کاردرمانی",
-                text:
-                    "تقویت مهارت‌های حرکتی، شناختی، حسی و روزمره.",
-                url: "#services"
-            },
-
-            {
-                title: "وسایل کمکی",
-                text:
-                    "راهنمایی درباره تجهیزات و وسایل کمکی مناسب.",
-                url: "#services"
-            },
-
-            {
-                title: "حمایت خانواده",
-                text:
-                    "همراهی خانواده‌ها در روند رشد و توانبخشی کودک.",
-                url: "#services"
-            },
-
-            {
-                title: "مشارکت اجتماعی",
-                text:
-                    "تقویت حضور و مشارکت کودک در خانواده و جامعه.",
-                url: "#services"
-            },
-
-            {
-                title: "تماس با ما",
-                text:
-                    "ارتباط با مرکز آموزشی و توانبخشی نگین.",
-                url: "#contact"
-            }
-
-        ];
-
-        function performSearch() {
-
-            const query =
-                searchInput.value
-                    .trim()
-                    .toLowerCase();
-
-            searchResults.innerHTML = "";
-
-            if (!query) {
-
-                searchResults.innerHTML =
-                    "<p>لطفاً موضوع مورد نظر را وارد کنید.</p>";
-
-                return;
-
-            }
-
-            const results =
-                searchableContent.filter(item => {
-
-                    return (
-                        item.title.toLowerCase().includes(query) ||
-                        item.text.toLowerCase().includes(query)
-                    );
-
-                });
-
-            if (!results.length) {
-
-                searchResults.innerHTML =
-                    "<p>نتیجه‌ای برای جستجوی شما پیدا نشد.</p>";
-
-                return;
-
-            }
-
-            results.forEach(item => {
-
-                const result =
-                    document.createElement("div");
-
-                result.className = "search-result";
-
-                result.innerHTML = `
-                    <a href="${item.url}">
-                        ${item.title}
-                    </a>
-                    <p>${item.text}</p>
-                `;
-
-                result
-                    .querySelector("a")
-                    .addEventListener("click", closeSearch);
-
-                searchResults.appendChild(result);
-
-            });
-
-        }
-
-        searchButton.addEventListener(
+    if (searchSubmit) {
+        searchSubmit.addEventListener(
             "click",
             performSearch
         );
+    }
+
+
+    if (searchInput) {
 
         searchInput.addEventListener(
             "keydown",
-            event => {
+            function (event) {
 
                 if (event.key === "Enter") {
                     performSearch();
                 }
 
-            }
-        );
-
-        searchInput.addEventListener(
-            "input",
-            () => {
-
-                if (searchInput.value.trim().length >= 2) {
-                    performSearch();
+                if (event.key === "Escape") {
+                    closeSearchPanel();
                 }
 
             }
         );
 
-        /* =======================================================
-           VOICE SEARCH
-           ======================================================= */
+    }
 
-        const SpeechRecognition =
-            window.SpeechRecognition ||
-            window.webkitSpeechRecognition;
 
-        let recognition = null;
+    function escapeHtml(value) {
 
-        if (SpeechRecognition) {
+        return value
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
 
-            recognition =
-                new SpeechRecognition();
+    }
 
-            recognition.lang = "fa-AF";
-            recognition.continuous = false;
-            recognition.interimResults = false;
 
-            voiceSearch.addEventListener(
-                "click",
-                () => {
+    /* =========================
+       DARK MODE
+    ========================= */
 
-                    try {
+    function updateDarkButton() {
 
-                        recognition.start();
+        if (!darkBtn) return;
 
-                        voiceSearch.classList.add(
-                            "listening"
-                        );
+        darkBtn.textContent =
+            body.classList.contains("dark-mode")
+                ? "حالت روز"
+                : "حالت شب";
 
-                        voiceSearch.textContent = "🔴";
+    }
 
-                        showToast(
-                            "در حال شنیدن صدای شما..."
-                        );
 
-                    } catch (error) {
+    function setDarkMode(enabled) {
 
-                        console.log(error);
+        body.classList.toggle(
+            "dark-mode",
+            enabled
+        );
 
-                    }
+        localStorage.setItem(
+            "negin-dark-mode",
+            enabled ? "1" : "0"
+        );
 
-                }
-            );
+        updateDarkButton();
 
-            recognition.addEventListener(
-                "result",
-                event => {
+    }
 
-                    const transcript =
-                        event.results[0][0].transcript;
 
-                    searchInput.value =
-                        transcript;
+    const savedDarkMode =
+        localStorage.getItem(
+            "negin-dark-mode"
+        );
 
-                    performSearch();
 
-                }
-            );
+    if (savedDarkMode === "1") {
+        setDarkMode(true);
+    }
 
-            recognition.addEventListener(
-                "end",
-                () => {
 
-                    voiceSearch.classList.remove(
-                        "listening"
-                    );
+    if (darkBtn) {
 
-                    voiceSearch.textContent = "🎙️";
-
-                }
-            );
-
-            recognition.addEventListener(
-                "error",
-                () => {
-
-                    voiceSearch.classList.remove(
-                        "listening"
-                    );
-
-                    voiceSearch.textContent = "🎙️";
-
-                    showToast(
-                        "جستجوی صوتی در این مرورگر در دسترس نیست."
-                    );
-
-                }
-            );
-
-        } else {
-
-            voiceSearch.addEventListener(
-                "click",
-                () => {
-
-                    showToast(
-                        "جستجوی صوتی توسط مرورگر شما پشتیبانی نمی‌شود."
-                    );
-
-                }
-            );
-
-        }
-
-        /* =======================================================
-           DARK MODE
-           ======================================================= */
-
-        const savedDark =
-            localStorage.getItem("negin-dark-mode");
-
-        if (savedDark === "true") {
-            body.classList.add("dark-mode");
-        }
-
-        function updateDarkIcon() {
-
-            darkToggle.textContent =
-                body.classList.contains("dark-mode")
-                    ? "☀️"
-                    : "🌙";
-
-        }
-
-        updateDarkIcon();
-
-        darkToggle.addEventListener(
+        darkBtn.addEventListener(
             "click",
-            () => {
+            function () {
 
-                body.classList.toggle("dark-mode");
-
-                localStorage.setItem(
-                    "negin-dark-mode",
-                    body.classList.contains("dark-mode")
-                );
-
-                updateDarkIcon();
-
-            }
-        );
-
-        /* =======================================================
-           HIGH CONTRAST
-           ======================================================= */
-
-        const savedContrast =
-            localStorage.getItem("negin-high-contrast");
-
-        if (savedContrast === "true") {
-            body.classList.add("high-contrast");
-        }
-
-        contrastToggle.addEventListener(
-            "click",
-            () => {
-
-                body.classList.toggle(
-                    "high-contrast"
-                );
-
-                localStorage.setItem(
-                    "negin-high-contrast",
-                    body.classList.contains(
-                        "high-contrast"
+                setDarkMode(
+                    !body.classList.contains(
+                        "dark-mode"
                     )
                 );
 
             }
         );
 
-        /* =======================================================
-           FONT SIZE
-           ======================================================= */
+    }
 
-        let fontScale =
-            Number(
-                localStorage.getItem(
-                    "negin-font-scale"
-                )
-            ) || 1;
 
-        function applyFontScale() {
+    updateDarkButton();
 
-            body.style.fontSize =
-                `${fontScale}em`;
 
-        }
+    /* =========================
+       HIGH CONTRAST
+    ========================= */
 
-        applyFontScale();
+    function updateContrastButton() {
+
+        if (!contrastBtn) return;
+
+        contrastBtn.classList.toggle(
+            "active",
+            body.classList.contains(
+                "high-contrast"
+            )
+        );
+
+    }
+
+
+    const savedContrast =
+        localStorage.getItem(
+            "negin-high-contrast"
+        );
+
+
+    if (savedContrast === "1") {
+
+        body.classList.add(
+            "high-contrast"
+        );
+
+    }
+
+
+    if (contrastBtn) {
+
+        contrastBtn.addEventListener(
+            "click",
+            function () {
+
+                const enabled =
+                    body.classList.toggle(
+                        "high-contrast"
+                    );
+
+                localStorage.setItem(
+                    "negin-high-contrast",
+                    enabled ? "1" : "0"
+                );
+
+                updateContrastButton();
+
+            }
+        );
+
+    }
+
+
+    updateContrastButton();
+
+
+    /* =========================
+       FONT SIZE
+    ========================= */
+
+    let fontScale =
+        parseFloat(
+            localStorage.getItem(
+                "negin-font-scale"
+            )
+        ) || 1;
+
+
+    function applyFontScale() {
+
+        body.style.fontSize =
+            (fontScale * 100) + "%";
+
+        localStorage.setItem(
+            "negin-font-scale",
+            String(fontScale)
+        );
+
+    }
+
+
+    if (fontIncrease) {
 
         fontIncrease.addEventListener(
             "click",
-            () => {
+            function () {
 
-                if (fontScale < 1.25) {
-
-                    fontScale += 0.05;
-
-                    localStorage.setItem(
-                        "negin-font-scale",
-                        fontScale.toFixed(2)
-                    );
-
+                if (fontScale < 1.3) {
+                    fontScale += .05;
                     applyFontScale();
-
                 }
 
             }
         );
+
+    }
+
+
+    if (fontDecrease) {
 
         fontDecrease.addEventListener(
             "click",
-            () => {
+            function () {
 
-                if (fontScale > 0.85) {
-
-                    fontScale -= 0.05;
-
-                    localStorage.setItem(
-                        "negin-font-scale",
-                        fontScale.toFixed(2)
-                    );
-
+                if (fontScale > .85) {
+                    fontScale -= .05;
                     applyFontScale();
-
                 }
 
             }
         );
 
-        /* =======================================================
-           BACK TO TOP
-           ======================================================= */
+    }
 
-        window.addEventListener(
-            "scroll",
-            () => {
 
-                if (window.scrollY > 450) {
+    /* =========================
+       BACK TO TOP
+    ========================= */
 
-                    backTop.classList.add("show");
+    function updateBackTop() {
 
-                } else {
+        if (!backTop) return;
 
-                    backTop.classList.remove("show");
+        if (window.scrollY > 450) {
 
-                }
+            backTop.classList.add("show");
 
-            },
-            { passive: true }
-        );
+        } else {
+
+            backTop.classList.remove("show");
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateBackTop,
+        { passive: true }
+    );
+
+
+    if (backTop) {
 
         backTop.addEventListener(
             "click",
-            () => {
+            function () {
 
                 window.scrollTo({
                     top: 0,
@@ -3054,207 +2922,217 @@
             }
         );
 
-        /* =======================================================
-           ACTIVE NAVIGATION
-           ======================================================= */
+    }
 
-        const sections =
+
+    updateBackTop();
+
+
+    /* =========================
+       ACTIVE NAVIGATION
+    ========================= */
+
+    const sections =
+        Array.from(
             document.querySelectorAll(
                 "main section[id]"
-            );
+            )
+        );
 
-        const navLinks =
+    const navAnchors =
+        Array.from(
             document.querySelectorAll(
-                "#mainNav a"
-            );
+                ".nav-links a"
+            )
+        );
 
-        const observer =
-            new IntersectionObserver(
-                entries => {
 
-                    entries.forEach(entry => {
+    function updateActiveNav() {
 
-                        if (entry.isIntersecting) {
+        let current = "";
 
-                            navLinks.forEach(link => {
+        sections.forEach(function (section) {
 
-                                link.classList.remove(
-                                    "active"
-                                );
+            const top =
+                section.getBoundingClientRect().top;
 
-                                if (
-                                    link.getAttribute(
-                                        "href"
-                                    ) ===
-                                    "#" + entry.target.id
-                                ) {
+            if (top <= 150) {
+                current = section.id;
+            }
 
-                                    link.classList.add(
-                                        "active"
-                                    );
-
-                                }
-
-                            });
-
-                        }
-
-                    });
-
-                },
-                {
-                    rootMargin:
-                        "-30% 0px -60% 0px"
-                }
-            );
-
-        sections.forEach(section => {
-            observer.observe(section);
         });
 
-        /* =======================================================
-           REVEAL ANIMATION
-           ======================================================= */
 
-        const revealObserver =
-            new IntersectionObserver(
-                entries => {
+        navAnchors.forEach(function (link) {
 
-                    entries.forEach(entry => {
+            const href =
+                link.getAttribute("href");
 
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.12
-                }
+            link.classList.toggle(
+                "active",
+                href === "#" + current
             );
 
-        document
-            .querySelectorAll(".reveal")
-            .forEach(element => {
+        });
 
-                revealObserver.observe(element);
+    }
 
-            });
 
-        /* =======================================================
-           CONTACT FORM
-           ======================================================= */
+    window.addEventListener(
+        "scroll",
+        updateActiveNav,
+        { passive: true }
+    );
+
+
+    updateActiveNav();
+
+
+    /* =========================
+       CONTACT FORM
+    ========================= */
+
+    if (contactForm) {
 
         contactForm.addEventListener(
             "submit",
-            event => {
+            function (event) {
 
                 event.preventDefault();
 
-                const name =
-                    document.getElementById(
-                        "name"
-                    ).value.trim();
+                if (!contactForm.checkValidity()) {
 
-                const message =
-                    document.getElementById(
-                        "message"
-                    ).value.trim();
-
-                if (!name || !message) {
-
-                    showToast(
-                        "لطفاً معلومات ضروری را تکمیل کنید."
-                    );
+                    contactForm.reportValidity();
 
                     return;
 
                 }
 
-                formMessage.style.display =
-                    "block";
-
-                contactForm.reset();
+                if (formStatus) {
+                    formStatus.classList.add("show");
+                }
 
                 showToast(
                     "پیام شما با موفقیت ثبت شد."
                 );
 
-                setTimeout(() => {
+                contactForm.reset();
 
-                    formMessage.style.display =
-                        "none";
+                setTimeout(function () {
 
-                }, 6000);
+                    if (formStatus) {
+                        formStatus.classList.remove(
+                            "show"
+                        );
+                    }
+
+                }, 5000);
 
             }
         );
 
-        /* =======================================================
-           TOAST
-           ======================================================= */
+    }
 
-        let toastTimer;
 
-        function showToast(message) {
+    /* =========================
+       TOAST
+    ========================= */
 
-            clearTimeout(toastTimer);
+    let toastTimer;
 
-            toast.textContent =
-                message;
 
-            toast.classList.add("show");
+    function showToast(message) {
 
-            toastTimer =
-                setTimeout(() => {
+        if (!toast) return;
 
-                    toast.classList.remove(
-                        "show"
-                    );
+        toast.textContent = message;
 
-                }, 3500);
+        toast.classList.add("show");
 
-        }
+        clearTimeout(toastTimer);
 
-        /* =======================================================
-           IMAGE FALLBACK
-           ======================================================= */
+        toastTimer =
+            setTimeout(function () {
 
-        document
-            .querySelectorAll("img")
-            .forEach(image => {
-
-                image.addEventListener(
-                    "error",
-                    () => {
-
-                        image.setAttribute(
-                            "aria-label",
-                            "تصویر در دسترس نیست"
-                        );
-
-                    }
+                toast.classList.remove(
+                    "show"
                 );
 
-            });
+            }, 3000);
 
-        /* =======================================================
-           FINAL INITIALIZATION
-           ======================================================= */
+    }
 
-        console.log(
-            "Negin Educational & Rehabilitation Center website loaded successfully."
-        );
-    </script>
+
+    /* =========================
+       ESCAPE KEY
+    ========================= */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
+
+                closeSearchPanel();
+                closeMenu();
+
+            }
+
+        }
+    );
+
+
+    /* =========================
+       CLOSE MOBILE MENU ON RESIZE
+    ========================= */
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            if (window.innerWidth > 1000) {
+                closeMenu();
+            }
+
+        }
+    );
+
+
+    /* =========================
+       IMAGE FALLBACK
+    ========================= */
+
+    document
+        .querySelectorAll("img")
+        .forEach(function (img) {
+
+            img.addEventListener(
+                "error",
+                function () {
+
+                    if (
+                        img.classList.contains(
+                            "footer-image"
+                        )
+                    ) {
+                        img.style.display = "none";
+                    }
+
+                },
+                { once: true }
+            );
+
+        });
+
+
+    /* =========================
+       INITIALIZE
+    ========================= */
+
+    applyFontScale();
+
+})();
+</script>
 
 </body>
 </html>
